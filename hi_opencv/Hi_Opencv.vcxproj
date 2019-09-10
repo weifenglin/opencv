@@ -113,17 +113,25 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="hi_opencv.cpp" />
+    <ClCompile Include="Hi_Opencv.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="warning.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="hi_opencv.h" />
+    <QtMoc Include="Hi_Opencv.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="hi_opencv.ui" />
+    <QtUic Include="Hi_Opencv.ui" />
+    <QtUic Include="warning.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="hi_opencv.qrc" />
+    <QtRcc Include="Hi_Opencv.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="warning.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

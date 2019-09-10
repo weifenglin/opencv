@@ -33,22 +33,31 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hi_opencv.cpp">
+    <ClCompile Include="Hi_Opencv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="warning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="hi_opencv.h">
+    <QtMoc Include="Hi_Opencv.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="warning.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="hi_opencv.ui">
+    <QtUic Include="Hi_Opencv.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="warning.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="hi_opencv.qrc">
+    <QtRcc Include="Hi_Opencv.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
   </ItemGroup>
