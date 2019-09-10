@@ -93,7 +93,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(945, 581);
+        Hi_OpencvClass->resize(974, 581);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -110,7 +110,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(9, 9, 931, 511));
+        tabWidget->setGeometry(QRect(9, 9, 961, 511));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget = new QWidget(tab);
@@ -200,7 +200,7 @@ public:
 
         layoutWidget2 = new QWidget(tab);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(430, 10, 341, 381));
+        layoutWidget2->setGeometry(QRect(430, 10, 321, 381));
         verticalLayout_3 = new QVBoxLayout(layoutWidget2);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -228,7 +228,7 @@ public:
 
         layoutWidget3 = new QWidget(tab);
         layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(780, 10, 160, 381));
+        layoutWidget3->setGeometry(QRect(760, 10, 186, 381));
         verticalLayout_4 = new QVBoxLayout(layoutWidget3);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
