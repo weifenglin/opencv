@@ -100,6 +100,7 @@ public:
     QWidget *scrollAreaWidgetContents_2;
     QPushButton *pushButton_open_2;
     QPushButton *pushButton_open_3;
+    QLabel *label_by1;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -419,6 +420,9 @@ public:
         pushButton_open_3->setObjectName(QStringLiteral("pushButton_open_3"));
         pushButton_open_3->setGeometry(QRect(940, 30, 88, 23));
         pushButton_open_3->setFont(font);
+        label_by1 = new QLabel(tab_3);
+        label_by1->setObjectName(QStringLiteral("label_by1"));
+        label_by1->setGeometry(QRect(910, 60, 61, 16));
         tabWidget->addTab(tab_3, QString());
         Hi_OpencvClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Hi_OpencvClass);
@@ -435,6 +439,8 @@ public:
         QObject::connect(pushButton_open, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
         QObject::connect(pushButton_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Bilateral_show()));
         QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
+        QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
+        QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
 
         tabWidget->setCurrentIndex(2);
 
@@ -481,6 +487,7 @@ public:
         pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "\350\275\256\345\273\223\347\237\251", Q_NULLPTR));
         pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
+        label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
     } // retranslateUi
 
