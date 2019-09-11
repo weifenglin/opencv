@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1065</width>
+    <width>1043</width>
     <height>581</height>
    </rect>
   </property>
@@ -779,6 +779,35 @@
        <string>请选择功能</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_w_2">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>110</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>降噪内核大小：</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit31">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>110</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -851,7 +880,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>132</y>
+     <y>141</y>
     </hint>
     <hint type="destinationlabel">
      <x>354</x>
@@ -867,7 +896,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>219</y>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -882,8 +911,8 @@
    <slot>on_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>773</x>
-     <y>96</y>
+     <x>775</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
      <x>729</x>
@@ -914,8 +943,8 @@
    <slot>on_start()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
-     <y>96</y>
+     <x>861</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -955,6 +984,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_blur_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_sobel_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>137</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>898</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>875</x>
+     <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_open()</slot>
@@ -963,5 +1024,6 @@
   <slot>on_gaussian_show()</slot>
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
+  <slot>on_sobel_show()</slot>
  </slots>
 </ui>

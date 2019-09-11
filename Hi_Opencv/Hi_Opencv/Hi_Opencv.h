@@ -31,13 +31,9 @@ private slots:
 	int on_median_show();
 	int on_Bilateral_show();
 
-	//图像变形
-	//void w3openPic();
-	//void w3up();
-	//void w3down();
-	//void w3LeftRight();
-	//void w3UpDown();
-
+	//bianyuanjiance
+	int on_sobel_show();//进行sebel操作
+	void on_bystart();//开始边缘检测操作
 
 private:
 	Ui::Hi_OpencvClass ui;

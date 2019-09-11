@@ -174,3 +174,44 @@ int Hi_Opencv::on_Bilateral_show()
 	return i;
 }
 
+//bianyuanjiance
+Mat img1;
+int i31;
+void Hi_Opencv::on_bystart()
+{
+	switch (i)
+	{
+	case 1:
+		i31 = atoi(ui.lineEdit31->text().toStdString().c_str());
+		if (i31 > 0)
+		{
+			GaussianBlur(img1, image, Size(i31, i31), 0, 0, BORDER_DEFAULT);//对原图像进行降噪；
+
+		}
+		else
+		{
+			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+			//dialog1.changetext2();
+			//dialog1.show();
+			//dialog1.exec();
+			return;
+		}
+
+
+
+		break;
+
+	default:
+		break;
+	}
+
+}
+int Hi_Opencv::on_sobel_show()
+{
+	i = 31;
+	ui.label_by1->setText("sobel");
+
+
+	return i;
+
+}

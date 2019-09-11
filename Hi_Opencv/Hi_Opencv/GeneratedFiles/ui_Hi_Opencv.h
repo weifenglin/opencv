@@ -102,6 +102,8 @@ public:
     QPushButton *pushButton_open_2;
     QPushButton *pushButton_open_3;
     QLabel *label_by1;
+    QLabel *label_w_2;
+    QLineEdit *lineEdit31;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -109,7 +111,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(1065, 581);
+        Hi_OpencvClass->resize(1043, 581);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -427,6 +429,13 @@ public:
         label_by1 = new QLabel(tab_3);
         label_by1->setObjectName(QStringLiteral("label_by1"));
         label_by1->setGeometry(QRect(910, 60, 61, 16));
+        label_w_2 = new QLabel(tab_3);
+        label_w_2->setObjectName(QStringLiteral("label_w_2"));
+        label_w_2->setGeometry(QRect(840, 110, 111, 26));
+        label_w_2->setFont(font1);
+        lineEdit31 = new QLineEdit(tab_3);
+        lineEdit31->setObjectName(QStringLiteral("lineEdit31"));
+        lineEdit31->setGeometry(QRect(950, 110, 91, 20));
         tabWidget->addTab(tab_3, QString());
         Hi_OpencvClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Hi_OpencvClass);
@@ -445,6 +454,8 @@ public:
         QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
         QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
         QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
+        QObject::connect(pushButton_blur_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_sobel_show()));
+        QObject::connect(pushButton_open_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
 
         tabWidget->setCurrentIndex(3);
 
@@ -493,6 +504,7 @@ public:
         pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
         label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
+        label_w_2->setText(QApplication::translate("Hi_OpencvClass", "\351\231\215\345\231\252\345\206\205\346\240\270\345\244\247\345\260\217\357\274\232", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
     } // retranslateUi
 
