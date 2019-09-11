@@ -36,11 +36,11 @@ private slots:
 	void on_bystart();//开始边缘检测操作
 
 	//图像变形
-	//void w3openPic();
-	//void w3up();
-	//void w3down();
-	//void w3LeftRight();
-	//void w3UpDown();
+	void w3openPic();
+	void w3up();
+	void w3down();
+	void w3LeftRight();
+	void w3UpDown();
 
 private:
 	Ui::Hi_OpencvClass ui;

@@ -182,7 +182,7 @@ void Hi_Opencv::on_bystart()
 	switch (i)
 	{
 	case 1:
-		i31 = atoi(ui.lineEdit31->text().toStdString().c_str());
+		//i31 = atoi(ui.lineEdit31->text().toStdString().c_str());
 		if (i31 > 0)
 		{
 			GaussianBlur(img1, image, Size(i31, i31), 0, 0, BORDER_DEFAULT);//对原图像进行降噪；
@@ -206,6 +206,7 @@ void Hi_Opencv::on_bystart()
 	}
 
 }
+
 int Hi_Opencv::on_sobel_show()
 {
 	i = 31;
@@ -215,3 +216,125 @@ int Hi_Opencv::on_sobel_show()
 	return i;
 
 }
+
+
+//图像变形
+void Hi_Opencv::w3openPic()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image = imread(str);
+		cvtColor(image, image, COLOR_BGR2RGB);
+		cv::resize(image, image, Size(256, 256));
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+		//label_in = new QLabel();
+		ui.w3Label->setPixmap(QPixmap::fromImage(img));
+		ui.w3Label->setAlignment(Qt::AlignCenter);
+		//ui.w3Label->resize(QSize(img.width(), img.height()));
+		//ui.label_in->show();
+		//ui.pushButton_start->setEnabled(true);
+	}
+}
+
+void Hi_Opencv::w3up()
+{
+	pyrUp(image, image, Size(image.cols * 2, image.rows * 2));
+	//cv::resize(image, image, Size(300, 200));
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+	//label_in = new QLabel();
+	ui.w3Label->setPixmap(QPixmap::fromImage(img));
+	ui.w3Label->setAlignment(Qt::AlignCenter);
+
+	//ui.radioButton->setCheckable(true);
+
+}
+
+void Hi_Opencv::w3down()
+{
+	pyrDown(image, image, Size(image.cols / 2, image.rows / 2));
+	//cv::resize(image, image, Size(300, 200));
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+	//label_in = new QLabel();
+	ui.w3Label->setPixmap(QPixmap::fromImage(img));
+	ui.w3Label->setAlignment(Qt::AlignCenter);
+
+	//ui.radioButton.setChecked(true);
+}
+
+void Hi_Opencv::w3LeftRight()
+{
+	Mat map1, map2;
+	///dst.create(image.size(), image.type());
+	map1.create(image.size(), CV_32FC1);
+	map2.create(image.size(), CV_32FC1);
+
+
+	int rows = image.rows;
+	int cols = image.cols;
+	//图像遍历
+	for (int j = 0; j < rows; j++)
+	{
+		for (int i = 0; i < cols; i++)
+		{
+			map1.at<float>(j, i) = cols - i;
+			map2.at<float>(j, i) = j;
+		}
+	}
+
+	remap(image, image, map1, map2, INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(0, 0, 0));
+
+
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+	//label_in = new QLabel();
+	ui.w3Label->setPixmap(QPixmap::fromImage(img));
+	ui.w3Label->setAlignment(Qt::AlignCenter);
+
+}
+
+void Hi_Opencv::w3UpDown()
+{
+	Mat map1, map2;
+	///dst.create(image.size(), image.type());
+	map1.create(image.size(), CV_32FC1);
+	map2.create(image.size(), CV_32FC1);
+
+	int rows = image.rows;
+	int cols = image.cols;
+	//图像遍历
+	for (int j = 0; j < rows; j++)
+	{
+		for (int i = 0; i < cols; i++)
+		{
+			map1.at<float>(j, i) = i;
+			map2.at<float>(j, i) = rows - j;
+		}
+	}
+
+	remap(image, image, map1, map2, INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(0, 0, 0));
+
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+	//label_in = new QLabel();
+	ui.w3Label->setPixmap(QPixmap::fromImage(img));
+	ui.w3Label->setAlignment(Qt::AlignCenter);
+}
+

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1043</width>
+    <width>963</width>
     <height>581</height>
    </rect>
   </property>
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
-      <width>1051</width>
-      <height>531</height>
+      <y>0</y>
+      <width>941</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -563,6 +563,72 @@
      <attribute name="title">
       <string>图像变形</string>
      </attribute>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>160</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>左右</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="w3btnUp">
+         <property name="text">
+          <string>放大</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="w3btnDown">
+         <property name="text">
+          <string>缩小</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>上下</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="w3btnOpen">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>40</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="w3Label">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>50</y>
+        <width>591</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -779,35 +845,6 @@
        <string>请选择功能</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_w_2">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>110</y>
-        <width>111</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>降噪内核大小：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit31">
-      <property name="geometry">
-       <rect>
-        <x>950</x>
-        <y>110</y>
-        <width>91</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
    </widget>
   </widget>
@@ -864,7 +901,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>331</y>
+     <y>321</y>
     </hint>
     <hint type="destinationlabel">
      <x>257</x>
@@ -880,7 +917,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>141</y>
+     <y>122</y>
     </hint>
     <hint type="destinationlabel">
      <x>354</x>
@@ -896,7 +933,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>236</y>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -911,8 +948,8 @@
    <slot>on_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>775</x>
-     <y>82</y>
+     <x>773</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>729</x>
@@ -928,7 +965,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>426</y>
+     <y>416</y>
     </hint>
     <hint type="destinationlabel">
      <x>147</x>
@@ -943,8 +980,8 @@
    <slot>on_start()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>861</x>
-     <y>82</y>
+     <x>939</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -985,34 +1022,82 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_blur_2</sender>
+   <sender>w3btnOpen</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_sobel_show()</slot>
+   <slot>w3openPic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>82</y>
+     <x>873</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>137</x>
-     <y>-10</y>
+     <x>764</x>
+     <y>-43</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_open_2</sender>
+   <sender>w3btnUp</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open()</slot>
+   <slot>w3up()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>898</x>
-     <y>82</y>
+     <x>39</x>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
-     <x>875</x>
-     <y>-12</y>
+     <x>-81</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>w3btnDown</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>w3down()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-76</x>
+     <y>84</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>w3LeftRight()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-30</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>w3UpDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-50</x>
+     <y>293</y>
     </hint>
    </hints>
   </connection>
@@ -1024,6 +1109,10 @@
   <slot>on_gaussian_show()</slot>
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
-  <slot>on_sobel_show()</slot>
+  <slot>w3openPic()</slot>
+  <slot>w3up()</slot>
+  <slot>w3down()</slot>
+  <slot>w3LeftRight()</slot>
+  <slot>w3UpDown()</slot>
  </slots>
 </ui>
