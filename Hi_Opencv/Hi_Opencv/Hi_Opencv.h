@@ -35,6 +35,13 @@ private slots:
 	int on_sobel_show();//进行sebel操作
 	void on_bystart();//开始边缘检测操作
 
+	//图像变形
+	//void w3openPic();
+	//void w3up();
+	//void w3down();
+	//void w3LeftRight();
+	//void w3UpDown();
+
 private:
 	Ui::Hi_OpencvClass ui;
 	//mydialog dialog1;
