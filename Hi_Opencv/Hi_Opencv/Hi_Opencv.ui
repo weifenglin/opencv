@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1097</width>
-    <height>580</height>
+    <width>963</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
-      <width>1051</width>
-      <height>531</height>
+      <y>0</y>
+      <width>941</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -558,507 +558,77 @@
      <attribute name="title">
       <string>形态变换</string>
      </attribute>
-     <widget class="QWidget" name="layoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>10</y>
-        <width>301</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>input</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_in_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>10</y>
-        <width>301</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>output</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_out_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>10</y>
-        <width>158</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <item>
-        <widget class="QPushButton" name="pushButton_open_4">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Open</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_start_2">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Start</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>82</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <spacer name="verticalSpacer_9">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_erode">
-         <property name="text">
-          <string>erode</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_dilate">
-         <property name="text">
-          <string>dilate</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_13">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_morphologyEX">
-         <property name="text">
-          <string>morphologyEX</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_14">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_6">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>100</y>
-        <width>301</width>
-        <height>181</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <item>
-        <widget class="QWidget" name="widget" native="true">
-         <widget class="QLabel" name="label_from">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>101</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Times New Roman</family>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>kernel_form:</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_RECT">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>30</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>RECT</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_CROSS">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>60</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>CROSS</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_ELLIPSE">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>90</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ELLIPSE</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Maximum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QWidget" name="widget_3" native="true">
-         <widget class="QLabel" name="label_6">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>121</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Times New Roman</family>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>morph_operator:</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_opening">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>30</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Opening</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_closing">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>60</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Closing</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_gradient">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>90</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Gradient</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_top">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>120</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Top Hat</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="radioButton_black">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>150</y>
-            <width>89</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Black Hat</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="widget_2" native="true">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>300</y>
-        <width>299</width>
-        <height>92</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="label_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Times New Roman</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>erosion_size:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>91</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_title">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>70</y>
-        <width>161</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Times New Roman</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Form Conversion</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
       <string>图像变形</string>
      </attribute>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>160</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>左右</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="w3btnUp">
+         <property name="text">
+          <string>放大</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="w3btnDown">
+         <property name="text">
+          <string>缩小</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>上下</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="w3btnOpen">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>40</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="w3Label">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>50</y>
+        <width>591</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -1275,35 +845,6 @@
        <string>请选择功能</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_w_2">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>110</y>
-        <width>111</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>降噪内核大小：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit31">
-      <property name="geometry">
-       <rect>
-        <x>950</x>
-        <y>110</y>
-        <width>91</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
    </widget>
   </widget>
@@ -1360,7 +901,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>331</y>
+     <y>321</y>
     </hint>
     <hint type="destinationlabel">
      <x>257</x>
@@ -1376,7 +917,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>141</y>
+     <y>122</y>
     </hint>
     <hint type="destinationlabel">
      <x>354</x>
@@ -1392,7 +933,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>236</y>
+     <y>219</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -1407,8 +948,8 @@
    <slot>on_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>775</x>
-     <y>82</y>
+     <x>773</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>729</x>
@@ -1424,7 +965,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>86</x>
-     <y>426</y>
+     <y>416</y>
     </hint>
     <hint type="destinationlabel">
      <x>147</x>
@@ -1439,8 +980,8 @@
    <slot>on_start()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>861</x>
-     <y>82</y>
+     <x>939</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1481,242 +1022,82 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_blur_2</sender>
+   <sender>w3btnOpen</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_sobel_show()</slot>
+   <slot>w3openPic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>82</y>
+     <x>873</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>137</x>
-     <y>0</y>
+     <x>764</x>
+     <y>-43</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_open_2</sender>
+   <sender>w3btnUp</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open()</slot>
+   <slot>w3up()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>898</x>
-     <y>82</y>
+     <x>39</x>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
-     <x>875</x>
-     <y>0</y>
+     <x>-81</x>
+     <y>99</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_erode</sender>
+   <sender>w3btnDown</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_erode_show()</slot>
+   <slot>w3down()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>60</x>
-     <y>134</y>
+     <x>142</x>
+     <y>110</y>
     </hint>
     <hint type="destinationlabel">
-     <x>466</x>
-     <y>21</y>
+     <x>-76</x>
+     <y>84</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_dilate</sender>
+   <sender>pushButton_2</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_dilate_show()</slot>
+   <slot>w3LeftRight()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>248</y>
+     <x>53</x>
+     <y>188</y>
     </hint>
     <hint type="destinationlabel">
-     <x>607</x>
-     <y>18</y>
+     <x>-30</x>
+     <y>242</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_morphologyEX</sender>
+   <sender>pushButton_6</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_morphologyEX_show()</slot>
+   <slot>w3UpDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>346</y>
+     <x>136</x>
+     <y>182</y>
     </hint>
     <hint type="destinationlabel">
-     <x>749</x>
-     <y>16</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_open_4</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>799</x>
-     <y>76</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>968</x>
-     <y>16</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_start_2</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_start_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>861</x>
-     <y>82</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1076</x>
-     <y>71</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_RECT</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_form_RECT()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>783</x>
-     <y>185</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1064</x>
-     <y>150</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_CROSS</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_form_CROSS()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>772</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1065</x>
-     <y>212</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_ELLIPSE</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_form_ELLIPSE()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>783</x>
-     <y>240</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1067</x>
-     <y>268</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_opening</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_opening()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>957</x>
-     <y>186</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1071</x>
-     <y>321</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_closing</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_closing()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>953</x>
-     <y>213</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1073</x>
-     <y>362</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_gradient</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_gradient()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>961</x>
-     <y>246</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1076</x>
-     <y>412</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_top</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_top()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>949</x>
-     <y>274</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1083</x>
-     <y>454</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_black</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_black()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>946</x>
-     <y>301</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1085</x>
-     <y>496</y>
+     <x>-50</x>
+     <y>293</y>
     </hint>
    </hints>
   </connection>
@@ -1728,19 +1109,10 @@
   <slot>on_gaussian_show()</slot>
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
-  <slot>on_sobel_show()</slot>
-  <slot>on_erode_show()</slot>
-  <slot>on_dilate_show()</slot>
-  <slot>on_morphologyEX_show()</slot>
-  <slot>on_open_2()</slot>
-  <slot>on_start_2()</slot>
-  <slot>on_form_RECT()</slot>
-  <slot>on_form_CROSS()</slot>
-  <slot>on_form_ELLIPSE()</slot>
-  <slot>on_opening()</slot>
-  <slot>on_closing()</slot>
-  <slot>on_gradient()</slot>
-  <slot>on_top()</slot>
-  <slot>on_black()</slot>
+  <slot>w3openPic()</slot>
+  <slot>w3up()</slot>
+  <slot>w3down()</slot>
+  <slot>w3LeftRight()</slot>
+  <slot>w3UpDown()</slot>
  </slots>
 </ui>
