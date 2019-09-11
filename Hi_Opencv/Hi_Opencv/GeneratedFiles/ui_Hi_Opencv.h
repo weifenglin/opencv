@@ -19,12 +19,13 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "bianyuanjiance.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -38,7 +39,7 @@ public:
     QAction *actionmedian;
     QAction *actionBilateral;
     QWidget *centralWidget;
-    QTabWidget *tabWidget;
+    bianyuanjiance *tabWidget;
     QWidget *tab;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
@@ -86,6 +87,20 @@ public:
     QLineEdit *lineEdit_i;
     QSpacerItem *horizontalSpacer_6;
     QWidget *tab_2;
+    QWidget *tab_3;
+    QPushButton *pushButton_blur_2;
+    QPushButton *pushButton_blur_3;
+    QPushButton *pushButton_blur_4;
+    QPushButton *pushButton_blur_5;
+    QPushButton *pushButton_blur_6;
+    QPushButton *pushButton_blur_7;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QScrollArea *scrollArea_2;
+    QWidget *scrollAreaWidgetContents_2;
+    QPushButton *pushButton_open_2;
+    QPushButton *pushButton_open_3;
+    QLabel *label_by1;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -93,7 +108,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(974, 581);
+        Hi_OpencvClass->resize(1065, 581);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -108,9 +123,9 @@ public:
         actionBilateral->setObjectName(QStringLiteral("actionBilateral"));
         centralWidget = new QWidget(Hi_OpencvClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        tabWidget = new QTabWidget(centralWidget);
+        tabWidget = new bianyuanjiance(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(9, 9, 961, 511));
+        tabWidget->setGeometry(QRect(0, 10, 1051, 531));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget = new QWidget(tab);
@@ -355,6 +370,60 @@ public:
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        pushButton_blur_2 = new QPushButton(tab_3);
+        pushButton_blur_2->setObjectName(QStringLiteral("pushButton_blur_2"));
+        pushButton_blur_2->setGeometry(QRect(10, 30, 91, 23));
+        pushButton_blur_2->setFont(font);
+        pushButton_blur_3 = new QPushButton(tab_3);
+        pushButton_blur_3->setObjectName(QStringLiteral("pushButton_blur_3"));
+        pushButton_blur_3->setGeometry(QRect(10, 90, 91, 23));
+        pushButton_blur_3->setFont(font);
+        pushButton_blur_4 = new QPushButton(tab_3);
+        pushButton_blur_4->setObjectName(QStringLiteral("pushButton_blur_4"));
+        pushButton_blur_4->setGeometry(QRect(10, 150, 91, 23));
+        pushButton_blur_4->setFont(font);
+        pushButton_blur_5 = new QPushButton(tab_3);
+        pushButton_blur_5->setObjectName(QStringLiteral("pushButton_blur_5"));
+        pushButton_blur_5->setGeometry(QRect(10, 210, 91, 23));
+        pushButton_blur_5->setFont(font);
+        pushButton_blur_6 = new QPushButton(tab_3);
+        pushButton_blur_6->setObjectName(QStringLiteral("pushButton_blur_6"));
+        pushButton_blur_6->setGeometry(QRect(10, 270, 91, 23));
+        pushButton_blur_6->setFont(font);
+        pushButton_blur_7 = new QPushButton(tab_3);
+        pushButton_blur_7->setObjectName(QStringLiteral("pushButton_blur_7"));
+        pushButton_blur_7->setGeometry(QRect(10, 330, 91, 23));
+        pushButton_blur_7->setFont(font);
+        scrollArea = new QScrollArea(tab_3);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setGeometry(QRect(110, 30, 351, 321));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 349, 319));
+        scrollArea->setWidget(scrollAreaWidgetContents);
+        scrollArea_2 = new QScrollArea(tab_3);
+        scrollArea_2->setObjectName(QStringLiteral("scrollArea_2"));
+        scrollArea_2->setGeometry(QRect(470, 30, 351, 321));
+        scrollArea_2->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 349, 319));
+        scrollArea_2->setWidget(scrollAreaWidgetContents_2);
+        pushButton_open_2 = new QPushButton(tab_3);
+        pushButton_open_2->setObjectName(QStringLiteral("pushButton_open_2"));
+        pushButton_open_2->setGeometry(QRect(850, 30, 88, 23));
+        pushButton_open_2->setFont(font);
+        pushButton_open_3 = new QPushButton(tab_3);
+        pushButton_open_3->setObjectName(QStringLiteral("pushButton_open_3"));
+        pushButton_open_3->setGeometry(QRect(940, 30, 88, 23));
+        pushButton_open_3->setFont(font);
+        label_by1 = new QLabel(tab_3);
+        label_by1->setObjectName(QStringLiteral("label_by1"));
+        label_by1->setGeometry(QRect(910, 60, 61, 16));
+        tabWidget->addTab(tab_3, QString());
         Hi_OpencvClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Hi_OpencvClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -364,14 +433,16 @@ public:
         Hi_OpencvClass->setStatusBar(statusBar);
 
         retranslateUi(Hi_OpencvClass);
-        QObject::connect(pushButton_open, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
-        QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
+        QObject::connect(pushButton_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_median_show()));
         QObject::connect(pushButton_blur, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_blur_show()));
         QObject::connect(pushButton_gaussian, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_gaussian_show()));
-        QObject::connect(pushButton_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_median_show()));
+        QObject::connect(pushButton_open, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
         QObject::connect(pushButton_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Bilateral_show()));
+        QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
+        QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
+        QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -386,6 +457,12 @@ public:
         actiongaussian->setText(QApplication::translate("Hi_OpencvClass", "gaussian", Q_NULLPTR));
         actionmedian->setText(QApplication::translate("Hi_OpencvClass", "median", Q_NULLPTR));
         actionBilateral->setText(QApplication::translate("Hi_OpencvClass", "Bilateral", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        tabWidget->setToolTip(QApplication::translate("Hi_OpencvClass", "<html><head/><body><p><br/></p><p><br/></p></body></html>", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        tabWidget->setWhatsThis(QApplication::translate("Hi_OpencvClass", "<html><head/><body><p>dede</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_WHATSTHIS
         pushButton_blur->setText(QApplication::translate("Hi_OpencvClass", "blur", Q_NULLPTR));
         pushButton_gaussian->setText(QApplication::translate("Hi_OpencvClass", "gaussian", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Hi_OpencvClass", "median", Q_NULLPTR));
@@ -402,6 +479,16 @@ public:
         label_i->setText(QApplication::translate("Hi_OpencvClass", "\345\206\205\346\240\270\345\244\247\345\260\217\357\274\232", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\346\250\241\347\263\212", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\271\263\346\273\221", Q_NULLPTR));
+        pushButton_blur_2->setText(QApplication::translate("Hi_OpencvClass", "Sobel\345\257\274\346\225\260", Q_NULLPTR));
+        pushButton_blur_3->setText(QApplication::translate("Hi_OpencvClass", "Laplace \347\256\227\345\255\220", Q_NULLPTR));
+        pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));
+        pushButton_blur_5->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\347\272\277\345\217\230\346\215\242", Q_NULLPTR));
+        pushButton_blur_6->setText(QApplication::translate("Hi_OpencvClass", "\345\257\273\346\211\276\350\275\256\345\273\223", Q_NULLPTR));
+        pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "\350\275\256\345\273\223\347\237\251", Q_NULLPTR));
+        pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
+        pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
+        label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -14,12 +14,12 @@
 #include <qlabel.h>  //label类
 using namespace cv;
 
-class Hi_Opencv : public QMainWindow
+class bianyuan : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	Hi_Opencv(QWidget *parent = Q_NULLPTR);
+    bianyuan(QWidget *parent = Q_NULLPTR);
 	int i = -1;
 	int j, k, m;
 	QString str;
@@ -27,10 +27,14 @@ public:
 private slots:
 	void on_open();
 	void on_start();
-	int on_blur_show();
+	int on_sobel_show();//进行sebel操作
+
+
+	/*
 	int on_gaussian_show();
 	int on_median_show();
 	int on_Bilateral_show();
+	*/
 
 
 private:
