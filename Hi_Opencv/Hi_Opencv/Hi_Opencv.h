@@ -31,6 +31,23 @@ private slots:
 	int on_median_show();
 	int on_Bilateral_show();
 
+	//形态变换槽函数
+	//void on_open_2();
+	//void on_start_2();
+
+	//int on_erode_show();
+	//int on_dilate_show();
+	//int on_morphologyEX_show();
+
+	//void on_form_RECT();
+	//void on_form_CROSS();
+	//void on_form_ELLIPSE();
+	//void on_opening();
+	//void on_closing();
+	//void on_gradient();
+	//void on_top();
+	//void on_black();
+
 	//bianyuanjiance
 	int on_sobel_show();//进行sebel操作
 	void on_bystart();//开始边缘检测操作
@@ -45,8 +62,6 @@ private slots:
 
 private:
 	Ui::Hi_OpencvClass ui;
-	//mydialog dialog1;
-	warning  dialog1;
 	Mat image;
 	Mat image1;
 };

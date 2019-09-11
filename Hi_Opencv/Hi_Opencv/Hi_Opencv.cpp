@@ -6,7 +6,6 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-	//i = -1;
 	ui.label_w->hide();
 	ui.label_h->hide();
 	ui.label_i->hide();
@@ -41,11 +40,8 @@ void Hi_Opencv::on_open()
 		cvtColor(image, image, COLOR_BGR2RGB);
 		cv::resize(image, image, Size(300, 200));
 		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
-
-		//label_in = new QLabel();
 		ui.label_in->setPixmap(QPixmap::fromImage(img));
 		ui.label_in->resize(QSize(img.width(), img.height()));
-		//ui.label_in->show();
 		ui.pushButton_start->setEnabled(true);
 	}
 }
@@ -63,9 +59,6 @@ void Hi_Opencv::on_start()
 			else
 			{
 				QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-				//dialog1.changetext2();
-				//dialog1.show();
-				//dialog1.exec();
 				return;
 			}
 		break;
@@ -78,9 +71,6 @@ void Hi_Opencv::on_start()
 			else
 			{
 				QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive odd number");
-				//dialog1.changetext1();
-				//dialog1.show();
-				//dialog1.exec();
 				return;
 			}
 		break;
@@ -93,9 +83,6 @@ void Hi_Opencv::on_start()
 			else
 			{
 				QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive odd  number");
-				//dialog1.changetext1();
-				//dialog1.show();
-				//dialog1.exec();
 				return;
 			}
 		break;
@@ -108,10 +95,6 @@ void Hi_Opencv::on_start()
 			else
 			{
 				QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-				
-				//dialog1.changetext2();
-				//dialog1.show();
-				//dialog1.exec();
 				return;
 			}
 		break;
@@ -191,16 +174,9 @@ void Hi_Opencv::on_bystart()
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
-
-
-
 		break;
-
 	default:
 		break;
 	}
@@ -210,8 +186,6 @@ int Hi_Opencv::on_sobel_show()
 {
 	i = 31;
 	ui.label_by1->setText("sobel");
-
-
 	return i;
 
 }
