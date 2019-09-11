@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1043</width>
+    <width>1235</width>
     <height>581</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>941</width>
+      <width>1081</width>
       <height>541</height>
      </rect>
     </property>
@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1529,7 +1529,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
-     <y>-43</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -1544,7 +1544,7 @@
      <y>113</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-81</x>
+     <x>0</x>
      <y>99</y>
     </hint>
    </hints>
@@ -1560,7 +1560,7 @@
      <y>110</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-76</x>
+     <x>0</x>
      <y>84</y>
     </hint>
    </hints>
@@ -1577,7 +1577,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>137</x>
-     <y>-10</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -1593,7 +1593,215 @@
     </hint>
     <hint type="destinationlabel">
      <x>875</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_erode</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_erode_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>600</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_dilate</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_dilate_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
      <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_morphologyEX</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_morphologyEX_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_4</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>790</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1134</x>
+     <y>50</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_start_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_start_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>863</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1159</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_RECT</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_form_RECT()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>786</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1161</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_CROSS</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_form_CROSS()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>763</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1165</x>
+     <y>184</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_ELLIPSE</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_form_ELLIPSE()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>795</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1168</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_opening</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_opening()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>970</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1173</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_closing</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_closing()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>967</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1176</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_gradient</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_gradient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>945</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1175</x>
+     <y>358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_top</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_top()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>963</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1182</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_black</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_black()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>946</x>
+     <y>292</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1186</x>
+     <y>445</y>
     </hint>
    </hints>
   </connection>
@@ -1606,5 +1814,18 @@
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
   <slot>on_sobel_show()</slot>
+  <slot>on_erode_show()</slot>
+  <slot>on_dilate_show()</slot>
+  <slot>on_morphologyEX_show()</slot>
+  <slot>on_open_2()</slot>
+  <slot>on_start_2()</slot>
+  <slot>on_form_RECT()</slot>
+  <slot>on_form_CROSS()</slot>
+  <slot>on_form_ELLIPSE()</slot>
+  <slot>on_opening()</slot>
+  <slot>on_closing()</slot>
+  <slot>on_gradient()</slot>
+  <slot>on_top()</slot>
+  <slot>on_black()</slot>
  </slots>
 </ui>

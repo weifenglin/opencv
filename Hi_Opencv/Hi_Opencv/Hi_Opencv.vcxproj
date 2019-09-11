@@ -118,23 +118,15 @@
     <ClCompile Include="bianyuan.cpp" />
     <ClCompile Include="Hi_Opencv.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="warning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Hi_Opencv.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Hi_Opencv.ui" />
-    <QtUic Include="warning.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Hi_Opencv.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="warning.h">
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
-      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="bianyuan.h">

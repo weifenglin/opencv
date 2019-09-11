@@ -32,21 +32,21 @@ private slots:
 	int on_Bilateral_show();
 
 	//形态变换槽函数
-	//void on_open_2();
-	//void on_start_2();
+	void on_open_2();
+	void on_start_2();
 
-	//int on_erode_show();
-	//int on_dilate_show();
-	//int on_morphologyEX_show();
+	int on_erode_show();
+	int on_dilate_show();
+	int on_morphologyEX_show();
 
-	//void on_form_RECT();
-	//void on_form_CROSS();
-	//void on_form_ELLIPSE();
-	//void on_opening();
-	//void on_closing();
-	//void on_gradient();
-	//void on_top();
-	//void on_black();
+	void on_form_RECT();
+	void on_form_CROSS();
+	void on_form_ELLIPSE();
+	void on_opening();
+	void on_closing();
+	void on_gradient();
+	void on_top();
+	void on_black();
 
 	//bianyuanjiance
 	int on_sobel_show();//进行sebel操作

@@ -12,6 +12,10 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.lineEdit_w->hide();
 	ui.lineEdit_h->hide();
 	ui.lineEdit_i->hide();
+
+	ui.widget->hide();
+	ui.widget_2->hide();
+	ui.widget_3->hide();
 }
 
 
@@ -155,6 +159,238 @@ int Hi_Opencv::on_Bilateral_show()
 	ui.label_i->show();
 	ui.lineEdit_i->show();
 	return i;
+}
+
+
+//形态变换
+void Hi_Opencv::on_open_2()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image = imread(str);
+		cvtColor(image, image, COLOR_BGR2RGB);
+		cv::resize(image, image, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+		ui.label_in_2->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_2->resize(QSize(img.width(), img.height()));
+		ui.pushButton_start_2->setEnabled(true);
+	}
+}
+
+int Hi_Opencv::on_erode_show()
+{
+	i = 1;
+	ui.label_title->setText("Erode");
+	ui.widget_3->hide();
+	ui.radioButton_RECT->setEnabled(true);
+	ui.radioButton_CROSS->setEnabled(true);
+	ui.radioButton_ELLIPSE->setEnabled(true);
+	ui.lineEdit_size->setText("");
+
+	ui.widget->show();
+	ui.label_size->setText("erosion_size:");
+	ui.widget_2->show();
+	return i;
+}
+
+int Hi_Opencv::on_dilate_show()
+{
+	i = 2;
+	ui.widget_3->hide();
+	ui.label_title->setText("Dilate");
+	ui.radioButton_RECT->setEnabled(true);
+	ui.radioButton_CROSS->setEnabled(true);
+	ui.radioButton_ELLIPSE->setEnabled(true);
+	ui.lineEdit_size->setText("");
+	ui.widget->show();
+
+	ui.label_size->setText("dilate_size:");
+	ui.widget_2->show();
+	return i;
+}
+
+int Hi_Opencv::on_morphologyEX_show()
+{
+	ui.label_title->setText("MorphologyEX");
+	i = 3;
+	ui.radioButton_RECT->setEnabled(true);
+	ui.radioButton_CROSS->setEnabled(true);
+	ui.radioButton_ELLIPSE->setEnabled(true);
+	ui.radioButton_opening->setEnabled(true);
+	ui.radioButton_closing->setEnabled(true);
+	ui.radioButton_gradient->setEnabled(true);
+	ui.radioButton_top->setEnabled(true);
+	ui.radioButton_black->setEnabled(true);
+
+	ui.lineEdit_size->setText("");
+	ui.widget->show();
+	ui.widget_3->show();
+	ui.label_size->setText("morph_size:");
+	ui.widget_2->show();
+	return i;
+}
+void Hi_Opencv::on_form_RECT()
+{
+	ui.radioButton_CROSS->setEnabled(false);
+	ui.radioButton_ELLIPSE->setEnabled(false);
+	j = MORPH_RECT;
+}
+
+void Hi_Opencv::on_form_CROSS()
+{
+	ui.radioButton_RECT->setEnabled(false);
+	ui.radioButton_ELLIPSE->setEnabled(false);
+	j = MORPH_CROSS;
+}
+
+void Hi_Opencv::on_form_ELLIPSE()
+{
+	ui.radioButton_CROSS->setEnabled(false);
+	ui.radioButton_RECT->setEnabled(false);
+	j = MORPH_ELLIPSE;
+
+}
+
+void Hi_Opencv::on_opening()
+{
+	ui.radioButton_closing->setEnabled(false);
+	ui.radioButton_gradient->setEnabled(false);
+	ui.radioButton_top->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);
+	m = MORPH_OPEN;
+}
+
+void Hi_Opencv::on_closing()
+{
+	ui.radioButton_opening->setEnabled(false);
+	ui.radioButton_gradient->setEnabled(false);
+	ui.radioButton_top->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);
+	m = MORPH_CLOSE;
+}
+
+void Hi_Opencv::on_gradient()
+{
+	ui.radioButton_closing->setEnabled(false);
+	ui.radioButton_opening->setEnabled(false);
+	ui.radioButton_top->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);
+	m = MORPH_GRADIENT;
+}
+
+void Hi_Opencv::on_top()
+{
+	ui.radioButton_closing->setEnabled(false);
+	ui.radioButton_gradient->setEnabled(false);
+	ui.radioButton_opening->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);
+	m = MORPH_TOPHAT;
+}
+
+void Hi_Opencv::on_black()
+{
+	ui.radioButton_closing->setEnabled(false);
+	ui.radioButton_gradient->setEnabled(false);
+	ui.radioButton_top->setEnabled(false);
+	ui.radioButton_opening->setEnabled(false);
+	m = MORPH_BLACKHAT;
+}
+
+void Hi_Opencv::on_start_2()
+{
+	switch (i)
+	{
+	case 1:
+	{k = atoi(ui.lineEdit_size->text().toStdString().c_str());
+	if (k > 0)
+	{
+		Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
+		cv::erode(image, image1, element);
+		QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+		ui.label_out_2->setPixmap(QPixmap::fromImage(img));
+		ui.label_out_2->resize(QSize(img.width(), img.height()));
+		ui.radioButton_RECT->setEnabled(true);
+		ui.radioButton_CROSS->setEnabled(true);
+		ui.radioButton_ELLIPSE->setEnabled(true);
+		ui.lineEdit_size->setText("");
+	}
+	else
+	{
+		QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+		ui.lineEdit_size->setText("");
+		return;
+	}
+	break;
+	}
+	case 2:
+	{
+		k = atoi(ui.lineEdit_size->text().toStdString().c_str());
+		if (k > 0)
+		{
+			Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
+			cv::dilate(image, image1, element);
+
+			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+			ui.label_out_2->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_2->resize(QSize(img.width(), img.height()));
+
+			ui.radioButton_RECT->setEnabled(true);
+			ui.radioButton_CROSS->setEnabled(true);
+			ui.radioButton_ELLIPSE->setEnabled(true);
+			ui.lineEdit_size->setText("");
+		}
+		else
+		{
+			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+			ui.lineEdit_size->setText("");
+			return;
+		}
+		break;
+	}
+	case 3:
+	{
+		k = atoi(ui.lineEdit_size->text().toStdString().c_str());
+		if (k > 0)
+		{
+			Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
+			cv::morphologyEx(image, image1, m, element);
+
+			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+			ui.label_out_2->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_2->resize(QSize(img.width(), img.height()));
+			ui.radioButton_RECT->setEnabled(true);
+			ui.radioButton_CROSS->setEnabled(true);
+			ui.radioButton_ELLIPSE->setEnabled(true);
+			ui.radioButton_opening->setEnabled(true);
+			ui.radioButton_closing->setEnabled(true);
+			ui.radioButton_gradient->setEnabled(true);
+			ui.radioButton_top->setEnabled(true);
+			ui.radioButton_black->setEnabled(true);
+			ui.lineEdit_size->setText("");
+		}
+		else
+		{
+			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+			ui.lineEdit_size->setText("");
+			return;
+		}
+		break;
+	}
+	default:
+		break;
+	}
+
 }
 
 //bianyuanjiance
