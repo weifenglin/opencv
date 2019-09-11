@@ -41,6 +41,7 @@ private slots:
 	//void w3down();
 	//void w3LeftRight();
 	//void w3UpDown();
+	//123
 
 private:
 	Ui::Hi_OpencvClass ui;
