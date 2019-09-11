@@ -14,7 +14,7 @@
    <string>Hi_Opencv</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="bianyuanjiance" name="tabWidget">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -818,18 +818,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>bianyuanjiance</class>
-   <extends>QTabWidget</extends>
-   <header>bianyuanjiance.h</header>
-   <container>1</container>
-   <slots>
-    <slot>on_sobel_show()</slot>
-    <slot>on_laplace_show()</slot>
-   </slots>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="Hi_Opencv.qrc"/>
  </resources>
@@ -962,6 +950,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_blur_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_sobel_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>137</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_open()</slot>
@@ -970,5 +974,6 @@
   <slot>on_gaussian_show()</slot>
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
+  <slot>on_sobel_show()</slot>
  </slots>
 </ui>

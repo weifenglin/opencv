@@ -25,8 +25,8 @@ public:
 	QString str;
 
 private slots:
-	void on_open();
-	void on_start();
+	void on_byopen();
+	//void on_bystart();
 	int on_sobel_show();//½øÐÐsebel²Ù×÷
 
 

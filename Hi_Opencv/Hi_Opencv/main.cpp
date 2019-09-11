@@ -1,4 +1,5 @@
 #include "Hi_Opencv.h"
+#include"bianyuan.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])

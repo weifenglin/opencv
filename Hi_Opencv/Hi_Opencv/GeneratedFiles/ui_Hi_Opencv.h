@@ -22,10 +22,10 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "bianyuanjiance.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -39,7 +39,7 @@ public:
     QAction *actionmedian;
     QAction *actionBilateral;
     QWidget *centralWidget;
-    bianyuanjiance *tabWidget;
+    QTabWidget *tabWidget;
     QWidget *tab;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
@@ -123,7 +123,7 @@ public:
         actionBilateral->setObjectName(QStringLiteral("actionBilateral"));
         centralWidget = new QWidget(Hi_OpencvClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        tabWidget = new bianyuanjiance(centralWidget);
+        tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setGeometry(QRect(0, 10, 1051, 531));
         tab = new QWidget();
@@ -441,6 +441,7 @@ public:
         QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
         QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
         QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
+        QObject::connect(pushButton_blur_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_sobel_show()));
 
         tabWidget->setCurrentIndex(2);
 
