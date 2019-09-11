@@ -14,7 +14,7 @@
    <string>Hi_Opencv</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="bianyuanjiance" name="tabWidget">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -30,11 +30,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>图像模糊</string>
+      <string>图像平滑</string>
      </attribute>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
@@ -556,7 +556,12 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>图像平滑</string>
+      <string>形态变换</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>图像变形</string>
      </attribute>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -818,18 +823,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>bianyuanjiance</class>
-   <extends>QTabWidget</extends>
-   <header>bianyuanjiance.h</header>
-   <container>1</container>
-   <slots>
-    <slot>on_sobel_show()</slot>
-    <slot>on_laplace_show()</slot>
-   </slots>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="Hi_Opencv.qrc"/>
  </resources>

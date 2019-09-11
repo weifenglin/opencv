@@ -75,7 +75,7 @@ void bianyuan::on_start()
 		ui.lineEdit_h->hide();
 		ui.label_i->show();
 		ui.lineEdit_i->show();
-		ui.label_by1
+		ui.label_by1;
 
 		return i;
 

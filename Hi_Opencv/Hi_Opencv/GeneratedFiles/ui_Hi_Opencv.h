@@ -22,10 +22,10 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "bianyuanjiance.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -39,7 +39,7 @@ public:
     QAction *actionmedian;
     QAction *actionBilateral;
     QWidget *centralWidget;
-    bianyuanjiance *tabWidget;
+    QTabWidget *tabWidget;
     QWidget *tab;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
@@ -87,6 +87,7 @@ public:
     QLineEdit *lineEdit_i;
     QSpacerItem *horizontalSpacer_6;
     QWidget *tab_2;
+    QWidget *tab_4;
     QWidget *tab_3;
     QPushButton *pushButton_blur_2;
     QPushButton *pushButton_blur_3;
@@ -123,7 +124,7 @@ public:
         actionBilateral->setObjectName(QStringLiteral("actionBilateral"));
         centralWidget = new QWidget(Hi_OpencvClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        tabWidget = new bianyuanjiance(centralWidget);
+        tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setGeometry(QRect(0, 10, 1051, 531));
         tab = new QWidget();
@@ -370,6 +371,9 @@ public:
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         tabWidget->addTab(tab_2, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        tabWidget->addTab(tab_4, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         pushButton_blur_2 = new QPushButton(tab_3);
@@ -442,7 +446,7 @@ public:
         QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
         QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -477,8 +481,9 @@ public:
         label_w->setText(QApplication::translate("Hi_OpencvClass", "\345\203\217\347\264\240\345\256\275\345\272\246w\357\274\232", Q_NULLPTR));
         label_h->setText(QApplication::translate("Hi_OpencvClass", "\345\203\217\347\264\240\351\253\230\345\272\246h\357\274\232", Q_NULLPTR));
         label_i->setText(QApplication::translate("Hi_OpencvClass", "\345\206\205\346\240\270\345\244\247\345\260\217\357\274\232", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\346\250\241\347\263\212", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\271\263\346\273\221", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\271\263\346\273\221", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\275\242\346\200\201\345\217\230\346\215\242", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\217\230\345\275\242", Q_NULLPTR));
         pushButton_blur_2->setText(QApplication::translate("Hi_OpencvClass", "Sobel\345\257\274\346\225\260", Q_NULLPTR));
         pushButton_blur_3->setText(QApplication::translate("Hi_OpencvClass", "Laplace \347\256\227\345\255\220", Q_NULLPTR));
         pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));

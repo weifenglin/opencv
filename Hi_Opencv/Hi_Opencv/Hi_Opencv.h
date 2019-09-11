@@ -31,6 +31,13 @@ private slots:
 	int on_median_show();
 	int on_Bilateral_show();
 
+	//Í¼Ïñ±äÐÎ
+	//void w3openPic();
+	//void w3up();
+	//void w3down();
+	//void w3LeftRight();
+	//void w3UpDown();
+
 
 private:
 	Ui::Hi_OpencvClass ui;
