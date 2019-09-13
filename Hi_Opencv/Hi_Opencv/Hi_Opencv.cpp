@@ -16,6 +16,9 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.widget->hide();
 	ui.widget_2->hide();
 	ui.widget_3->hide();
+
+	ui.widget_4->hide();
+	ui.widget_5->hide();
 }
 
 
@@ -548,3 +551,181 @@ void Hi_Opencv::w3UpDown()
 	ui.w3Label->setAlignment(Qt::AlignCenter);
 }
 
+
+//其他
+void Hi_Opencv::on_open_7()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image = imread(str);
+		cvtColor(image, image2, COLOR_BGR2RGB);
+		cv::resize(image2, image2, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows, QImage::Format_RGB888);
+
+		ui.label_in_3->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_3->resize(QSize(img.width(), img.height()));
+
+	}
+}
+
+void Hi_Opencv::on_threshold()
+{
+	ui.pushButton_open_7->show();
+	ui.widget_5->hide();
+	ui.widget_4->show();
+	ui.spinBox_type->setValue(0);
+	ui.horizontalSlider_value->setValue(0);
+
+}
+
+void Hi_Opencv::on_type()
+{
+	//ui.horizontalSlider_value->setValue(0);
+	j = ui.spinBox_type->value();
+}
+
+void Hi_Opencv::on_spinBox_value()
+{
+	ui.horizontalSlider_value->setValue(ui.spinBox_value->value());
+
+}
+
+void Hi_Opencv::on_value()
+{
+	on_type();
+	ui.spinBox_value->setValue(ui.horizontalSlider_value->value());
+	k = ui.horizontalSlider_value->value();
+
+	threshold(image2, image1, k, 255, j);
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+	ui.label_out_3->setPixmap(QPixmap::fromImage(img));
+	ui.label_out_3->resize(QSize(img.width(), img.height()));
+}
+
+void Hi_Opencv::on_makeborder()
+{
+	ui.pushButton_open_7->show();
+	ui.widget_4->hide();
+	ui.widget_5->show();
+	ui.radioButton->setEnabled(true);
+	ui.radioButton_2->setEnabled(true);
+}
+
+void Hi_Opencv::on_bordertype1()
+{
+	j = BORDER_CONSTANT;
+
+}
+
+void Hi_Opencv::on_bordertype2()
+{
+	j = BORDER_REPLICATE;
+
+}
+
+void Hi_Opencv::on_start_7()
+{
+	top = int(0.05*image.rows);
+	bottom = int(0.05*image.rows);
+	left = int(0.05*image.cols);
+	right = int(0.05*image.cols);
+
+	value = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+
+	copyMakeBorder(image, image1, top, bottom, left, right, j, value);
+
+	cvtColor(image1, image1, COLOR_BGR2RGB);
+	cv::resize(image1, image1, Size(300, 200));
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+	ui.label_out_3->setPixmap(QPixmap::fromImage(img));
+	ui.label_out_3->resize(QSize(img.width(), img.height()));
+}
+
+
+
+void Hi_Opencv::on_Point()
+{
+	ui.pushButton_open_7->hide();
+	ui.widget_4->hide();
+	ui.widget_5->hide();
+	
+	Mat src = Mat::zeros(Size(4 * r, 4 * r), CV_8UC1);
+
+	/// 绘制一系列点创建一个轮廓:
+	vector<Point2f> vert(6);
+
+	vert[0] = Point(1.5*r, 1.34*r);
+	vert[1] = Point(1 * r, 2 * r);
+	vert[2] = Point(1.5*r, 2.866*r);
+	vert[3] = Point(2.5*r, 2.866*r);
+	vert[4] = Point(3 * r, 2 * r);
+	vert[5] = Point(2.5*r, 1.34*r);
+
+	/// 在src内部绘制
+	for (int j = 0; j < 6; j++)
+	{
+		line(src, vert[j], vert[(j + 1) % 6], Scalar(255), 3, 8);
+	}
+
+	/// 得到轮廓
+	vector<vector<Point> > contours; vector<Vec4i> hierarchy;
+	Mat src_copy = src.clone();
+
+	findContours(src_copy, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
+
+	/// 计算到轮廓的距离
+	Mat raw_dist(src.size(), CV_32FC1);
+
+	for (int j = 0; j < src.rows; j++)
+	{
+		for (int i = 0; i < src.cols; i++)
+		{
+			raw_dist.at<float>(j, i) = pointPolygonTest(contours[0], Point2f(i, j), true);
+		}
+	}
+
+	double minVal; double maxVal;
+	minMaxLoc(raw_dist, &minVal, &maxVal, 0, 0, Mat());
+	minVal = abs(minVal); maxVal = abs(maxVal);
+
+	/// 图形化的显示距离
+	Mat drawing = Mat::zeros(src.size(), CV_8UC3);
+
+	for (int j = 0; j < src.rows; j++)
+	{
+		for (int i = 0; i < src.cols; i++)
+		{
+			if (raw_dist.at<float>(j, i) < 0)
+			{
+				drawing.at<Vec3b>(j, i)[0] = 255 - (int)abs(raw_dist.at<float>(j, i)) * 255 / minVal;
+			}
+			else if (raw_dist.at<float>(j, i) > 0)
+			{
+				drawing.at<Vec3b>(j, i)[2] = 255 - (int)raw_dist.at<float>(j, i) * 255 / maxVal;
+			}
+			else
+			{
+				drawing.at<Vec3b>(j, i)[0] = 255; drawing.at<Vec3b>(j, i)[1] = 255; drawing.at<Vec3b>(j, i)[2] = 255;
+			}
+		}
+	}
+	cvtColor(src, src, COLOR_BGR2RGB);
+	cv::resize(src, src, Size(300, 200));
+	QImage img = QImage((const unsigned char*)(src.data), src.cols, src.rows, QImage::Format_RGB888);
+	ui.label_in_3->setPixmap(QPixmap::fromImage(img));
+	ui.label_in_3->resize(QSize(img.width(), img.height()));
+
+	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+	ui.label_out_3->setPixmap(QPixmap::fromImage(img1));
+	ui.label_out_3->resize(QSize(img1.width(), img1.height()));
+}

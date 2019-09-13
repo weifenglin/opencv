@@ -22,7 +22,9 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
@@ -152,6 +154,45 @@ public:
     QPushButton *pushButton_open_2;
     QPushButton *pushButton_open_3;
     QLabel *label_by1;
+    QWidget *tab_5;
+    QWidget *layoutWidget_7;
+    QVBoxLayout *verticalLayout_9;
+    QLabel *label_8;
+    QLabel *label_in_3;
+    QWidget *widget_4;
+    QWidget *layoutWidget_8;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *label_value;
+    QSpinBox *spinBox_value;
+    QSlider *horizontalSlider_value;
+    QWidget *layoutWidget_9;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_type;
+    QSpinBox *spinBox_type;
+    QWidget *widget_5;
+    QPushButton *pushButton_start_7;
+    QWidget *layoutWidget_10;
+    QVBoxLayout *verticalLayout_8;
+    QLabel *label_9;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
+    QWidget *layoutWidget_11;
+    QHBoxLayout *horizontalLayout_9;
+    QPushButton *pushButton_open_7;
+    QSpacerItem *horizontalSpacer_8;
+    QWidget *layoutWidget_12;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *label_7;
+    QLabel *label_out_3;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_11;
+    QSpacerItem *verticalSpacer_15;
+    QPushButton *pushButton_threshold;
+    QSpacerItem *verticalSpacer_16;
+    QPushButton *pushButton_makeborder;
+    QSpacerItem *verticalSpacer_17;
+    QPushButton *pushButton_Point;
+    QSpacerItem *verticalSpacer_18;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -697,6 +738,190 @@ public:
         label_by1->setObjectName(QStringLiteral("label_by1"));
         label_by1->setGeometry(QRect(910, 60, 61, 16));
         tabWidget->addTab(tab_3, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QStringLiteral("tab_5"));
+        layoutWidget_7 = new QWidget(tab_5);
+        layoutWidget_7->setObjectName(QStringLiteral("layoutWidget_7"));
+        layoutWidget_7->setGeometry(QRect(90, 10, 321, 381));
+        verticalLayout_9 = new QVBoxLayout(layoutWidget_7);
+        verticalLayout_9->setSpacing(6);
+        verticalLayout_9->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
+        label_8 = new QLabel(layoutWidget_7);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setMaximumSize(QSize(50, 20));
+        label_8->setFont(font2);
+
+        verticalLayout_9->addWidget(label_8);
+
+        label_in_3 = new QLabel(layoutWidget_7);
+        label_in_3->setObjectName(QStringLiteral("label_in_3"));
+        sizePolicy.setHeightForWidth(label_in_3->sizePolicy().hasHeightForWidth());
+        label_in_3->setSizePolicy(sizePolicy);
+        label_in_3->setMinimumSize(QSize(0, 0));
+        label_in_3->setScaledContents(true);
+
+        verticalLayout_9->addWidget(label_in_3);
+
+        widget_4 = new QWidget(tab_5);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        widget_4->setGeometry(QRect(780, 60, 281, 107));
+        layoutWidget_8 = new QWidget(widget_4);
+        layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
+        layoutWidget_8->setGeometry(QRect(10, 80, 241, 23));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget_8);
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
+        label_value = new QLabel(layoutWidget_8);
+        label_value->setObjectName(QStringLiteral("label_value"));
+
+        horizontalLayout_7->addWidget(label_value);
+
+        spinBox_value = new QSpinBox(layoutWidget_8);
+        spinBox_value->setObjectName(QStringLiteral("spinBox_value"));
+        spinBox_value->setMaximum(255);
+
+        horizontalLayout_7->addWidget(spinBox_value);
+
+        horizontalSlider_value = new QSlider(layoutWidget_8);
+        horizontalSlider_value->setObjectName(QStringLiteral("horizontalSlider_value"));
+        horizontalSlider_value->setMaximum(255);
+        horizontalSlider_value->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_7->addWidget(horizontalSlider_value);
+
+        layoutWidget_9 = new QWidget(widget_4);
+        layoutWidget_9->setObjectName(QStringLiteral("layoutWidget_9"));
+        layoutWidget_9->setGeometry(QRect(10, 20, 81, 23));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget_9);
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
+        label_type = new QLabel(layoutWidget_9);
+        label_type->setObjectName(QStringLiteral("label_type"));
+
+        horizontalLayout_8->addWidget(label_type);
+
+        spinBox_type = new QSpinBox(layoutWidget_9);
+        spinBox_type->setObjectName(QStringLiteral("spinBox_type"));
+        spinBox_type->setMaximum(4);
+
+        horizontalLayout_8->addWidget(spinBox_type);
+
+        widget_5 = new QWidget(tab_5);
+        widget_5->setObjectName(QStringLiteral("widget_5"));
+        widget_5->setGeometry(QRect(790, 190, 261, 101));
+        pushButton_start_7 = new QPushButton(widget_5);
+        pushButton_start_7->setObjectName(QStringLiteral("pushButton_start_7"));
+        pushButton_start_7->setGeometry(QRect(180, 30, 75, 23));
+        layoutWidget_10 = new QWidget(widget_5);
+        layoutWidget_10->setObjectName(QStringLiteral("layoutWidget_10"));
+        layoutWidget_10->setGeometry(QRect(0, 10, 171, 81));
+        verticalLayout_8 = new QVBoxLayout(layoutWidget_10);
+        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+        label_9 = new QLabel(layoutWidget_10);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        verticalLayout_8->addWidget(label_9);
+
+        radioButton = new QRadioButton(layoutWidget_10);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+
+        verticalLayout_8->addWidget(radioButton);
+
+        radioButton_2 = new QRadioButton(layoutWidget_10);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+
+        verticalLayout_8->addWidget(radioButton_2);
+
+        layoutWidget_11 = new QWidget(tab_5);
+        layoutWidget_11->setObjectName(QStringLiteral("layoutWidget_11"));
+        layoutWidget_11->setGeometry(QRect(780, 20, 123, 25));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget_11);
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
+        pushButton_open_7 = new QPushButton(layoutWidget_11);
+        pushButton_open_7->setObjectName(QStringLiteral("pushButton_open_7"));
+
+        horizontalLayout_9->addWidget(pushButton_open_7);
+
+        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_8);
+
+        layoutWidget_12 = new QWidget(tab_5);
+        layoutWidget_12->setObjectName(QStringLiteral("layoutWidget_12"));
+        layoutWidget_12->setGeometry(QRect(420, 10, 321, 381));
+        verticalLayout_10 = new QVBoxLayout(layoutWidget_12);
+        verticalLayout_10->setSpacing(6);
+        verticalLayout_10->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        verticalLayout_10->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(layoutWidget_12);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setMaximumSize(QSize(50, 20));
+        label_7->setFont(font2);
+
+        verticalLayout_10->addWidget(label_7);
+
+        label_out_3 = new QLabel(layoutWidget_12);
+        label_out_3->setObjectName(QStringLiteral("label_out_3"));
+        sizePolicy.setHeightForWidth(label_out_3->sizePolicy().hasHeightForWidth());
+        label_out_3->setSizePolicy(sizePolicy);
+        label_out_3->setMinimumSize(QSize(0, 0));
+        label_out_3->setScaledContents(true);
+
+        verticalLayout_10->addWidget(label_out_3);
+
+        widget1 = new QWidget(tab_5);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(0, 10, 81, 381));
+        verticalLayout_11 = new QVBoxLayout(widget1);
+        verticalLayout_11->setSpacing(6);
+        verticalLayout_11->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        verticalLayout_11->setContentsMargins(0, 0, 0, 0);
+        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_15);
+
+        pushButton_threshold = new QPushButton(widget1);
+        pushButton_threshold->setObjectName(QStringLiteral("pushButton_threshold"));
+
+        verticalLayout_11->addWidget(pushButton_threshold);
+
+        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_16);
+
+        pushButton_makeborder = new QPushButton(widget1);
+        pushButton_makeborder->setObjectName(QStringLiteral("pushButton_makeborder"));
+
+        verticalLayout_11->addWidget(pushButton_makeborder);
+
+        verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_17);
+
+        pushButton_Point = new QPushButton(widget1);
+        pushButton_Point->setObjectName(QStringLiteral("pushButton_Point"));
+
+        verticalLayout_11->addWidget(pushButton_Point);
+
+        verticalSpacer_18 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_18);
+
+        tabWidget->addTab(tab_5, QString());
         Hi_OpencvClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Hi_OpencvClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -732,8 +957,18 @@ public:
         QObject::connect(radioButton_gradient, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_gradient()));
         QObject::connect(radioButton_top, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_top()));
         QObject::connect(radioButton_black, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_black()));
+        QObject::connect(pushButton_threshold, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_threshold()));
+        QObject::connect(pushButton_makeborder, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_makeborder()));
+        QObject::connect(pushButton_Point, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Point()));
+        QObject::connect(pushButton_open_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_7()));
+        QObject::connect(pushButton_start_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_7()));
+        QObject::connect(spinBox_type, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_type()));
+        QObject::connect(horizontalSlider_value, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_value()));
+        QObject::connect(spinBox_value, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_spinBox_value()));
+        QObject::connect(radioButton, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bordertype1()));
+        QObject::connect(radioButton_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bordertype2()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -808,6 +1043,21 @@ public:
         pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
         label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
+        label_in_3->setText(QString());
+        label_value->setText(QApplication::translate("Hi_OpencvClass", "Value:", Q_NULLPTR));
+        label_type->setText(QApplication::translate("Hi_OpencvClass", "Type:", Q_NULLPTR));
+        pushButton_start_7->setText(QApplication::translate("Hi_OpencvClass", "Start", Q_NULLPTR));
+        label_9->setText(QApplication::translate("Hi_OpencvClass", "border_type:", Q_NULLPTR));
+        radioButton->setText(QApplication::translate("Hi_OpencvClass", "BORDER_CONSTANT", Q_NULLPTR));
+        radioButton_2->setText(QApplication::translate("Hi_OpencvClass", "BORDER_REPLICATE", Q_NULLPTR));
+        pushButton_open_7->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
+        label_out_3->setText(QString());
+        pushButton_threshold->setText(QApplication::translate("Hi_OpencvClass", "threshold", Q_NULLPTR));
+        pushButton_makeborder->setText(QApplication::translate("Hi_OpencvClass", "makeborder", Q_NULLPTR));
+        pushButton_Point->setText(QApplication::translate("Hi_OpencvClass", "Point", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("Hi_OpencvClass", "\345\205\266\344\273\226", Q_NULLPTR));
     } // retranslateUi
 
 };

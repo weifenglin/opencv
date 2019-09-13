@@ -12,6 +12,7 @@
 #include <qfiledialog.h>                //getopenfilename 类申明
 #include <qlabel.h>  //label类
 using namespace cv;
+using namespace std;
 
 class Hi_Opencv : public QMainWindow
 {
@@ -20,7 +21,10 @@ class Hi_Opencv : public QMainWindow
 public:
 	Hi_Opencv(QWidget *parent = Q_NULLPTR);
 	int i = -1;
-	int j, k, m;
+	int j, k, m, top, bottom, left, right;
+	int r = 100;
+	Scalar value;
+	RNG rng;
 	QString str;
 
 private slots:
@@ -48,6 +52,18 @@ private slots:
 	void on_top();
 	void on_black();
 
+	//其他
+	void on_open_7();
+	void on_spinBox_value();
+	void on_threshold();
+	void on_type();
+	void on_value();
+	void on_bordertype1();
+	void on_bordertype2();
+	void on_makeborder();
+	void on_start_7();
+	void on_Point();
+
 	//bianyuanjiance
 	int on_sobel_show();//进行sebel操作
 	void on_bystart();//开始边缘检测操作
@@ -62,5 +78,5 @@ private slots:
 private:
 	Ui::Hi_OpencvClass ui;
 	Mat image;
-	Mat image1;
+	Mat image1, image2;
 };
