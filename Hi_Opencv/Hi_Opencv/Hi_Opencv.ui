@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1342,6 +1342,455 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_6">
+     <attribute name="title">
+      <string>目标定位</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget_13">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>321</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <item>
+        <widget class="QLabel" name="label_10">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>input</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_in_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_14">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>10</y>
+        <width>321</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>output</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_out_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_fitEllipse">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>250</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>fitEllipse</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_rectcircle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rect Circle</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_convex">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>convexHull</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_open_5">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>open</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_7">
+     <attribute name="title">
+      <string>模板匹配</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_match">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>match</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_open1">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>open1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_open2">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>open2</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_6" native="true">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>60</y>
+        <width>181</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>141</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_17">
+        <item>
+         <widget class="QLabel" name="label_15">
+          <property name="maximumSize">
+           <size>
+            <width>10000</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>match_method:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method1">
+          <property name="text">
+           <string>TM_SQDIFF</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method2">
+          <property name="text">
+           <string>TM_SQDIFF_NORMED</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method3">
+          <property name="text">
+           <string>TM_CCORR</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method4">
+          <property name="text">
+           <string>TM_CCORR_NORMED</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method5">
+          <property name="text">
+           <string>TM_CCOEFF</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_method6">
+          <property name="text">
+           <string>TM_CCOEFF_NORMED</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>10</y>
+        <width>561</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_14">
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>original</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_in_original">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout_15">
+         <item>
+          <widget class="QLabel" name="label_13">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>template</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_in_templat">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_16">
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>result</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_out_result">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
       <string>其他</string>
@@ -1616,7 +2065,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -2325,6 +2774,214 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_convex</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_convexHull()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_rectcircle</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_rectcircle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>804</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_fitEllipse</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_fitEllipse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>785</x>
+     <y>-15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open_5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>827</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1135</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_match</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_match()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>919</x>
+     <y>-14</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open1</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>743</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1136</x>
+     <y>102</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>857</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1145</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method1</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>773</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1121</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>803</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1114</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method3</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>778</x>
+     <y>215</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1116</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method4</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>759</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1114</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>745</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1125</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_method6</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_method6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>742</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1122</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_open()</slot>
@@ -2357,5 +3014,18 @@
   <slot>on_bordertype1()</slot>
   <slot>on_bordertype2()</slot>
   <slot>on_spinBox_value()</slot>
+  <slot>on_convexHull()</slot>
+  <slot>on_rectcircle()</slot>
+  <slot>on_fitEllipse()</slot>
+  <slot>on_open_5()</slot>
+  <slot>on_match()</slot>
+  <slot>on_open1()</slot>
+  <slot>on_open2()</slot>
+  <slot>on_method1()</slot>
+  <slot>on_method2()</slot>
+  <slot>on_method3()</slot>
+  <slot>on_method4()</slot>
+  <slot>on_method5()</slot>
+  <slot>on_method6()</slot>
  </slots>
 </ui>

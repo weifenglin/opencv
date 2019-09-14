@@ -19,6 +19,8 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 
 	ui.widget_4->hide();
 	ui.widget_5->hide();
+
+	ui.pushButton_match->setEnabled(false);
 }
 
 
@@ -549,6 +551,309 @@ void Hi_Opencv::w3UpDown()
 	//label_in = new QLabel();
 	ui.w3Label->setPixmap(QPixmap::fromImage(img));
 	ui.w3Label->setAlignment(Qt::AlignCenter);
+}
+
+//目标变换
+void Hi_Opencv::on_open_5()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image = imread(str);
+		cvtColor(image, image3, COLOR_BGR2RGB);
+		cvtColor(image, image2, COLOR_BGR2GRAY);
+		cv::resize(image2, image2, Size(300, 200));
+		cv::resize(image3, image3, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image3.data), image3.cols, image3.rows, QImage::Format_RGB888);
+
+		ui.label_in_5->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_5->resize(QSize(img.width(), img.height()));
+
+	}
+}
+
+void Hi_Opencv::on_convexHull()
+{
+	Mat src_copy = image.clone();
+	Mat threshold_output;
+	vector<Mat> contours;
+	vector<Vec4i> hierarchy;
+
+
+	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+	vector<vector<Point> >hull(contours.size());
+	for (int i = 0; i < contours.size(); i++)
+	{
+		convexHull(Mat(contours[i]), hull[i], false);
+	}
+
+	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+	for (int i = 0; i < contours.size(); i++)
+	{
+		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+		drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+		drawContours(drawing, hull, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+	}
+
+	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+
+}
+
+void Hi_Opencv::on_rectcircle()
+{
+	Mat threshold_output;
+	vector<vector<Point> > contours;
+	vector<Vec4i> hierarchy;
+
+	/// 使用Threshold检测边缘
+	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+	/// 找到轮廓
+	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+	/// 多边形逼近轮廓 + 获取矩形和圆形边界框
+	vector<vector<Point> > contours_poly(contours.size());
+	vector<Rect> boundRect(contours.size());
+	vector<Point2f>center(contours.size());
+	vector<float>radius(contours.size());
+
+	for (int i = 0; i < contours.size(); i++)
+	{
+		approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
+		boundRect[i] = boundingRect(Mat(contours_poly[i]));
+		minEnclosingCircle(contours_poly[i], center[i], radius[i]);
+	}
+
+
+	/// 画多边形轮廓 + 包围的矩形框 + 圆形框
+	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+	for (int i = 0; i < contours.size(); i++)
+	{
+		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+		drawContours(drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+		rectangle(drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0);
+		circle(drawing, center[i], (int)radius[i], color, 2, 8, 0);
+	}
+	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+
+}
+
+void Hi_Opencv::on_fitEllipse()
+{
+	Mat threshold_output;
+	vector<vector<Point> > contours;
+	vector<Vec4i> hierarchy;
+
+	/// 阈值化检测边界
+	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+	/// 寻找轮廓
+	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+	/// 对每个找到的轮廓创建可倾斜的边界框和椭圆
+	vector<RotatedRect> minRect(contours.size());
+	vector<RotatedRect> minEllipse(contours.size());
+
+	for (int i = 0; i < contours.size(); i++)
+	{
+		minRect[i] = minAreaRect(Mat(contours[i]));
+		if (contours[i].size() > 5)
+		{
+			minEllipse[i] = fitEllipse(Mat(contours[i]));
+		}
+	}
+
+	/// 绘出轮廓及其可倾斜的边界框和边界椭圆
+	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+	for (int i = 0; i < contours.size(); i++)
+	{
+		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+		// contour
+		drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+		// ellipse
+		ellipse(drawing, minEllipse[i], color, 2, 8);
+		// rotated rectangle
+		Point2f rect_points[4]; minRect[i].points(rect_points);
+		for (int j = 0; j < 4; j++)
+			line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
+	}
+
+	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+
+}
+
+
+
+//目标定位-模板匹配
+void Hi_Opencv::on_open1()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+		String str = qstr2str(filename);
+		image = imread(str);
+		cvtColor(image, image2, COLOR_BGR2RGB);
+		cv::resize(image2, image2, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows, QImage::Format_RGB888);
+		ui.label_in_original->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_original->resize(QSize(img.width(), img.height()));
+	}
+}
+
+void Hi_Opencv::on_open2()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+		String str = qstr2str(filename);
+		image1 = imread(str);
+		cvtColor(image1, image3, COLOR_BGR2RGB);
+		cv::resize(image3, image3, Size(100, 75));
+		QImage img = QImage((const unsigned char*)(image3.data), image3.cols, image3.rows, QImage::Format_RGB888);
+		ui.label_in_templat->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_templat->resize(QSize(img.width(), img.height()));
+	}
+}
+
+void Hi_Opencv::on_method1()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_SQDIFF;
+	ui.radioButton_method2->setEnabled(false);
+	ui.radioButton_method3->setEnabled(false);
+	ui.radioButton_method4->setEnabled(false);
+	ui.radioButton_method5->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);
+}
+
+void Hi_Opencv::on_method2()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_SQDIFF_NORMED;
+	ui.radioButton_method1->setEnabled(false);
+	ui.radioButton_method3->setEnabled(false);
+	ui.radioButton_method4->setEnabled(false);
+	ui.radioButton_method5->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);
+}
+
+void Hi_Opencv::on_method3()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_CCORR;
+	ui.radioButton_method2->setEnabled(false);
+	ui.radioButton_method1->setEnabled(false);
+	ui.radioButton_method4->setEnabled(false);
+	ui.radioButton_method5->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);
+}
+
+void Hi_Opencv::on_method4()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_CCORR_NORMED;
+	ui.radioButton_method2->setEnabled(false);
+	ui.radioButton_method3->setEnabled(false);
+	ui.radioButton_method1->setEnabled(false);
+	ui.radioButton_method5->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);
+}
+
+void Hi_Opencv::on_method5()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_CCOEFF;
+	ui.radioButton_method2->setEnabled(false);
+	ui.radioButton_method3->setEnabled(false);
+	ui.radioButton_method4->setEnabled(false);
+	ui.radioButton_method1->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);
+}
+
+void Hi_Opencv::on_method6()
+{
+	ui.pushButton_match->setEnabled(true);
+	match_method = TM_CCOEFF_NORMED;
+	ui.radioButton_method2->setEnabled(false);
+	ui.radioButton_method3->setEnabled(false);
+	ui.radioButton_method4->setEnabled(false);
+	ui.radioButton_method5->setEnabled(false);
+	ui.radioButton_method1->setEnabled(false);
+}
+
+
+void Hi_Opencv::on_match()
+{
+	ui.radioButton_method1->setEnabled(true);
+	ui.radioButton_method2->setEnabled(true);
+	ui.radioButton_method3->setEnabled(true);
+	ui.radioButton_method4->setEnabled(true);
+	ui.radioButton_method5->setEnabled(true);
+	ui.radioButton_method6->setEnabled(true);
+	
+	cv::resize(image3, image4, Size(25, 22));
+	Mat image_display;
+	image2.copyTo(image_display);
+
+	//int result_cols = image5.cols - image6.cols + 1;
+	//int result_rows = image5.rows - image6.rows + 1;
+	int result_cols = image2.cols - image4.cols + 1;
+	int result_rows = image2.rows - image4.rows + 1;
+
+	result.create(result_cols, result_rows, CV_32FC1);
+	//matchTemplate(image5, image6, result, match_method);
+	matchTemplate(image2, image4, result, match_method);
+	normalize(result, result, 0, 1, NORM_MINMAX, -1, Mat());
+
+	double minVal; double maxVal; Point minLoc; Point maxLoc;
+	Point matchLoc;
+
+	minMaxLoc(result, &minVal, &maxVal, &minLoc, &maxLoc, Mat());
+
+	if (match_method == TM_SQDIFF || match_method == TM_SQDIFF_NORMED)
+	{
+		matchLoc = minLoc;
+	}
+	else
+	{
+		matchLoc = maxLoc;
+	}
+
+	rectangle(image_display, matchLoc, Point(matchLoc.x + image4.cols, matchLoc.y + image4.rows), Scalar::all(0), 2, 8, 0);
+	rectangle(result, matchLoc, Point(matchLoc.x + image4.cols, matchLoc.y + image4.rows), Scalar::all(0), 2, 8, 0);
+
+	QImage img3 = QImage((const unsigned char*)(image_display.data), image_display.cols, image_display.rows, QImage::Format_RGB888);
+	ui.label_out_result->setPixmap(QPixmap::fromImage(img3));
+	ui.label_out_result->resize(QSize(img3.width(), img3.height()));
+
+	ui.pushButton_match->setEnabled(false);
 }
 
 

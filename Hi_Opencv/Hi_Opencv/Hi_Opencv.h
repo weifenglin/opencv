@@ -23,6 +23,9 @@ public:
 	int i = -1;
 	int j, k, m, top, bottom, left, right;
 	int r = 100;
+	int thresh = 100;
+	int match_method;
+
 	Scalar value;
 	RNG rng;
 	QString str;
@@ -52,6 +55,24 @@ private slots:
 	void on_top();
 	void on_black();
 
+
+	//目标变换
+	void on_open_5();
+	void on_convexHull();
+	void on_rectcircle();
+	void on_fitEllipse();
+
+	//目标变换-模板匹配
+	void on_open1();
+	void on_open2();
+	void on_match();
+	void on_method1();
+	void on_method2();
+	void on_method3();
+	void on_method4();
+	void on_method5();
+	void on_method6();
+
 	//其他
 	void on_open_7();
 	void on_spinBox_value();
@@ -78,5 +99,6 @@ private slots:
 private:
 	Ui::Hi_OpencvClass ui;
 	Mat image;
-	Mat image1, image2;
+	Mat image1, image2, image3, image4;
+	Mat result;
 };
