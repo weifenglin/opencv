@@ -134,27 +134,55 @@ public:
     QWidget *tab_4;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_2;
     QPushButton *w3btnUp;
     QPushButton *w3btnDown;
     QPushButton *pushButton_6;
+    QPushButton *pushButton_2;
     QPushButton *w3btnOpen;
     QLabel *w3Label;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_18;
+    QPushButton *w3btnFS;
+    QPushButton *w3btnRotate;
+    QPushButton *w3btnTS;
+    QWidget *gridLayoutWidget_2;
+    QGridLayout *gridLayout_7;
+    QLabel *w3lbl2;
+    QLineEdit *w3Liney1;
+    QLabel *w3lblP4;
+    QLabel *w3lblP3;
+    QLineEdit *w3Linex1;
+    QLabel *w3lblP1;
+    QLabel *w3lblP2;
+    QLabel *w3lbl1;
+    QLabel *w3lbl3;
+    QLineEdit *w3Liney3;
+    QLineEdit *w3Liney2;
+    QLineEdit *w3Linex4;
+    QLineEdit *w3Linex3;
+    QLineEdit *w3Liney4;
+    QLineEdit *w3Linex2;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_19;
+    QLabel *w3lblRotate;
+    QLineEdit *w3Line1;
+    QLabel *w3lblSize;
+    QLineEdit *w3Line2;
+    QPushButton *w3btnStart;
     QWidget *tab_3;
-    QScrollArea *scrollArea_open31_3;
+    QPushButton *pushButton_blur_2;
+    QPushButton *pushButton_blur_3;
+    QPushButton *pushButton_blur_4;
+    QPushButton *pushButton_blur_5;
+    QPushButton *pushButton_blur_6;
+    QPushButton *pushButton_blur_7;
+    QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QScrollArea *scrollArea_open32_3;
+    QScrollArea *scrollArea_2;
     QWidget *scrollAreaWidgetContents_2;
     QPushButton *pushButton_open_2;
-    QPushButton *pushButton_33;
+    QPushButton *pushButton_open_3;
     QLabel *label_by1;
-    QPushButton *Button_41;
-    QPushButton *Button_42;
-    QPushButton *Button_43;
-    QPushButton *Button_44;
-    QPushButton *Button_45;
-    QLabel *label_33;
-    QLineEdit *lineEdit31_3;
     QWidget *tab_6;
     QWidget *layoutWidget_13;
     QVBoxLayout *verticalLayout_12;
@@ -239,7 +267,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(1235, 581);
+        Hi_OpencvClass->resize(1235, 595);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -690,95 +718,257 @@ public:
         tab_4->setObjectName(QStringLiteral("tab_4"));
         gridLayoutWidget = new QWidget(tab_4);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 30, 160, 171));
+        gridLayoutWidget->setGeometry(QRect(10, 30, 160, 141));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(gridLayoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        gridLayout->addWidget(pushButton_2, 2, 0, 1, 1);
-
         w3btnUp = new QPushButton(gridLayoutWidget);
         w3btnUp->setObjectName(QStringLiteral("w3btnUp"));
+        w3btnUp->setEnabled(false);
 
         gridLayout->addWidget(w3btnUp, 0, 0, 1, 1);
 
         w3btnDown = new QPushButton(gridLayoutWidget);
         w3btnDown->setObjectName(QStringLiteral("w3btnDown"));
+        w3btnDown->setEnabled(false);
 
         gridLayout->addWidget(w3btnDown, 0, 1, 1, 1);
 
         pushButton_6 = new QPushButton(gridLayoutWidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        pushButton_6->setEnabled(false);
 
         gridLayout->addWidget(pushButton_6, 2, 1, 1, 1);
+
+        pushButton_2 = new QPushButton(gridLayoutWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setEnabled(false);
+
+        gridLayout->addWidget(pushButton_2, 2, 0, 1, 1);
 
         w3btnOpen = new QPushButton(tab_4);
         w3btnOpen->setObjectName(QStringLiteral("w3btnOpen"));
         w3btnOpen->setGeometry(QRect(830, 40, 75, 23));
         w3Label = new QLabel(tab_4);
         w3Label->setObjectName(QStringLiteral("w3Label"));
-        w3Label->setGeometry(QRect(220, 50, 591, 401));
+        w3Label->setGeometry(QRect(220, 10, 591, 491));
+        verticalLayoutWidget = new QWidget(tab_4);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(10, 210, 160, 131));
+        verticalLayout_18 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_18->setSpacing(6);
+        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
+        verticalLayout_18->setContentsMargins(0, 0, 0, 0);
+        w3btnFS = new QPushButton(verticalLayoutWidget);
+        w3btnFS->setObjectName(QStringLiteral("w3btnFS"));
+        w3btnFS->setEnabled(false);
+
+        verticalLayout_18->addWidget(w3btnFS);
+
+        w3btnRotate = new QPushButton(verticalLayoutWidget);
+        w3btnRotate->setObjectName(QStringLiteral("w3btnRotate"));
+        w3btnRotate->setEnabled(false);
+
+        verticalLayout_18->addWidget(w3btnRotate);
+
+        w3btnTS = new QPushButton(verticalLayoutWidget);
+        w3btnTS->setObjectName(QStringLiteral("w3btnTS"));
+        w3btnTS->setEnabled(false);
+
+        verticalLayout_18->addWidget(w3btnTS);
+
+        gridLayoutWidget_2 = new QWidget(tab_4);
+        gridLayoutWidget_2->setObjectName(QStringLiteral("gridLayoutWidget_2"));
+        gridLayoutWidget_2->setGeometry(QRect(830, 120, 221, 141));
+        gridLayout_7 = new QGridLayout(gridLayoutWidget_2);
+        gridLayout_7->setSpacing(6);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        gridLayout_7->setContentsMargins(0, 0, 0, 0);
+        w3lbl2 = new QLabel(gridLayoutWidget_2);
+        w3lbl2->setObjectName(QStringLiteral("w3lbl2"));
+        w3lbl2->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lbl2, 0, 2, 1, 1);
+
+        w3Liney1 = new QLineEdit(gridLayoutWidget_2);
+        w3Liney1->setObjectName(QStringLiteral("w3Liney1"));
+        w3Liney1->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Liney1, 2, 4, 1, 1);
+
+        w3lblP4 = new QLabel(gridLayoutWidget_2);
+        w3lblP4->setObjectName(QStringLiteral("w3lblP4"));
+        w3lblP4->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lblP4, 5, 0, 1, 1);
+
+        w3lblP3 = new QLabel(gridLayoutWidget_2);
+        w3lblP3->setObjectName(QStringLiteral("w3lblP3"));
+        w3lblP3->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lblP3, 4, 0, 1, 1);
+
+        w3Linex1 = new QLineEdit(gridLayoutWidget_2);
+        w3Linex1->setObjectName(QStringLiteral("w3Linex1"));
+        w3Linex1->setEnabled(true);
+        w3Linex1->setClearButtonEnabled(false);
+
+        gridLayout_7->addWidget(w3Linex1, 2, 2, 1, 1);
+
+        w3lblP1 = new QLabel(gridLayoutWidget_2);
+        w3lblP1->setObjectName(QStringLiteral("w3lblP1"));
+        w3lblP1->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lblP1, 2, 0, 1, 1);
+
+        w3lblP2 = new QLabel(gridLayoutWidget_2);
+        w3lblP2->setObjectName(QStringLiteral("w3lblP2"));
+        w3lblP2->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lblP2, 3, 0, 1, 1);
+
+        w3lbl1 = new QLabel(gridLayoutWidget_2);
+        w3lbl1->setObjectName(QStringLiteral("w3lbl1"));
+        w3lbl1->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lbl1, 0, 0, 1, 1);
+
+        w3lbl3 = new QLabel(gridLayoutWidget_2);
+        w3lbl3->setObjectName(QStringLiteral("w3lbl3"));
+        w3lbl3->setEnabled(true);
+
+        gridLayout_7->addWidget(w3lbl3, 0, 4, 1, 1);
+
+        w3Liney3 = new QLineEdit(gridLayoutWidget_2);
+        w3Liney3->setObjectName(QStringLiteral("w3Liney3"));
+        w3Liney3->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Liney3, 4, 4, 1, 1);
+
+        w3Liney2 = new QLineEdit(gridLayoutWidget_2);
+        w3Liney2->setObjectName(QStringLiteral("w3Liney2"));
+        w3Liney2->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Liney2, 3, 4, 1, 1);
+
+        w3Linex4 = new QLineEdit(gridLayoutWidget_2);
+        w3Linex4->setObjectName(QStringLiteral("w3Linex4"));
+        w3Linex4->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Linex4, 5, 2, 1, 1);
+
+        w3Linex3 = new QLineEdit(gridLayoutWidget_2);
+        w3Linex3->setObjectName(QStringLiteral("w3Linex3"));
+        w3Linex3->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Linex3, 4, 2, 1, 1);
+
+        w3Liney4 = new QLineEdit(gridLayoutWidget_2);
+        w3Liney4->setObjectName(QStringLiteral("w3Liney4"));
+        w3Liney4->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Liney4, 5, 4, 1, 1);
+
+        w3Linex2 = new QLineEdit(gridLayoutWidget_2);
+        w3Linex2->setObjectName(QStringLiteral("w3Linex2"));
+        w3Linex2->setEnabled(true);
+
+        gridLayout_7->addWidget(w3Linex2, 3, 2, 1, 1);
+
+        verticalLayoutWidget_2 = new QWidget(tab_4);
+        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
+        verticalLayoutWidget_2->setGeometry(QRect(830, 290, 71, 84));
+        verticalLayout_19 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
+        verticalLayout_19->setContentsMargins(0, 0, 0, 0);
+        w3lblRotate = new QLabel(verticalLayoutWidget_2);
+        w3lblRotate->setObjectName(QStringLiteral("w3lblRotate"));
+        w3lblRotate->setEnabled(true);
+
+        verticalLayout_19->addWidget(w3lblRotate);
+
+        w3Line1 = new QLineEdit(verticalLayoutWidget_2);
+        w3Line1->setObjectName(QStringLiteral("w3Line1"));
+        w3Line1->setEnabled(true);
+
+        verticalLayout_19->addWidget(w3Line1);
+
+        w3lblSize = new QLabel(verticalLayoutWidget_2);
+        w3lblSize->setObjectName(QStringLiteral("w3lblSize"));
+        w3lblSize->setEnabled(true);
+
+        verticalLayout_19->addWidget(w3lblSize);
+
+        w3Line2 = new QLineEdit(verticalLayoutWidget_2);
+        w3Line2->setObjectName(QStringLiteral("w3Line2"));
+        w3Line2->setEnabled(true);
+
+        verticalLayout_19->addWidget(w3Line2);
+
+        w3btnStart = new QPushButton(tab_4);
+        w3btnStart->setObjectName(QStringLiteral("w3btnStart"));
+        w3btnStart->setEnabled(false);
+        w3btnStart->setGeometry(QRect(830, 80, 75, 23));
         tabWidget->addTab(tab_4, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
-        scrollArea_open31_3 = new QScrollArea(tab_3);
-        scrollArea_open31_3->setObjectName(QStringLiteral("scrollArea_open31_3"));
-        scrollArea_open31_3->setGeometry(QRect(110, 30, 351, 321));
-        scrollArea_open31_3->setWidgetResizable(true);
+        pushButton_blur_2 = new QPushButton(tab_3);
+        pushButton_blur_2->setObjectName(QStringLiteral("pushButton_blur_2"));
+        pushButton_blur_2->setGeometry(QRect(10, 30, 91, 23));
+        pushButton_blur_2->setFont(font);
+        pushButton_blur_3 = new QPushButton(tab_3);
+        pushButton_blur_3->setObjectName(QStringLiteral("pushButton_blur_3"));
+        pushButton_blur_3->setGeometry(QRect(10, 90, 91, 23));
+        pushButton_blur_3->setFont(font);
+        pushButton_blur_4 = new QPushButton(tab_3);
+        pushButton_blur_4->setObjectName(QStringLiteral("pushButton_blur_4"));
+        pushButton_blur_4->setGeometry(QRect(10, 150, 91, 23));
+        pushButton_blur_4->setFont(font);
+        pushButton_blur_5 = new QPushButton(tab_3);
+        pushButton_blur_5->setObjectName(QStringLiteral("pushButton_blur_5"));
+        pushButton_blur_5->setGeometry(QRect(10, 210, 91, 23));
+        pushButton_blur_5->setFont(font);
+        pushButton_blur_6 = new QPushButton(tab_3);
+        pushButton_blur_6->setObjectName(QStringLiteral("pushButton_blur_6"));
+        pushButton_blur_6->setGeometry(QRect(10, 270, 91, 23));
+        pushButton_blur_6->setFont(font);
+        pushButton_blur_7 = new QPushButton(tab_3);
+        pushButton_blur_7->setObjectName(QStringLiteral("pushButton_blur_7"));
+        pushButton_blur_7->setGeometry(QRect(10, 330, 91, 23));
+        pushButton_blur_7->setFont(font);
+        scrollArea = new QScrollArea(tab_3);
+        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setGeometry(QRect(110, 30, 351, 321));
+        scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 349, 319));
-        scrollArea_open31_3->setWidget(scrollAreaWidgetContents);
-        scrollArea_open32_3 = new QScrollArea(tab_3);
-        scrollArea_open32_3->setObjectName(QStringLiteral("scrollArea_open32_3"));
-        scrollArea_open32_3->setGeometry(QRect(470, 30, 351, 321));
-        scrollArea_open32_3->setWidgetResizable(true);
+        scrollArea->setWidget(scrollAreaWidgetContents);
+        scrollArea_2 = new QScrollArea(tab_3);
+        scrollArea_2->setObjectName(QStringLiteral("scrollArea_2"));
+        scrollArea_2->setGeometry(QRect(470, 30, 351, 321));
+        scrollArea_2->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
         scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 349, 319));
-        scrollArea_open32_3->setWidget(scrollAreaWidgetContents_2);
+        scrollArea_2->setWidget(scrollAreaWidgetContents_2);
         pushButton_open_2 = new QPushButton(tab_3);
         pushButton_open_2->setObjectName(QStringLiteral("pushButton_open_2"));
         pushButton_open_2->setGeometry(QRect(850, 30, 88, 23));
         pushButton_open_2->setFont(font);
-        pushButton_33 = new QPushButton(tab_3);
-        pushButton_33->setObjectName(QStringLiteral("pushButton_33"));
-        pushButton_33->setGeometry(QRect(940, 30, 88, 23));
-        pushButton_33->setFont(font);
+        pushButton_open_3 = new QPushButton(tab_3);
+        pushButton_open_3->setObjectName(QStringLiteral("pushButton_open_3"));
+        pushButton_open_3->setGeometry(QRect(940, 30, 88, 23));
+        pushButton_open_3->setFont(font);
         label_by1 = new QLabel(tab_3);
         label_by1->setObjectName(QStringLiteral("label_by1"));
         label_by1->setGeometry(QRect(910, 60, 61, 16));
-        Button_41 = new QPushButton(tab_3);
-        Button_41->setObjectName(QStringLiteral("Button_41"));
-        Button_41->setGeometry(QRect(10, 30, 91, 23));
-        Button_41->setFont(font);
-        Button_42 = new QPushButton(tab_3);
-        Button_42->setObjectName(QStringLiteral("Button_42"));
-        Button_42->setGeometry(QRect(10, 100, 91, 23));
-        Button_42->setFont(font);
-        Button_43 = new QPushButton(tab_3);
-        Button_43->setObjectName(QStringLiteral("Button_43"));
-        Button_43->setGeometry(QRect(10, 190, 91, 23));
-        Button_43->setFont(font);
-        Button_44 = new QPushButton(tab_3);
-        Button_44->setObjectName(QStringLiteral("Button_44"));
-        Button_44->setGeometry(QRect(10, 260, 91, 23));
-        Button_44->setFont(font);
-        Button_45 = new QPushButton(tab_3);
-        Button_45->setObjectName(QStringLiteral("Button_45"));
-        Button_45->setGeometry(QRect(10, 330, 91, 23));
-        Button_45->setFont(font);
-        label_33 = new QLabel(tab_3);
-        label_33->setObjectName(QStringLiteral("label_33"));
-        label_33->setGeometry(QRect(850, 110, 111, 26));
-        label_33->setFont(font1);
-        lineEdit31_3 = new QLineEdit(tab_3);
-        lineEdit31_3->setObjectName(QStringLiteral("lineEdit31_3"));
-        lineEdit31_3->setGeometry(QRect(960, 110, 91, 20));
         tabWidget->addTab(tab_3, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QStringLiteral("tab_6"));
@@ -1008,7 +1198,7 @@ public:
         widget_4->setGeometry(QRect(780, 60, 281, 107));
         layoutWidget_8 = new QWidget(widget_4);
         layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
-        layoutWidget_8->setGeometry(QRect(10, 80, 241, 24));
+        layoutWidget_8->setGeometry(QRect(10, 80, 241, 23));
         horizontalLayout_7 = new QHBoxLayout(layoutWidget_8);
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -1170,55 +1360,61 @@ public:
         Hi_OpencvClass->setStatusBar(statusBar);
 
         retranslateUi(Hi_OpencvClass);
+        QObject::connect(pushButton_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_median_show()));
+        QObject::connect(pushButton_blur, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_blur_show()));
         QObject::connect(pushButton_gaussian, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_gaussian_show()));
+        QObject::connect(pushButton_open, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
+        QObject::connect(pushButton_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Bilateral_show()));
+        QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
+        QObject::connect(pushButton_blur_2, SIGNAL(clicked()), tabWidget, SLOT(on_sobel_show()));
+        QObject::connect(pushButton_blur_3, SIGNAL(clicked()), tabWidget, SLOT(on_laplace_show()));
         QObject::connect(w3btnOpen, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3openPic()));
         QObject::connect(w3btnUp, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3up()));
-        QObject::connect(pushButton_6, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3UpDown()));
-        QObject::connect(radioButton_RECT, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_RECT()));
         QObject::connect(w3btnDown, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3down()));
-        QObject::connect(radioButton_CROSS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_CROSS()));
         QObject::connect(pushButton_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3LeftRight()));
-        QObject::connect(pushButton_dilate, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_dilate_show()));
-        QObject::connect(pushButton_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Bilateral_show()));
-        QObject::connect(pushButton_open, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open()));
+        QObject::connect(pushButton_6, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3UpDown()));
         QObject::connect(pushButton_erode, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_erode_show()));
+        QObject::connect(pushButton_dilate, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_dilate_show()));
         QObject::connect(pushButton_morphologyEX, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_morphologyEX_show()));
         QObject::connect(pushButton_open_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_2()));
         QObject::connect(pushButton_start_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_2()));
-        QObject::connect(pushButton_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_median_show()));
-        QObject::connect(pushButton_blur, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_blur_show()));
-        QObject::connect(pushButton_start, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start()));
-        QObject::connect(radioButton, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bordertype1()));
-        QObject::connect(radioButton_method3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method3()));
-        QObject::connect(pushButton_open2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open2()));
-        QObject::connect(spinBox_type, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_type()));
-        QObject::connect(pushButton_Point, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Point()));
-        QObject::connect(pushButton_convex, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_convexHull()));
+        QObject::connect(radioButton_RECT, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_RECT()));
+        QObject::connect(radioButton_CROSS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_CROSS()));
+        QObject::connect(radioButton_ELLIPSE, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_ELLIPSE()));
         QObject::connect(radioButton_opening, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_opening()));
-        QObject::connect(pushButton_threshold, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_threshold()));
-        QObject::connect(pushButton_open1, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open1()));
-        QObject::connect(radioButton_method2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method2()));
-        QObject::connect(radioButton_method4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method4()));
-        QObject::connect(horizontalSlider_value, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_value()));
-        QObject::connect(radioButton_method1, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method1()));
-        QObject::connect(radioButton_method6, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method6()));
-        QObject::connect(pushButton_makeborder, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_makeborder()));
-        QObject::connect(pushButton_open_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_5()));
-        QObject::connect(pushButton_match, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_match()));
+        QObject::connect(radioButton_closing, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_closing()));
         QObject::connect(radioButton_gradient, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_gradient()));
+        QObject::connect(radioButton_top, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_top()));
+        QObject::connect(radioButton_black, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_black()));
+        QObject::connect(pushButton_threshold, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_threshold()));
+        QObject::connect(pushButton_makeborder, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_makeborder()));
+        QObject::connect(pushButton_Point, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_Point()));
         QObject::connect(pushButton_open_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_7()));
         QObject::connect(pushButton_start_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_7()));
+        QObject::connect(spinBox_type, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_type()));
+        QObject::connect(horizontalSlider_value, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_value()));
         QObject::connect(spinBox_value, SIGNAL(valueChanged(int)), Hi_OpencvClass, SLOT(on_spinBox_value()));
-        QObject::connect(radioButton_top, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_top()));
+        QObject::connect(radioButton, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bordertype1()));
         QObject::connect(radioButton_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bordertype2()));
+        QObject::connect(pushButton_convex, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_convexHull()));
         QObject::connect(pushButton_rectcircle, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_rectcircle()));
         QObject::connect(pushButton_fitEllipse, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_fitEllipse()));
-        QObject::connect(radioButton_closing, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_closing()));
-        QObject::connect(radioButton_black, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_black()));
-        QObject::connect(radioButton_ELLIPSE, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_form_ELLIPSE()));
+        QObject::connect(pushButton_open_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_5()));
+        QObject::connect(pushButton_match, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_match()));
+        QObject::connect(pushButton_open1, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open1()));
+        QObject::connect(pushButton_open2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open2()));
+        QObject::connect(radioButton_method1, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method1()));
+        QObject::connect(radioButton_method2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method2()));
+        QObject::connect(radioButton_method3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method3()));
+        QObject::connect(radioButton_method4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method4()));
         QObject::connect(radioButton_method5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method5()));
+        QObject::connect(radioButton_method6, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_method6()));
+        QObject::connect(w3btnFS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnFSClicked()));
+        QObject::connect(w3btnRotate, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnRotateClicked()));
+        QObject::connect(w3btnTS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnTSClicked()));
+        QObject::connect(w3btnStart, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnStartClicked()));
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -1276,22 +1472,35 @@ public:
         label_size->setText(QApplication::translate("Hi_OpencvClass", "erosion_size:", Q_NULLPTR));
         label_title->setText(QApplication::translate("Hi_OpencvClass", "Form Conversion", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\275\242\346\200\201\345\217\230\346\215\242", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("Hi_OpencvClass", "\345\267\246\345\217\263", Q_NULLPTR));
         w3btnUp->setText(QApplication::translate("Hi_OpencvClass", "\346\224\276\345\244\247", Q_NULLPTR));
         w3btnDown->setText(QApplication::translate("Hi_OpencvClass", "\347\274\251\345\260\217", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("Hi_OpencvClass", "\344\270\212\344\270\213", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("Hi_OpencvClass", "\345\267\246\345\217\263", Q_NULLPTR));
         w3btnOpen->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         w3Label->setText(QString());
+        w3btnFS->setText(QApplication::translate("Hi_OpencvClass", "\344\273\277\345\260\204\345\217\230\346\215\242", Q_NULLPTR));
+        w3btnRotate->setText(QApplication::translate("Hi_OpencvClass", "\346\227\213\350\275\254\347\274\251\346\224\276", Q_NULLPTR));
+        w3btnTS->setText(QApplication::translate("Hi_OpencvClass", "\351\200\217\350\247\206\345\217\230\346\215\242", Q_NULLPTR));
+        w3lbl2->setText(QApplication::translate("Hi_OpencvClass", "\346\226\260\345\203\217\347\264\240\347\202\271x", Q_NULLPTR));
+        w3lblP4->setText(QApplication::translate("Hi_OpencvClass", "TextLabel", Q_NULLPTR));
+        w3lblP3->setText(QApplication::translate("Hi_OpencvClass", "TextLabel", Q_NULLPTR));
+        w3lblP1->setText(QApplication::translate("Hi_OpencvClass", "TextLabel", Q_NULLPTR));
+        w3lblP2->setText(QApplication::translate("Hi_OpencvClass", "TextLabel", Q_NULLPTR));
+        w3lbl1->setText(QApplication::translate("Hi_OpencvClass", "\345\216\237\345\203\217\347\264\240\347\202\271", Q_NULLPTR));
+        w3lbl3->setText(QApplication::translate("Hi_OpencvClass", "\346\226\260\345\203\217\347\264\240\347\202\271y", Q_NULLPTR));
+        w3lblRotate->setText(QApplication::translate("Hi_OpencvClass", "\346\227\213\350\275\254\350\247\222\345\272\246", Q_NULLPTR));
+        w3lblSize->setText(QApplication::translate("Hi_OpencvClass", "\346\224\276\347\274\251\345\200\215\346\225\260", Q_NULLPTR));
+        w3btnStart->setText(QApplication::translate("Hi_OpencvClass", "Start", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\217\230\345\275\242", Q_NULLPTR));
+        pushButton_blur_2->setText(QApplication::translate("Hi_OpencvClass", "Sobel\345\257\274\346\225\260", Q_NULLPTR));
+        pushButton_blur_3->setText(QApplication::translate("Hi_OpencvClass", "Laplace \347\256\227\345\255\220", Q_NULLPTR));
+        pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));
+        pushButton_blur_5->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\347\272\277\345\217\230\346\215\242", Q_NULLPTR));
+        pushButton_blur_6->setText(QApplication::translate("Hi_OpencvClass", "\345\257\273\346\211\276\350\275\256\345\273\223", Q_NULLPTR));
+        pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "\350\275\256\345\273\223\347\237\251", Q_NULLPTR));
         pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
-        pushButton_33->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
+        pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
         label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
-        Button_41->setText(QApplication::translate("Hi_OpencvClass", "Sobel\345\257\274\346\225\260", Q_NULLPTR));
-        Button_42->setText(QApplication::translate("Hi_OpencvClass", "Laplace\347\256\227\345\255\220", Q_NULLPTR));
-        Button_43->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));
-        Button_44->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\347\272\277\345\217\230\346\215\242", Q_NULLPTR));
-        Button_45->setText(QApplication::translate("Hi_OpencvClass", "\345\257\273\346\211\276\350\275\256\345\273\223", Q_NULLPTR));
-        label_33->setText(QApplication::translate("Hi_OpencvClass", "\351\231\215\345\231\252\345\206\205\346\240\270\345\244\247\345\260\217\357\274\232", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
         label_10->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
         label_in_5->setText(QString());

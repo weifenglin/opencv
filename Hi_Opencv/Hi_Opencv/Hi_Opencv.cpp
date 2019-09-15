@@ -20,12 +20,9 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.widget_4->hide();
 	ui.widget_5->hide();
 
-
-
 	ui.pushButton_match->setEnabled(false);
-	//边缘检测
-	ui.label_31->hide();
-	ui.lineEdit31->hide();
+
+	w3Initial();
 }
 
 
@@ -250,6 +247,7 @@ int Hi_Opencv::on_morphologyEX_show()
 	ui.widget_2->show();
 	return i;
 }
+
 void Hi_Opencv::on_form_RECT()
 {
 	ui.radioButton_CROSS->setEnabled(false);
@@ -465,6 +463,14 @@ void Hi_Opencv::w3openPic()
 		//ui.w3Label->resize(QSize(img.width(), img.height()));
 		//ui.label_in->show();
 		//ui.pushButton_start->setEnabled(true);
+		ui.w3btnDown->setEnabled(true);
+		ui.w3btnUp->setEnabled(true);
+		ui.pushButton_2->setEnabled(true);
+		ui.pushButton_6->setEnabled(true);
+		ui.w3btnFS->setEnabled(true);
+		ui.w3btnTS->setEnabled(true);
+		ui.w3btnRotate->setEnabled(true);
+		//w3Initial();
 	}
 }
 
@@ -556,6 +562,195 @@ void Hi_Opencv::w3UpDown()
 	//label_in = new QLabel();
 	ui.w3Label->setPixmap(QPixmap::fromImage(img));
 	ui.w3Label->setAlignment(Qt::AlignCenter);
+}
+
+void  Hi_Opencv::w3Initial()
+{
+	//ui.label_i->hide();
+	ui.w3lbl1->hide();
+	ui.w3lbl2->hide();
+	ui.w3lbl3->hide();
+	ui.w3lblP1->hide();
+	ui.w3lblP2->hide();
+	ui.w3lblP3->hide();
+	ui.w3lblP4->hide();
+	ui.w3Linex1->hide();
+	ui.w3Linex2->hide();
+	ui.w3Linex3->hide();
+	ui.w3Linex4->hide();
+	ui.w3Liney1->hide();
+	ui.w3Liney2->hide();
+	ui.w3Liney3->hide();
+	ui.w3Liney4->hide();
+	ui.w3lblRotate->hide();
+	ui.w3lblSize->hide();
+	ui.w3Line1->hide();
+	ui.w3Line2->hide();
+}
+
+int Hi_Opencv::w3btnFSClicked()
+{
+	i = 1;
+	w3Initial();
+	ui.w3lbl1->show();
+	ui.w3lbl2->show();
+	ui.w3lbl3->show();
+	ui.w3lblP1->show();
+	ui.w3lblP2->show();
+	ui.w3lblP3->show();
+
+	ui.w3Linex1->show();
+	ui.w3Linex2->show();
+	ui.w3Linex3->show();
+
+	ui.w3Liney1->show();
+	ui.w3Liney2->show();
+	ui.w3Liney3->show();
+
+	string temp, temp1, temp2;
+	temp1 = to_string(image.rows - 1);
+	temp2 = to_string(image.rows - 1);
+
+	temp = "(0,0)";
+	ui.w3lblP1->setText(QString::fromStdString(temp));
+	temp = "(0," + temp1 + ")";
+	ui.w3lblP2->setText(QString::fromStdString(temp));
+	temp = "(" + temp2 + ",0)";
+	ui.w3lblP3->setText(QString::fromStdString(temp));
+	
+	ui.w3btnStart->setEnabled(true);
+	return i;
+}
+
+int Hi_Opencv::w3btnRotateClicked()
+{
+	i = 2;
+	w3Initial();
+
+	ui.w3lblRotate->show();
+	ui.w3lblSize->show();
+	ui.w3Line1->show();
+	ui.w3Line2->show();
+
+	ui.w3btnStart->setEnabled(true);
+	return i;
+}
+
+int Hi_Opencv::w3btnTSClicked()
+{
+	i = 3;
+	i = 1;
+	w3Initial();
+	ui.w3lbl1->show();
+	ui.w3lbl2->show();
+	ui.w3lbl3->show();
+	ui.w3lblP1->show();
+	ui.w3lblP2->show();
+	ui.w3lblP3->show();
+	ui.w3lblP4->show();
+
+	ui.w3Linex1->show();
+	ui.w3Linex2->show();
+	ui.w3Linex3->show();
+	ui.w3Linex4->show();
+
+	ui.w3Liney1->show();
+	ui.w3Liney2->show();
+	ui.w3Liney3->show();
+	ui.w3Liney4->show();
+
+	string temp, temp1, temp2;
+	temp1 = to_string(image.rows - 1);
+	temp2 = to_string(image.rows - 1);
+
+	temp = "(0,0)";
+	ui.w3lblP1->setText(QString::fromStdString(temp));
+	temp = "(0," + temp1 + ")";
+	ui.w3lblP2->setText(QString::fromStdString(temp));
+	temp = "(" + temp2 + ",0)";
+	ui.w3lblP3->setText(QString::fromStdString(temp));
+	temp1 = to_string(image.cols / 2);
+	temp = "(" + temp1 + "," + temp2 + ")";
+	ui.w3lblP4->setText(QString::fromStdString(temp));
+
+	ui.w3btnStart->setEnabled(true);
+	return i;
+}
+
+void Hi_Opencv::w3btnStartClicked()
+{
+	try
+	{
+		switch(i) 
+		{
+			case 1:
+			{
+				Point2f srcTri[3];
+				Point2f dstTri[3];
+
+				//Mat rot_mat(2, 3, CV_32FC1);
+				Mat warp_mat(2, 3, CV_32FC1);
+				Mat warp_rotate_dst;
+
+				/// 设置目标图像的大小和类型与源图像一致
+				//warp_dst = Mat::zeros(src.rows, src.cols, src.type());
+
+				/// 设置源图像和目标图像上的三组点以计算仿射变换
+				srcTri[0] = Point2f(0, 0);
+				srcTri[1] = Point2f(image.cols - 1, 0);
+				srcTri[2] = Point2f(0, image.rows - 1);
+
+				dstTri[0] = Point2f(ui.w3Linex1->text().toFloat(), ui.w3Liney1->text().toFloat());
+				dstTri[1] = Point2f(ui.w3Linex2->text().toFloat(), ui.w3Liney2->text().toFloat());
+				dstTri[2] = Point2f(ui.w3Linex3->text().toFloat(), ui.w3Liney3->text().toFloat());
+
+				/// 求得仿射变换
+				warp_mat = getAffineTransform(srcTri, dstTri);
+
+				/// 对源图像应用上面求得的仿射变换
+				warpAffine(image, image, warp_mat, image.size());
+
+				QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+
+
+				//label_in = new QLabel();
+				ui.w3Label->setPixmap(QPixmap::fromImage(img));
+				ui.w3Label->setAlignment(Qt::AlignCenter);
+			}
+			case 2:
+			{
+				Mat rot_mat(2, 3, CV_32FC1);
+
+				Point center = Point(image.cols / 2, image.rows / 2);
+				double angle = ui.w3Linex1->text().toDouble();
+				double scale = ui.w3Linex2->text().toDouble();
+
+				/// 通过上面的旋转细节信息求得旋转矩阵
+				rot_mat = getRotationMatrix2D(center, angle, scale);
+
+				/// 旋转已扭曲图像
+				warpAffine(image, image, rot_mat, image.size());
+
+				QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+				//label_in = new QLabel();
+				ui.w3Label->setPixmap(QPixmap::fromImage(img));
+				ui.w3Label->setAlignment(Qt::AlignCenter);
+	
+			}
+			case 3:
+			{
+
+			}
+		default:
+			break;
+		}
+	}
+	catch (...)
+	{
+
+		QMessageBox::warning(this, "warning", "wrong data!");
+		return;
+	}
 }
 
 //目标变换
@@ -961,8 +1156,6 @@ void Hi_Opencv::on_start_7()
 	ui.label_out_3->resize(QSize(img.width(), img.height()));
 }
 
-
-
 void Hi_Opencv::on_Point()
 {
 	ui.pushButton_open_7->hide();
@@ -1039,5 +1232,3 @@ void Hi_Opencv::on_Point()
 	ui.label_out_3->setPixmap(QPixmap::fromImage(img1));
 	ui.label_out_3->resize(QSize(img1.width(), img1.height()));
 }
-
-
