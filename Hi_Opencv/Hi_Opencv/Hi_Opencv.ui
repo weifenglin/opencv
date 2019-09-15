@@ -30,11 +30,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>图像平滑</string>
+      <string>图像模糊</string>
      </attribute>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
@@ -556,19 +556,14 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>形态变换</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>图像变形</string>
+      <string>图像平滑</string>
      </attribute>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
       <string>边缘检测</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_blur_2">
+     <widget class="QPushButton" name="Button_31">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -587,26 +582,7 @@
        <string>Sobel导数</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_blur_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>91</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Laplace 算子</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_blur_4">
+     <widget class="QPushButton" name="Button_33">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -625,7 +601,7 @@
        <string>Canny 检测</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_blur_5">
+     <widget class="QPushButton" name="Button_34">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -644,7 +620,7 @@
        <string>霍夫线变换</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_blur_6">
+     <widget class="QPushButton" name="Button_35">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -663,26 +639,7 @@
        <string>寻找轮廓</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_blur_7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>330</y>
-        <width>91</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>轮廓矩</string>
-      </property>
-     </widget>
-     <widget class="QScrollArea" name="scrollArea">
+     <widget class="QScrollArea" name="scrollArea_open31">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -705,10 +662,10 @@
        </property>
       </widget>
      </widget>
-     <widget class="QScrollArea" name="scrollArea_2">
+     <widget class="QScrollArea" name="scrollArea_open32">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>450</x>
         <y>30</y>
         <width>351</width>
         <height>321</height>
@@ -728,58 +685,20 @@
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton_open_2">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>30</y>
-        <width>88</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_open_3">
-      <property name="geometry">
-       <rect>
-        <x>940</x>
-        <y>30</y>
-        <width>88</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>start</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_by1">
       <property name="geometry">
        <rect>
-        <x>910</x>
+        <x>840</x>
         <y>60</y>
-        <width>61</width>
-        <height>16</height>
+        <width>191</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
        <string>请选择功能</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_w_2">
+     <widget class="QLabel" name="label_31">
       <property name="geometry">
        <rect>
         <x>840</x>
@@ -806,6 +725,51 @@
         <width>91</width>
         <height>20</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_open_2">
+      <property name="geometry">
+       <rect>
+        <x>854</x>
+        <y>30</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>open</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_31">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>30</y>
+        <width>81</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>start</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Button_32">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Laplace算子</string>
       </property>
      </widget>
     </widget>
@@ -953,7 +917,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_blur_2</sender>
+   <sender>Button_31</sender>
    <signal>clicked()</signal>
    <receiver>tabWidget</receiver>
    <slot>on_sobel_show()</slot>
@@ -969,23 +933,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_blur_3</sender>
-   <signal>clicked()</signal>
-   <receiver>tabWidget</receiver>
-   <slot>on_laplace_show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>62</x>
-     <y>139</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>7</x>
-     <y>130</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_blur_2</sender>
+   <sender>Button_31</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
    <slot>on_sobel_show()</slot>
@@ -1004,15 +952,95 @@
    <sender>pushButton_open_2</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open()</slot>
+   <slot>on_byopen()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>898</x>
-     <y>82</y>
+     <x>923</x>
+     <y>85</y>
     </hint>
     <hint type="destinationlabel">
-     <x>875</x>
-     <y>-12</y>
+     <x>904</x>
+     <y>16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_31</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_bystart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>993</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button_32</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_laplace_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button_33</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_canny_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>-15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button_34</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_HoughLine_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>111</x>
+     <y>-3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button_35</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_findContours_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>12</y>
     </hint>
    </hints>
   </connection>
@@ -1025,5 +1053,11 @@
   <slot>on_median_show()</slot>
   <slot>on_Bilateral_show()</slot>
   <slot>on_sobel_show()</slot>
+  <slot>on_byopen()</slot>
+  <slot>on_bystart()</slot>
+  <slot>on_laplace_show()</slot>
+  <slot>on_canny_show()</slot>
+  <slot>on_HoughLine_show()</slot>
+  <slot>on_findContours_show()</slot>
  </slots>
 </ui>
