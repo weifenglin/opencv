@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1387,44 +1387,6 @@
      <attribute name="title">
       <string>边缘检测</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_blur_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>91</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Sobel导数</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_blur_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>91</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Laplace 算子</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_blur_4">
       <property name="geometry">
        <rect>
@@ -1501,7 +1463,7 @@
        <string>轮廓矩</string>
       </property>
      </widget>
-     <widget class="QScrollArea" name="scrollArea">
+     <widget class="QScrollArea" name="scrollArea_open31">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -1524,7 +1486,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QScrollArea" name="scrollArea_2">
+     <widget class="QScrollArea" name="scrollArea_open32">
       <property name="geometry">
        <rect>
         <x>470</x>
@@ -1596,6 +1558,55 @@
       </property>
       <property name="text">
        <string>请选择功能</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit31">
+      <property name="geometry">
+       <rect>
+        <x>920</x>
+        <y>110</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>110</y>
+        <width>54</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>请输入：</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>sobel导数</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Laplace</string>
       </property>
      </widget>
     </widget>
@@ -2122,7 +2133,7 @@
          <x>10</x>
          <y>80</y>
          <width>241</width>
-         <height>23</height>
+         <height>24</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -2548,38 +2559,6 @@
     <hint type="destinationlabel">
      <x>797</x>
      <y>555</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_blur_2</sender>
-   <signal>clicked()</signal>
-   <receiver>tabWidget</receiver>
-   <slot>on_sobel_show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>47</x>
-     <y>79</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>16</x>
-     <y>67</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_blur_3</sender>
-   <signal>clicked()</signal>
-   <receiver>tabWidget</receiver>
-   <slot>on_laplace_show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>62</x>
-     <y>139</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>7</x>
-     <y>130</y>
     </hint>
    </hints>
   </connection>
@@ -3303,6 +3282,134 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_blur_4</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_canny_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_HoughLine_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>28</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_6</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_findContours_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>318</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_7</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_findContoursLength_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>37</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>51</x>
+     <y>-21</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_sobel_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>123</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_laplace_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>557</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_byopen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>911</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>871</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_bystart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>994</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>953</x>
+     <y>-9</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_open()</slot>
@@ -3352,5 +3459,12 @@
   <slot>w3btnRotateClicked()</slot>
   <slot>w3btnTSClicked()</slot>
   <slot>w3btnStartClicked()</slot>
+  <slot>on_canny_show()</slot>
+  <slot>on_HoughLine_show()</slot>
+  <slot>on_findContours_show()</slot>
+  <slot>on_findContoursLength_show()</slot>
+  <slot>on_laplace_show()</slot>
+  <slot>on_byopen()</slot>
+  <slot>on_bystart()</slot>
  </slots>
 </ui>

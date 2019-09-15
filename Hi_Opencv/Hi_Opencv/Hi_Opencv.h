@@ -87,7 +87,14 @@ private slots:
 
 	//bianyuanjiance
 	int on_sobel_show();//进行sebel操作
+	int on_laplace_show();//进行laplace操作
+	int on_canny_show();//进行canny操作
+	int on_HoughLine_show();//进行hough线性操作
+	int on_HoughCircle_show();//进行霍夫曼圆变换
+	int on_findContours_show();//扫描图像中的轮廓
+	int on_findContoursLength_show();//扫描图像中的轮毂
 	void on_bystart();//开始边缘检测操作
+	void on_byopen();
 
 	//图像变形
 	void w3openPic();
@@ -106,4 +113,5 @@ private:
 	Mat image1, image2, image3, image4;
 	Mat result;
 	void w3Initial();
+	QLabel *label;
 };
