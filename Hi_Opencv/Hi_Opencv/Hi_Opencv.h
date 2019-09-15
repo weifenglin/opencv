@@ -95,10 +95,15 @@ private slots:
 	void w3down();
 	void w3LeftRight();
 	void w3UpDown();
+	int w3btnFSClicked();
+	int w3btnRotateClicked();
+	int w3btnTSClicked();
+	void w3btnStartClicked();
 
 private:
 	Ui::Hi_OpencvClass ui;
 	Mat image;
 	Mat image1, image2, image3, image4;
 	Mat result;
+	void w3Initial();
 };
