@@ -7,7 +7,6 @@ bianyuan::bianyuan(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-	//i = -1;
 	
 
 }
