@@ -21,7 +21,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
@@ -172,12 +171,7 @@ public:
     QWidget *tab_3;
     QPushButton *pushButton_blur_4;
     QPushButton *pushButton_blur_5;
-    QPushButton *pushButton_blur_6;
     QPushButton *pushButton_blur_7;
-    QScrollArea *scrollArea_open31;
-    QWidget *scrollAreaWidgetContents;
-    QScrollArea *scrollArea_open32;
-    QWidget *scrollAreaWidgetContents_2;
     QPushButton *pushButton_open_2;
     QPushButton *pushButton_open_3;
     QLabel *label_by1;
@@ -185,6 +179,15 @@ public:
     QLabel *label_31;
     QPushButton *pushButton;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_blur_8;
+    QWidget *layoutWidget_15;
+    QVBoxLayout *verticalLayout_20;
+    QLabel *label_16;
+    QLabel *label_out_4;
+    QWidget *layoutWidget_16;
+    QVBoxLayout *verticalLayout_21;
+    QLabel *label_17;
+    QLabel *label_in_4;
     QWidget *tab_6;
     QWidget *layoutWidget_13;
     QVBoxLayout *verticalLayout_12;
@@ -922,36 +925,16 @@ public:
         tab_3->setObjectName(QStringLiteral("tab_3"));
         pushButton_blur_4 = new QPushButton(tab_3);
         pushButton_blur_4->setObjectName(QStringLiteral("pushButton_blur_4"));
-        pushButton_blur_4->setGeometry(QRect(10, 150, 91, 23));
+        pushButton_blur_4->setGeometry(QRect(10, 180, 91, 23));
         pushButton_blur_4->setFont(font);
         pushButton_blur_5 = new QPushButton(tab_3);
         pushButton_blur_5->setObjectName(QStringLiteral("pushButton_blur_5"));
-        pushButton_blur_5->setGeometry(QRect(10, 210, 91, 23));
+        pushButton_blur_5->setGeometry(QRect(10, 230, 91, 23));
         pushButton_blur_5->setFont(font);
-        pushButton_blur_6 = new QPushButton(tab_3);
-        pushButton_blur_6->setObjectName(QStringLiteral("pushButton_blur_6"));
-        pushButton_blur_6->setGeometry(QRect(10, 270, 91, 23));
-        pushButton_blur_6->setFont(font);
         pushButton_blur_7 = new QPushButton(tab_3);
         pushButton_blur_7->setObjectName(QStringLiteral("pushButton_blur_7"));
         pushButton_blur_7->setGeometry(QRect(10, 330, 91, 23));
         pushButton_blur_7->setFont(font);
-        scrollArea_open31 = new QScrollArea(tab_3);
-        scrollArea_open31->setObjectName(QStringLiteral("scrollArea_open31"));
-        scrollArea_open31->setGeometry(QRect(110, 30, 351, 321));
-        scrollArea_open31->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 349, 319));
-        scrollArea_open31->setWidget(scrollAreaWidgetContents);
-        scrollArea_open32 = new QScrollArea(tab_3);
-        scrollArea_open32->setObjectName(QStringLiteral("scrollArea_open32"));
-        scrollArea_open32->setGeometry(QRect(470, 30, 351, 321));
-        scrollArea_open32->setWidgetResizable(true);
-        scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 349, 319));
-        scrollArea_open32->setWidget(scrollAreaWidgetContents_2);
         pushButton_open_2 = new QPushButton(tab_3);
         pushButton_open_2->setObjectName(QStringLiteral("pushButton_open_2"));
         pushButton_open_2->setGeometry(QRect(850, 30, 88, 23));
@@ -971,10 +954,62 @@ public:
         label_31->setGeometry(QRect(860, 110, 54, 12));
         pushButton = new QPushButton(tab_3);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 40, 91, 23));
+        pushButton->setGeometry(QRect(10, 80, 91, 23));
         pushButton_5 = new QPushButton(tab_3);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(10, 90, 91, 23));
+        pushButton_5->setGeometry(QRect(10, 130, 91, 23));
+        pushButton_blur_8 = new QPushButton(tab_3);
+        pushButton_blur_8->setObjectName(QStringLiteral("pushButton_blur_8"));
+        pushButton_blur_8->setGeometry(QRect(10, 280, 91, 23));
+        pushButton_blur_8->setFont(font);
+        layoutWidget_15 = new QWidget(tab_3);
+        layoutWidget_15->setObjectName(QStringLiteral("layoutWidget_15"));
+        layoutWidget_15->setGeometry(QRect(450, 20, 301, 381));
+        verticalLayout_20 = new QVBoxLayout(layoutWidget_15);
+        verticalLayout_20->setSpacing(6);
+        verticalLayout_20->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
+        verticalLayout_20->setContentsMargins(0, 0, 0, 0);
+        label_16 = new QLabel(layoutWidget_15);
+        label_16->setObjectName(QStringLiteral("label_16"));
+        label_16->setMaximumSize(QSize(50, 20));
+        label_16->setFont(font2);
+
+        verticalLayout_20->addWidget(label_16);
+
+        label_out_4 = new QLabel(layoutWidget_15);
+        label_out_4->setObjectName(QStringLiteral("label_out_4"));
+        sizePolicy.setHeightForWidth(label_out_4->sizePolicy().hasHeightForWidth());
+        label_out_4->setSizePolicy(sizePolicy);
+        label_out_4->setMinimumSize(QSize(0, 0));
+        label_out_4->setScaledContents(true);
+
+        verticalLayout_20->addWidget(label_out_4);
+
+        layoutWidget_16 = new QWidget(tab_3);
+        layoutWidget_16->setObjectName(QStringLiteral("layoutWidget_16"));
+        layoutWidget_16->setGeometry(QRect(140, 20, 301, 381));
+        verticalLayout_21 = new QVBoxLayout(layoutWidget_16);
+        verticalLayout_21->setSpacing(6);
+        verticalLayout_21->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
+        verticalLayout_21->setContentsMargins(0, 0, 0, 0);
+        label_17 = new QLabel(layoutWidget_16);
+        label_17->setObjectName(QStringLiteral("label_17"));
+        label_17->setMaximumSize(QSize(50, 20));
+        label_17->setFont(font2);
+
+        verticalLayout_21->addWidget(label_17);
+
+        label_in_4 = new QLabel(layoutWidget_16);
+        label_in_4->setObjectName(QStringLiteral("label_in_4"));
+        sizePolicy.setHeightForWidth(label_in_4->sizePolicy().hasHeightForWidth());
+        label_in_4->setSizePolicy(sizePolicy);
+        label_in_4->setMinimumSize(QSize(0, 0));
+        label_in_4->setScaledContents(true);
+
+        verticalLayout_21->addWidget(label_in_4);
+
         tabWidget->addTab(tab_3, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QStringLiteral("tab_6"));
@@ -1419,12 +1454,12 @@ public:
         QObject::connect(w3btnStart, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnStartClicked()));
         QObject::connect(pushButton_blur_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_canny_show()));
         QObject::connect(pushButton_blur_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_HoughLine_show()));
-        QObject::connect(pushButton_blur_6, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_findContours_show()));
         QObject::connect(pushButton_blur_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_findContoursLength_show()));
         QObject::connect(pushButton, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_sobel_show()));
         QObject::connect(pushButton_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_laplace_show()));
         QObject::connect(pushButton_open_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_byopen()));
         QObject::connect(pushButton_open_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bystart()));
+        QObject::connect(pushButton_blur_8, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_HoughCircle_show()));
 
         tabWidget->setCurrentIndex(3);
 
@@ -1506,7 +1541,6 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\217\230\345\275\242", Q_NULLPTR));
         pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));
         pushButton_blur_5->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\347\272\277\345\217\230\346\215\242", Q_NULLPTR));
-        pushButton_blur_6->setText(QApplication::translate("Hi_OpencvClass", "\345\257\273\346\211\276\350\275\256\345\273\223", Q_NULLPTR));
         pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "\350\275\256\345\273\223\347\237\251", Q_NULLPTR));
         pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
@@ -1514,6 +1548,11 @@ public:
         label_31->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\350\276\223\345\205\245\357\274\232", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Hi_OpencvClass", "sobel\345\257\274\346\225\260", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("Hi_OpencvClass", "Laplace", Q_NULLPTR));
+        pushButton_blur_8->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\345\234\206\345\217\230\346\215\242", Q_NULLPTR));
+        label_16->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
+        label_out_4->setText(QString());
+        label_17->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
+        label_in_4->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
         label_10->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
         label_in_5->setText(QString());

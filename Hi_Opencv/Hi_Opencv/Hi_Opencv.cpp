@@ -1263,10 +1263,9 @@ void Hi_Opencv::on_byopen()
 		cvtColor(image, image, COLOR_BGR2RGB);
 		cv::resize(image, image, Size(300, 200));
 		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
-		QLabel *label = new QLabel();
-		label->setPixmap(QPixmap::fromImage(img));
-		label->resize(QSize(img.width(), img.height()));
-		ui.scrollArea_open31->setWidget(label);
+		//QLabel *label = new QLabel();
+		ui.label_in_4->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_4->resize(QSize(img.width(), img.height()));
 
 	}
 }
@@ -1297,11 +1296,8 @@ void Hi_Opencv::on_bystart()
 			addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
 			image1 = grad;
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
-
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 		}
 		else
 		{
@@ -1311,8 +1307,6 @@ void Hi_Opencv::on_bystart()
 			//dialog1.exec();
 			return;
 		}
-
-
 
 		break;
 
@@ -1337,10 +1331,8 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(dst, abs_dst);
 			image1 = abs_dst;
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
@@ -1377,22 +1369,16 @@ void Hi_Opencv::on_bystart()
 
 			/// 使用 Canny算子输出边缘作为掩码显示原图像
 			dst = Scalar::all(0);
-
 			src.copyTo(dst, detected_edges);
 			image1 = dst;
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
@@ -1401,34 +1387,15 @@ void Hi_Opencv::on_bystart()
 		if (i_by > 0)
 		{
 			Mat src, src_gray;
-			Mat dst, detected_edges, cdst;
+			Mat dst, cdst;
 
-
-			int edgeThresh = 1;
-			int lowThreshold;
-			int const max_lowThreshold = 100;
-			int ratio = 3;
-			int kernel_size = 3;
 			src = image;
-			dst.create(src.size(), src.type());
-
-			/// 原图像转换为灰度图像
 			cvtColor(src, src_gray, COLOR_BGR2GRAY);
-			blur(src_gray, detected_edges, Size(3, 3));
-			lowThreshold = i_by;
-			/// 运行Canny算子
-			Canny(detected_edges, detected_edges, 50, 200, 3);
+			Canny(src_gray, dst, i_by, 200 ,3);
+			cvtColor(dst, cdst, COLOR_GRAY2BGR);
 
-			/// 使用 Canny算子输出边缘作为掩码显示原图像
-			dst = Scalar::all(0);
-
-			src.copyTo(dst, detected_edges);
-			//以上过程完成边缘检测
-			cvtColor(dst, cdst, COLOR_BGR2GRAY);
-
-			std::vector<Vec2f> lines;
-			/*
-			HoughLines(dst, lines, 1, 3.14 / 180, 100, 0, 0);
+			/*vector<Vec2f> lines;
+			HoughLines(dst, lines, 1, 3.1415926 / 180, 100, 0, 0);
 
 			for (size_t i = 0; i < lines.size(); i++)
 			{
@@ -1440,54 +1407,97 @@ void Hi_Opencv::on_bystart()
 				pt1.y = cvRound(y0 + 1000 * (a));
 				pt2.x = cvRound(x0 - 1000 * (-b));
 				pt2.y = cvRound(y0 - 1000 * (a));
-				line(cdst, pt1, pt2, Scalar(0, 0, 255), 3, LINE_AA);
+				line(cdst, pt1, pt2, Scalar(0, 0, 255), 3, 8);
+				*/
+			vector<Vec4i> lines;
+			HoughLinesP(dst, lines, 1, CV_PI / 180, 50, 50, 10);
+			for (size_t i = 0; i < lines.size(); i++)
+			{
+				Vec4i l = lines[i];
+				line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3, LINE_AA);
 			}
 
-			*/
-			image1 = dst;
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			QImage img = QImage((const unsigned char*)(cdst.data), cdst.cols, cdst.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
-	case 36:
+
+	case 35:
+	{
 		i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
-		if (1)
+		if (i_by > 0)
 		{
 			Mat src, src_gray;
-			Mat dst, detected_edges, cdst, canny_output;
-			int edgeThresh = 1;
-			int lowThreshold;
-			int const max_lowThreshold = 100;
-			int ratio = 3;
-			int kernel_size = 3;
+			//i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
+			src = image;
+			cvtColor(src, src_gray, COLOR_BGR2GRAY);
+
+			//GaussianBlur(src_gray, src_gray, Size(9, 9), 2, 2);
+
+			vector<Vec3f> circles;
+
+			/// Apply the Hough Transform to find the circles
+			HoughCircles(src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows / 8, i_by, 100, 0, 0);
+
+			for (int i = 0; i < circles.size(); i++)
+			{
+				Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+				int radius = cvRound(circles[i][2]);
+				// circle center
+				circle(src, center, 3, Scalar(0, 255, 0), -1, 8, 0);
+				// circle outline
+				circle(src, center, radius, Scalar(0, 0, 255), 3, 8, 0);
+			}
+
+			QImage img = QImage((const unsigned char*)(src.data), src.cols, src.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
+		}
+		else
+		{
+			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+			return;
+		}
+		break;
+	}
+
+	case 36:
+		i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
+		if ( i_by > 0 )
+		{
+			Mat src, src_gray,canny_output;
 			RNG rng(12345);
 			src = image;
-			dst.create(src.size(), src.type());
-
 			/// 原图像转换为灰度图像
-			cvtColor(src, src_gray, COLOR_BGR2GRAY);
-			blur(src_gray, detected_edges, Size(3, 3));
-			lowThreshold = i_by;
+			cvtColor(src, src_gray, COLOR_BGR2GRAY);;
 			/// 运行Canny算子
-			Canny(src_gray, canny_output, 100, 200, 3);
+			Canny(src_gray, canny_output, i_by, 200, 3);
 
 			/// 使用 Canny算子输出边缘作为掩码显示原图像
-			//Mat canny_output;
-			std::vector<std::vector<Point> > contours;
-			std::vector<Vec4i> hierarchy;
+			vector<vector<Point> > contours;
+			vector<Vec4i> hierarchy;
 			findContours(canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+			//计算矩：
+			vector<Moments> mu(contours.size());
+			for (int i = 0; i < contours.size(); i++)
+			{
+				mu[i] = moments(contours[i], false);
+			}
+
+			///  计算中心矩:
+			vector<Point2f> mc(contours.size());
+			for (int i = 0; i < contours.size(); i++)
+			{
+				mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00);
+			}
 
 			/// 绘出轮廓
 			Mat drawing = Mat::zeros(canny_output.size(), CV_8UC3);
@@ -1495,22 +1505,16 @@ void Hi_Opencv::on_bystart()
 			{
 				Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
 				drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, Point());
+				circle(drawing, mc[i], 4, color, -1, 8, 0);
 			}
-
-			image1 = drawing;
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			QImage img = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
@@ -1526,6 +1530,7 @@ int Hi_Opencv::on_sobel_show()
 	ui.label_by1->setText("sobel");
 	ui.label_31->show();
 	ui.lineEdit31->show();
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_laplace_show()
@@ -1534,6 +1539,7 @@ int Hi_Opencv::on_laplace_show()
 	ui.label_by1->setText("Laplace");
 	ui.label_31->show();
 	ui.lineEdit31->show();
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_canny_show()
@@ -1542,7 +1548,7 @@ int Hi_Opencv::on_canny_show()
 	ui.label_by1->setText("Canny");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
+	ui.lineEdit31->setText("");
 
 	return i;
 }
@@ -1552,37 +1558,25 @@ int Hi_Opencv::on_HoughLine_show()
 	ui.label_by1->setText("HoughLine");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_HoughCircle_show()
 {
-	i = 33;
-	ui.label_by1->setText("Canny operation");
+	i = 35;
+	ui.label_by1->setText("HoughCircle");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
 }
-int Hi_Opencv::on_findContours_show()
-{
-	i = 36;
-	ui.label_by1->setText("findContour");
-	//ui.label_31->show();
-	//ui.lineEdit31->show();
 
-
-	return i;
-}
 int Hi_Opencv::on_findContoursLength_show()
 {
-	i = 33;
+	i = 36;
 	ui.label_by1->setText("Canny operation");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
 }
