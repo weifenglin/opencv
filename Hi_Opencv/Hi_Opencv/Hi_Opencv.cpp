@@ -20,7 +20,12 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.widget_4->hide();
 	ui.widget_5->hide();
 
+
+
 	ui.pushButton_match->setEnabled(false);
+	//±ßÔµ¼ì²â
+	ui.label_31->hide();
+	ui.lineEdit31->hide();
 }
 
 
@@ -1034,3 +1039,5 @@ void Hi_Opencv::on_Point()
 	ui.label_out_3->setPixmap(QPixmap::fromImage(img1));
 	ui.label_out_3->resize(QSize(img1.width(), img1.height()));
 }
+
+
