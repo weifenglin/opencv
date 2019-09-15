@@ -669,8 +669,8 @@ int Hi_Opencv::w3btnTSClicked()
 	ui.w3lblP2->setText(QString::fromStdString(temp));
 	temp = "(" + temp2 + ",0)";
 	ui.w3lblP3->setText(QString::fromStdString(temp));
-	temp1 = to_string(image.cols / 2);
-	temp = "(" + temp1 + "," + temp2 + ")";
+	//temp1 = to_string(image.cols / 2);
+	temp = "(" + temp2 + "," + temp1 + ")";
 	ui.w3lblP4->setText(QString::fromStdString(temp));
 
 	ui.w3btnStart->setEnabled(true);
@@ -690,7 +690,7 @@ void Hi_Opencv::w3btnStartClicked()
 
 				//Mat rot_mat(2, 3, CV_32FC1);
 				Mat warp_mat(2, 3, CV_32FC1);
-				Mat warp_rotate_dst;
+				//Mat warp_rotate_dst;
 
 				/// 设置目标图像的大小和类型与源图像一致
 				//warp_dst = Mat::zeros(src.rows, src.cols, src.type());
@@ -715,15 +715,20 @@ void Hi_Opencv::w3btnStartClicked()
 
 				//label_in = new QLabel();
 				ui.w3Label->setPixmap(QPixmap::fromImage(img));
-				ui.w3Label->setAlignment(Qt::AlignCenter);
+				ui.w3Label->setAlignment(Qt::AlignCenter); 
+
+				break;
 			}
 			case 2:
 			{
 				Mat rot_mat(2, 3, CV_32FC1);
 
 				Point center = Point(image.cols / 2, image.rows / 2);
-				double angle = ui.w3Linex1->text().toDouble();
-				double scale = ui.w3Linex2->text().toDouble();
+				//double angle = atof(ui.w3Linex1->text().toStdString().c_str());
+				//float anglw1 = ui.w3Line1->text().toDouble();
+
+				double angle = ui.w3Line1->text().toDouble();
+				double scale = ui.w3Line2->text().toDouble();
 
 				/// 通过上面的旋转细节信息求得旋转矩阵
 				rot_mat = getRotationMatrix2D(center, angle, scale);
@@ -735,11 +740,46 @@ void Hi_Opencv::w3btnStartClicked()
 				//label_in = new QLabel();
 				ui.w3Label->setPixmap(QPixmap::fromImage(img));
 				ui.w3Label->setAlignment(Qt::AlignCenter);
+
+				break;
 	
 			}
 			case 3:
 			{
+				Point2f srcTri[4], dstTri[4];
+				//创建数组指针
+				Mat warp_mat(3, 3, CV_32FC1);
 
+				Mat dst;
+				//载入和显示图像
+				//src = cvLoadImage("1.jpg", CV_LOAD_IMAGE_UNCHANGED);
+				//cvNamedWindow("原图", CV_WINDOW_AUTOSIZE);
+				//cvShowImage("原图", src);
+
+				//dst = cvCloneImage(src);
+				//dst->origin = src->origin;
+				//cvZero(dst);
+				//构造变换矩阵
+				srcTri[0] = Point2f(0, 0);
+				srcTri[1] = Point2f(image.cols - 1, 0);
+				srcTri[2] = Point2f(0, image.rows - 1);
+				srcTri[3] = Point2f(image.cols - 1, image.rows - 1);
+
+				dstTri[0] = Point2f(ui.w3Linex1->text().toFloat(), ui.w3Liney1->text().toFloat());
+				dstTri[1] = Point2f(ui.w3Linex2->text().toFloat(), ui.w3Liney2->text().toFloat());
+				dstTri[2] = Point2f(ui.w3Linex3->text().toFloat(), ui.w3Liney3->text().toFloat());
+				dstTri[3] = Point2f(ui.w3Linex3->text().toFloat(), ui.w3Liney3->text().toFloat());
+				//计算透视映射矩阵
+				warp_mat = getPerspectiveTransform(srcTri, dstTri);
+				//调用函数cvWarpPerspective（）
+				warpPerspective(image, image, warp_mat, image.size());
+
+				QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+				//label_in = new QLabel();
+				ui.w3Label->setPixmap(QPixmap::fromImage(img));
+				ui.w3Label->setAlignment(Qt::AlignCenter);
+
+				break;
 			}
 		default:
 			break;
