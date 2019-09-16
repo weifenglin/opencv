@@ -3,7 +3,6 @@
 #include <QtWidgets/QMainWindow>
 #include <qlineedit.h>
 #include "ui_Hi_Opencv.h"
-#include <warning.h>
 #include<QGraphicsScene>  
 #include<QGraphicsView>                 //graphicsview¿‡
 #include<opencv2\imgproc\imgproc.hpp>
@@ -119,8 +118,6 @@ private slots:
 
 private:
 	Ui::Hi_OpencvClass ui;
-	//mydialog dialog1;
-	warning  dialog1;
 	Mat image;
 	Mat image1, image2, image3, image4;
 	Mat result;

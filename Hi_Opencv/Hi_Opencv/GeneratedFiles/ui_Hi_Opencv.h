@@ -62,8 +62,8 @@ public:
     QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_2;
-    QSpacerItem *verticalSpacer_12;
     QLabel *label_out;
+    QSpacerItem *verticalSpacer_12;
     QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_4;
     QSpacerItem *verticalSpacer_5;
@@ -311,7 +311,7 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(9, 9, 95, 376));
+        layoutWidget->setGeometry(QRect(9, 9, 101, 381));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -362,7 +362,7 @@ public:
 
         layoutWidget1 = new QWidget(tab);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(92, 9, 331, 381));
+        layoutWidget1->setGeometry(QRect(120, 10, 321, 381));
         verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -396,7 +396,7 @@ public:
 
         layoutWidget2 = new QWidget(tab);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(430, 10, 321, 381));
+        layoutWidget2->setGeometry(QRect(448, 11, 321, 381));
         verticalLayout_3 = new QVBoxLayout(layoutWidget2);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -409,10 +409,6 @@ public:
 
         verticalLayout_3->addWidget(label_2);
 
-        verticalSpacer_12 = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Maximum);
-
-        verticalLayout_3->addItem(verticalSpacer_12);
-
         label_out = new QLabel(layoutWidget2);
         label_out->setObjectName(QStringLiteral("label_out"));
         sizePolicy.setHeightForWidth(label_out->sizePolicy().hasHeightForWidth());
@@ -422,9 +418,13 @@ public:
 
         verticalLayout_3->addWidget(label_out);
 
+        verticalSpacer_12 = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Maximum);
+
+        verticalLayout_3->addItem(verticalSpacer_12);
+
         layoutWidget3 = new QWidget(tab);
         layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(760, 10, 197, 381));
+        layoutWidget3->setGeometry(QRect(780, 10, 197, 381));
         verticalLayout_4 = new QVBoxLayout(layoutWidget3);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -552,7 +552,7 @@ public:
         tab_2->setObjectName(QStringLiteral("tab_2"));
         layoutWidget_2 = new QWidget(tab_2);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(100, 10, 301, 381));
+        layoutWidget_2->setGeometry(QRect(130, 10, 301, 381));
         verticalLayout_6 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_6->setSpacing(6);
         verticalLayout_6->setContentsMargins(11, 11, 11, 11);
@@ -581,7 +581,7 @@ public:
 
         layoutWidget_3 = new QWidget(tab_2);
         layoutWidget_3->setObjectName(QStringLiteral("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(410, 10, 301, 381));
+        layoutWidget_3->setGeometry(QRect(440, 10, 301, 381));
         verticalLayout_7 = new QVBoxLayout(layoutWidget_3);
         verticalLayout_7->setSpacing(6);
         verticalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -605,7 +605,7 @@ public:
 
         layoutWidget_4 = new QWidget(tab_2);
         layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(740, 10, 195, 51));
+        layoutWidget_4->setGeometry(QRect(760, 10, 195, 51));
         horizontalLayout = new QHBoxLayout(layoutWidget_4);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -666,7 +666,7 @@ public:
 
         layoutWidget_6 = new QWidget(tab_2);
         layoutWidget_6->setObjectName(QStringLiteral("layoutWidget_6"));
-        layoutWidget_6->setGeometry(QRect(740, 100, 301, 181));
+        layoutWidget_6->setGeometry(QRect(760, 100, 301, 181));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget_6);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
@@ -722,7 +722,7 @@ public:
 
         widget_2 = new QWidget(tab_2);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(740, 300, 299, 92));
+        widget_2->setGeometry(QRect(760, 300, 299, 92));
         label_size = new QLabel(widget_2);
         label_size->setObjectName(QStringLiteral("label_size"));
         label_size->setGeometry(QRect(0, 10, 111, 16));
@@ -732,7 +732,7 @@ public:
         lineEdit_size->setGeometry(QRect(0, 30, 91, 20));
         label_title = new QLabel(tab_2);
         label_title->setObjectName(QStringLiteral("label_title"));
-        label_title->setGeometry(QRect(740, 70, 161, 21));
+        label_title->setGeometry(QRect(760, 70, 161, 21));
         label_title->setFont(font2);
         label_title->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_2, QString());
@@ -1302,7 +1302,7 @@ public:
         tab_5->setObjectName(QStringLiteral("tab_5"));
         layoutWidget_7 = new QWidget(tab_5);
         layoutWidget_7->setObjectName(QStringLiteral("layoutWidget_7"));
-        layoutWidget_7->setGeometry(QRect(90, 10, 321, 381));
+        layoutWidget_7->setGeometry(QRect(110, 10, 321, 381));
         verticalLayout_9 = new QVBoxLayout(layoutWidget_7);
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
@@ -1420,7 +1420,7 @@ public:
 
         layoutWidget_12 = new QWidget(tab_5);
         layoutWidget_12->setObjectName(QStringLiteral("layoutWidget_12"));
-        layoutWidget_12->setGeometry(QRect(420, 10, 321, 381));
+        layoutWidget_12->setGeometry(QRect(440, 10, 321, 381));
         verticalLayout_10 = new QVBoxLayout(layoutWidget_12);
         verticalLayout_10->setSpacing(6);
         verticalLayout_10->setContentsMargins(11, 11, 11, 11);
@@ -1555,7 +1555,7 @@ public:
         QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
         QObject::connect(pushButton_10, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhi_open()));
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);

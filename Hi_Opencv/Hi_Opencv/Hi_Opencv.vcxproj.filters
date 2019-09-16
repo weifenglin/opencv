@@ -36,29 +36,14 @@
     <ClCompile Include="Hi_Opencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bianyuan.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="warning.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Hi_Opencv.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="bianyuan.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="warning.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Hi_Opencv.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="E:\进击\opencv分类\Hi_Opencv\Hi_Opencv\Hi_Opencv\warning.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

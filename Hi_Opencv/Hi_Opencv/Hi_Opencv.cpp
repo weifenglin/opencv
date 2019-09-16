@@ -1266,7 +1266,7 @@ void Hi_Opencv::on_byopen()
 		//QLabel *label = new QLabel();
 		ui.label_in_4->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_4->resize(QSize(img.width(), img.height()));
-
+		ui.pushButton_open_3->setEnabled(true);
 	}
 }
 
