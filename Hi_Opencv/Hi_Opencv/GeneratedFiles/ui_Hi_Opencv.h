@@ -130,6 +130,23 @@ public:
     QLabel *label_size;
     QLineEdit *lineEdit_size;
     QLabel *label_title;
+    QWidget *tab_8;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *verticalLayout_22;
+    QPushButton *pushButton_8;
+    QSpacerItem *verticalSpacer_20;
+    QPushButton *pushButton_7;
+    QSpacerItem *verticalSpacer_19;
+    QPushButton *pushButton_9;
+    QWidget *verticalLayoutWidget_4;
+    QVBoxLayout *verticalLayout_23;
+    QLabel *label_zhi_in;
+    QWidget *verticalLayoutWidget_5;
+    QVBoxLayout *verticalLayout_24;
+    QLabel *label_zhi_out;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_10;
+    QPushButton *pushButton_10;
     QWidget *tab_4;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -272,7 +289,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(1235, 595);
+        Hi_OpencvClass->resize(1235, 644);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -289,12 +306,12 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 1081, 541));
+        tabWidget->setGeometry(QRect(10, 20, 1081, 541));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget = new QWidget(tab);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(9, 9, 77, 376));
+        layoutWidget->setGeometry(QRect(9, 9, 95, 376));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -407,7 +424,7 @@ public:
 
         layoutWidget3 = new QWidget(tab);
         layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(760, 10, 186, 381));
+        layoutWidget3->setGeometry(QRect(760, 10, 197, 381));
         verticalLayout_4 = new QVBoxLayout(layoutWidget3);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -588,7 +605,7 @@ public:
 
         layoutWidget_4 = new QWidget(tab_2);
         layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(740, 10, 158, 51));
+        layoutWidget_4->setGeometry(QRect(740, 10, 195, 51));
         horizontalLayout = new QHBoxLayout(layoutWidget_4);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -610,7 +627,7 @@ public:
 
         layoutWidget_5 = new QWidget(tab_2);
         layoutWidget_5->setObjectName(QStringLiteral("layoutWidget_5"));
-        layoutWidget_5->setGeometry(QRect(10, 10, 82, 381));
+        layoutWidget_5->setGeometry(QRect(10, 10, 107, 381));
         verticalLayout_5 = new QVBoxLayout(layoutWidget_5);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -719,11 +736,84 @@ public:
         label_title->setFont(font2);
         label_title->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_2, QString());
+        tab_8 = new QWidget();
+        tab_8->setObjectName(QStringLiteral("tab_8"));
+        verticalLayoutWidget_3 = new QWidget(tab_8);
+        verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
+        verticalLayoutWidget_3->setGeometry(QRect(50, 50, 141, 321));
+        verticalLayout_22 = new QVBoxLayout(verticalLayoutWidget_3);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
+        verticalLayout_22->setContentsMargins(0, 0, 0, 0);
+        pushButton_8 = new QPushButton(verticalLayoutWidget_3);
+        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+
+        verticalLayout_22->addWidget(pushButton_8);
+
+        verticalSpacer_20 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_22->addItem(verticalSpacer_20);
+
+        pushButton_7 = new QPushButton(verticalLayoutWidget_3);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+
+        verticalLayout_22->addWidget(pushButton_7);
+
+        verticalSpacer_19 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_22->addItem(verticalSpacer_19);
+
+        pushButton_9 = new QPushButton(verticalLayoutWidget_3);
+        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+
+        verticalLayout_22->addWidget(pushButton_9);
+
+        verticalLayoutWidget_4 = new QWidget(tab_8);
+        verticalLayoutWidget_4->setObjectName(QStringLiteral("verticalLayoutWidget_4"));
+        verticalLayoutWidget_4->setGeometry(QRect(220, 50, 321, 321));
+        verticalLayout_23 = new QVBoxLayout(verticalLayoutWidget_4);
+        verticalLayout_23->setSpacing(6);
+        verticalLayout_23->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_23->setObjectName(QStringLiteral("verticalLayout_23"));
+        verticalLayout_23->setContentsMargins(0, 0, 0, 0);
+        label_zhi_in = new QLabel(verticalLayoutWidget_4);
+        label_zhi_in->setObjectName(QStringLiteral("label_zhi_in"));
+
+        verticalLayout_23->addWidget(label_zhi_in);
+
+        verticalLayoutWidget_5 = new QWidget(tab_8);
+        verticalLayoutWidget_5->setObjectName(QStringLiteral("verticalLayoutWidget_5"));
+        verticalLayoutWidget_5->setGeometry(QRect(560, 50, 341, 321));
+        verticalLayout_24 = new QVBoxLayout(verticalLayoutWidget_5);
+        verticalLayout_24->setSpacing(6);
+        verticalLayout_24->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_24->setObjectName(QStringLiteral("verticalLayout_24"));
+        verticalLayout_24->setContentsMargins(0, 0, 0, 0);
+        label_zhi_out = new QLabel(verticalLayoutWidget_5);
+        label_zhi_out->setObjectName(QStringLiteral("label_zhi_out"));
+
+        verticalLayout_24->addWidget(label_zhi_out);
+
+        horizontalLayoutWidget = new QWidget(tab_8);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(920, 50, 81, 31));
+        horizontalLayout_10 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_10->setSpacing(6);
+        horizontalLayout_10->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
+        pushButton_10 = new QPushButton(horizontalLayoutWidget);
+        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+
+        horizontalLayout_10->addWidget(pushButton_10);
+
+        tabWidget->addTab(tab_8, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
         gridLayoutWidget = new QWidget(tab_4);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 30, 160, 141));
+        gridLayoutWidget->setGeometry(QRect(10, 30, 195, 141));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -787,7 +877,7 @@ public:
 
         gridLayoutWidget_2 = new QWidget(tab_4);
         gridLayoutWidget_2->setObjectName(QStringLiteral("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(830, 120, 221, 141));
+        gridLayoutWidget_2->setGeometry(QRect(830, 120, 224, 141));
         gridLayout_7 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_7->setSpacing(6);
         gridLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -886,7 +976,7 @@ public:
 
         verticalLayoutWidget_2 = new QWidget(tab_4);
         verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(830, 290, 71, 84));
+        verticalLayoutWidget_2->setGeometry(QRect(830, 290, 71, 95));
         verticalLayout_19 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_19->setSpacing(6);
         verticalLayout_19->setContentsMargins(11, 11, 11, 11);
@@ -1090,7 +1180,7 @@ public:
         widget_6->setGeometry(QRect(700, 60, 181, 251));
         layoutWidget4 = new QWidget(widget_6);
         layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 10, 141, 231));
+        layoutWidget4->setGeometry(QRect(10, 10, 157, 231));
         verticalLayout_17 = new QVBoxLayout(layoutWidget4);
         verticalLayout_17->setSpacing(6);
         verticalLayout_17->setContentsMargins(11, 11, 11, 11);
@@ -1265,7 +1355,7 @@ public:
 
         layoutWidget_9 = new QWidget(widget_4);
         layoutWidget_9->setObjectName(QStringLiteral("layoutWidget_9"));
-        layoutWidget_9->setGeometry(QRect(10, 20, 81, 23));
+        layoutWidget_9->setGeometry(QRect(10, 20, 87, 23));
         horizontalLayout_8 = new QHBoxLayout(layoutWidget_9);
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -1313,7 +1403,7 @@ public:
 
         layoutWidget_11 = new QWidget(tab_5);
         layoutWidget_11->setObjectName(QStringLiteral("layoutWidget_11"));
-        layoutWidget_11->setGeometry(QRect(780, 20, 123, 25));
+        layoutWidget_11->setGeometry(QRect(780, 20, 123, 30));
         horizontalLayout_9 = new QHBoxLayout(layoutWidget_11);
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
@@ -1354,7 +1444,7 @@ public:
 
         layoutWidget6 = new QWidget(tab_5);
         layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(0, 10, 81, 381));
+        layoutWidget6->setGeometry(QRect(0, 10, 95, 381));
         verticalLayout_11 = new QVBoxLayout(layoutWidget6);
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setContentsMargins(11, 11, 11, 11);
@@ -1460,8 +1550,12 @@ public:
         QObject::connect(pushButton_open_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_byopen()));
         QObject::connect(pushButton_open_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bystart()));
         QObject::connect(pushButton_blur_8, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_HoughCircle_show()));
+        QObject::connect(pushButton_8, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhione_show()));
+        QObject::connect(pushButton_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhitwo_show()));
+        QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
+        QObject::connect(pushButton_10, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhi_open()));
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -1519,6 +1613,13 @@ public:
         label_size->setText(QApplication::translate("Hi_OpencvClass", "erosion_size:", Q_NULLPTR));
         label_title->setText(QApplication::translate("Hi_OpencvClass", "Form Conversion", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\275\242\346\200\201\345\217\230\346\215\242", Q_NULLPTR));
+        pushButton_8->setText(QApplication::translate("Hi_OpencvClass", "\347\233\264\346\226\271\345\233\276\345\235\207\350\241\241\345\214\226\345\244\204\347\220\206", Q_NULLPTR));
+        pushButton_7->setText(QApplication::translate("Hi_OpencvClass", "\350\256\241\347\256\227\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276", Q_NULLPTR));
+        pushButton_9->setText(QApplication::translate("Hi_OpencvClass", "\345\217\215\345\260\204\346\212\225\345\275\261", Q_NULLPTR));
+        label_zhi_in->setText(QApplication::translate("Hi_OpencvClass", "original", Q_NULLPTR));
+        label_zhi_out->setText(QApplication::translate("Hi_OpencvClass", "processed", Q_NULLPTR));
+        pushButton_10->setText(QApplication::translate("Hi_OpencvClass", "open", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276", Q_NULLPTR));
         w3btnUp->setText(QApplication::translate("Hi_OpencvClass", "\346\224\276\345\244\247", Q_NULLPTR));
         w3btnDown->setText(QApplication::translate("Hi_OpencvClass", "\347\274\251\345\260\217", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("Hi_OpencvClass", "\344\270\212\344\270\213", Q_NULLPTR));

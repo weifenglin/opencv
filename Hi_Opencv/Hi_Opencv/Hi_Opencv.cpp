@@ -1580,3 +1580,219 @@ int Hi_Opencv::on_findContoursLength_show()
 	ui.lineEdit31->setText("");
 	return i;
 }
+
+
+/*##############################
+#############直方图#############
+###############################*/
+
+void Hi_Opencv::on_zhi_open()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image_zhi = imread(str);
+		cvtColor(image_zhi, image_zhi, COLOR_BGR2RGB);
+		cv::resize(image_zhi, image_zhi, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image_zhi.data), image_zhi.cols, image_zhi.rows, QImage::Format_RGB888);
+
+		//label_in = new QLabel();
+		ui.label_zhi_in->setPixmap(QPixmap::fromImage(img));
+		ui.label_zhi_in->resize(QSize(img.width(), img.height()));
+		//ui.label_in->show();
+		//ui.pushButton_start->setEnabled(true);
+	}
+}
+
+
+
+int Hi_Opencv::on_zhione_show()
+{
+	Mat src;
+	// 1. 加载源图像
+	image_zhi.copyTo(src);
+
+	if (!src.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+
+	// 2. 在R、G、B平面中分离源图像，把多通道图像分为多个单通道图像。使用OpenCV函数cv::split。
+	vector<Mat> bgr_planes;
+	split(src, bgr_planes);// 把多通道图像分为多个单通道图像
+
+//	printf("channels=%d\n", bgr_planes.size());//3通道，所以size也是3
+
+	// 3. 现在我们准备开始为每个平面配置直方图。 由于我们正在使用B，G和R平面，我们知道我们的值将在区间[0,255]范围内
+	int histBins = 256;//建立箱数（5,10 ......）
+	float range[] = { 0, 255 };//设置值的范围（在0到255之间）
+	const float * histRanges = range;//注意：函数形参 float ** 与 const float ** 是两种不同数据类型。
+	bool uniform = true, accumulate = false;//我们希望我们的箱子具有相同的尺寸（均匀）并在开头清除直方图
+	Mat b_hist, g_hist, r_hist;//calcHist计算出来的Mat中元素的最大值可能上几千，所以最好归一化后再绘制直方图
+	//使用OpenCV函数cv::calcHist计算直方图：
+	calcHist(&bgr_planes[0], 1, 0, Mat(), b_hist, 1, &histBins, &histRanges, uniform, accumulate);//计算直方图
+	calcHist(&bgr_planes[1], 1, 0, Mat(), g_hist, 1, &histBins, &histRanges, uniform, accumulate);
+	calcHist(&bgr_planes[2], 1, 0, Mat(), r_hist, 1, &histBins, &histRanges, uniform, accumulate);
+
+	// 4. 归一化
+	int hist_cols = 400;
+	int hist_rows = 512;
+	int bin_w = hist_rows / histBins;
+
+	//请注意，在绘制之前，我们首先对直方图进行cv :: normalize，使其值落在输入参数指示的范围内：
+	normalize(b_hist, b_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());//b_hist中元素的值转换到 0-hist_cols 之间
+	normalize(g_hist, g_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());
+	normalize(r_hist, r_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());//传参 0, hist_cols 或 hist_cols, 0 结果一致
+
+	// 5. 绘制直方图
+	Mat histImage(hist_rows, hist_cols, CV_8UC3, Scalar(0, 0, 0));
+	for (int i = 1; i < histBins; i++)
+	{
+		// cvRound 四舍五入，返回整型值
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(b_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(b_hist.at<float>(i))), Scalar(255, 0, 0), 2, LINE_AA);
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(g_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(g_hist.at<float>(i))), Scalar(0, 255, 0), 2, LINE_AA);
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(r_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(r_hist.at<float>(i))), Scalar(0, 0, 255), 2, LINE_AA);
+	}
+	QImage img = QImage((const unsigned char*)(histImage.data), histImage.cols, histImage.rows, QImage::Format_RGB888);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	QImage img2 = QImage((const unsigned char*)(image_zhi.data), image_zhi.cols, image_zhi.rows, QImage::Format_RGB888);
+	ui.label_zhi_in->setPixmap(QPixmap::fromImage(img2));
+
+	return(0);
+}
+
+int Hi_Opencv::on_zhitwo_show()
+{
+	Mat src, dst;
+
+	char* source_window = (char*)"Source image";
+	char* equalized_window = (char*)"Equalized Image";
+
+	/// 加载源图像
+	image_zhi.copyTo(src);
+
+	if (!src.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+
+	/// 转为灰度图
+	cvtColor(src, src, CV_BGR2GRAY);
+
+	/// 应用直方图均衡化
+	equalizeHist(src, dst);
+
+	/// 显示结果
+
+/*显示彩色图*/
+//	QImage img = QImage((const unsigned char*)(dst.data), dst.cols, dst.rows, QImage::Format_RGB888);
+//	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+/*显示灰度图*/
+	QImage img = QImage((const uchar*)dst.data, dst.cols, dst.rows, dst.cols*dst.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	QImage img2 = QImage((const uchar*)src.data, src.cols, src.rows, src.cols*src.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_in->setPixmap(QPixmap::fromImage(img2));
+
+	return 0;
+}
+
+
+
+/// 全局变量
+Mat src_zhi; Mat hsv_zhi; Mat hue_zhi; Mat dst_zhi;
+int bins_zhi = 25;
+
+/// 函数申明
+void Hist_and_Backproj(int, void*);
+
+/** @函数 main */
+int Hi_Opencv::on_zhithree_show()
+{
+	/// 读取图像
+	image_zhi.copyTo(src_zhi);
+	if (!src_zhi.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+	/// 转换到 HSV 空间
+	cvtColor(src_zhi, hsv_zhi, CV_BGR2HSV);
+
+	/// 分离 Hue 通道
+	hue_zhi.create(hsv_zhi.size(), hsv_zhi.depth());
+	int ch[] = { 0, 0 };
+	mixChannels(&hsv_zhi, 1, &hue_zhi, 1, ch, 1);
+
+	/// 创建 Trackbar 来输入bin的数目
+	//char* window_image = (char*)"Source image";
+	//namedWindow(window_image, CV_WINDOW_AUTOSIZE);
+	//createTrackbar("* Hue  bins: ", window_image, &bins_zhi, 180, Hist_and_Backproj);
+	Hist_and_Backproj(0, 0);
+
+	/// 现实图像
+	//imshow(window_image, src_zhi);
+
+	Mat backproj;
+	dst_zhi.copyTo(backproj);
+	QImage img = QImage((const uchar*)backproj.data, backproj.cols, backproj.rows, backproj.cols*backproj.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	return 0;
+}
+
+
+/**
+ * @函数 Hist_and_Backproj
+ * @简介：Trackbar事件的回调函数
+ */
+void Hist_and_Backproj(int, void*)
+{
+	MatND hist;
+	int histSize = MAX(bins_zhi, 2);
+	float hue_range[] = { 0, 180 };
+	const float* ranges = { hue_range };
+
+	/// 计算直方图并归一化
+	calcHist(&hue_zhi, 1, 0, Mat(), hist, 1, &histSize, &ranges, true, false);
+	normalize(hist, hist, 0, 255, NORM_MINMAX, -1, Mat());
+
+	/// 计算反向投影
+	MatND backproj;
+	calcBackProject(&hue_zhi, 1, 0, hist, backproj, &ranges, 1, true);
+
+	backproj.copyTo(dst_zhi);
+
+	/// 显示反向投影
+//	imshow("BackProj", backproj);
+
+
+
+	/// 显示直方图
+	int w = 400; int h = 400;
+	int bin_w = cvRound((double)w / histSize);
+	Mat histImg = Mat::zeros(w, h, CV_8UC3);
+
+	for (int i = 0; i < bins_zhi; i++)
+	{
+		rectangle(histImg, Point(i*bin_w, h), Point((i + 1)*bin_w, h - cvRound(hist.at<float>(i)*h / 255.0)), Scalar(0, 0, 255), -1);
+	}
+
+	//	imshow("Histogram", histImg);
+}

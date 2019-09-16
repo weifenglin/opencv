@@ -11,6 +11,11 @@
 #include <opencv2\highgui\highgui.hpp>  //opencv申明
 #include <qfiledialog.h>                //getopenfilename 类申明
 #include <qlabel.h>  //label类
+#include <opencv2/highgui/highgui_c.h>
+#include<vector>
+#include <iostream>
+
+
 using namespace cv;
 using namespace std;
 
@@ -106,11 +111,22 @@ private slots:
 	int w3btnTSClicked();
 	void w3btnStartClicked();
 
+	//直方图
+	void on_zhi_open();
+	int on_zhione_show();
+	int on_zhitwo_show();
+	int on_zhithree_show();
+
 private:
 	Ui::Hi_OpencvClass ui;
+	//mydialog dialog1;
+	warning  dialog1;
 	Mat image;
 	Mat image1, image2, image3, image4;
 	Mat result;
 	void w3Initial();
 	QLabel *label;
+	Mat image_zhi;
+	Mat image1_zhi;
+	QLabel *label_2;
 };
