@@ -2473,8 +2473,8 @@
    <slot>on_median_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>321</y>
+     <x>88</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>257</x>
@@ -2489,8 +2489,8 @@
    <slot>on_blur_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>122</y>
+     <x>88</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>354</x>
@@ -2505,8 +2505,8 @@
    <slot>on_gaussian_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>219</y>
+     <x>88</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -2521,8 +2521,8 @@
    <slot>on_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>773</x>
-     <y>86</y>
+     <x>775</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>729</x>
@@ -2537,8 +2537,8 @@
    <slot>on_Bilateral_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>416</y>
+     <x>88</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>147</x>
@@ -2553,8 +2553,8 @@
    <slot>on_start()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
-     <y>86</y>
+     <x>861</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -2585,8 +2585,8 @@
    <slot>w3up()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>39</x>
-     <y>113</y>
+     <x>41</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -2601,8 +2601,8 @@
    <slot>w3down()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>142</x>
-     <y>110</y>
+     <x>111</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -2617,8 +2617,8 @@
    <slot>w3LeftRight()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>56</x>
-     <y>173</y>
+     <x>58</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>137</x>
@@ -2633,8 +2633,8 @@
    <slot>w3UpDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>170</x>
-     <y>173</y>
+     <x>111</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>875</x>
@@ -2649,8 +2649,8 @@
    <slot>on_erode_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>67</x>
-     <y>130</y>
+     <x>69</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>600</x>
@@ -2665,8 +2665,8 @@
    <slot>on_dilate_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>67</x>
-     <y>231</y>
+     <x>69</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>487</x>
@@ -2681,8 +2681,8 @@
    <slot>on_morphologyEX_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>68</x>
-     <y>337</y>
+     <x>70</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>458</x>
@@ -2713,8 +2713,8 @@
    <slot>on_start_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>863</x>
-     <y>69</y>
+     <x>841</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>1159</x>
@@ -2777,8 +2777,8 @@
    <slot>on_opening()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>970</x>
-     <y>174</y>
+     <x>830</x>
+     <y>178</y>
     </hint>
     <hint type="destinationlabel">
      <x>1173</x>
@@ -2793,8 +2793,8 @@
    <slot>on_closing()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>967</x>
-     <y>205</y>
+     <x>830</x>
+     <y>208</y>
     </hint>
     <hint type="destinationlabel">
      <x>1176</x>
@@ -2809,8 +2809,8 @@
    <slot>on_gradient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>945</x>
-     <y>235</y>
+     <x>830</x>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
      <x>1175</x>
@@ -2825,8 +2825,8 @@
    <slot>on_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>963</x>
-     <y>265</y>
+     <x>830</x>
+     <y>268</y>
     </hint>
     <hint type="destinationlabel">
      <x>1182</x>
@@ -2841,8 +2841,8 @@
    <slot>on_black()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>946</x>
-     <y>292</y>
+     <x>830</x>
+     <y>298</y>
     </hint>
     <hint type="destinationlabel">
      <x>1186</x>
@@ -2857,8 +2857,8 @@
    <slot>on_threshold()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>59</x>
-     <y>125</y>
+     <x>61</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>474</x>
@@ -2873,8 +2873,8 @@
    <slot>on_makeborder()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>48</x>
-     <y>236</y>
+     <x>50</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -2889,8 +2889,8 @@
    <slot>on_Point()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>338</y>
+     <x>57</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>714</x>
@@ -2953,8 +2953,8 @@
    <slot>on_value()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>929</x>
-     <y>183</y>
+     <x>891</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>1153</x>
@@ -2985,8 +2985,8 @@
    <slot>on_bordertype1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>839</x>
-     <y>283</y>
+     <x>841</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
@@ -3001,8 +3001,8 @@
    <slot>on_bordertype2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>826</x>
-     <y>304</y>
+     <x>828</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>1155</x>
@@ -3129,8 +3129,8 @@
    <slot>on_method1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>773</x>
-     <y>158</y>
+     <x>775</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1121</x>
@@ -3145,8 +3145,8 @@
    <slot>on_method2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>803</x>
-     <y>189</y>
+     <x>805</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3161,8 +3161,8 @@
    <slot>on_method3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>778</x>
-     <y>215</y>
+     <x>780</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1116</x>
@@ -3177,8 +3177,8 @@
    <slot>on_method4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>759</x>
-     <y>245</y>
+     <x>761</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3193,8 +3193,8 @@
    <slot>on_method5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>745</x>
-     <y>277</y>
+     <x>747</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1125</x>
@@ -3209,8 +3209,8 @@
    <slot>on_method6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>742</x>
-     <y>307</y>
+     <x>744</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -3225,8 +3225,8 @@
    <slot>w3btnFSClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>267</y>
+     <x>111</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3241,8 +3241,8 @@
    <slot>w3btnRotateClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>309</y>
+     <x>71</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3257,8 +3257,8 @@
    <slot>w3btnTSClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>114</x>
-     <y>348</y>
+     <x>111</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>

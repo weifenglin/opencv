@@ -1273,6 +1273,7 @@ void Hi_Opencv::on_byopen()
 
 Mat img1,src_gray, grad;
 int i_by;
+
 void Hi_Opencv::on_bystart()
 {
 	switch (i)
@@ -1296,7 +1297,9 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(grad_y, abs_grad_y);
 			addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
 			image1 = grad;
+
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+			//QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			label = new QLabel();
 			label->setPixmap(QPixmap::fromImage(img));
 			label->resize(QSize(img.width(), img.height()));
@@ -1445,6 +1448,7 @@ void Hi_Opencv::on_bystart()
 
 			*/
 			image1 = dst;
+
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			label = new QLabel();
 			label->setPixmap(QPixmap::fromImage(img));
