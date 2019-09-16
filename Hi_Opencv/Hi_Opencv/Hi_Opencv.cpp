@@ -1263,17 +1263,15 @@ void Hi_Opencv::on_byopen()
 		cvtColor(image, image, COLOR_BGR2RGB);
 		cv::resize(image, image, Size(300, 200));
 		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
-		QLabel *label = new QLabel();
-		label->setPixmap(QPixmap::fromImage(img));
-		label->resize(QSize(img.width(), img.height()));
-		ui.scrollArea_open31->setWidget(label);
-
+		//QLabel *label = new QLabel();
+		ui.label_in_4->setPixmap(QPixmap::fromImage(img));
+		ui.label_in_4->resize(QSize(img.width(), img.height()));
+		ui.pushButton_open_3->setEnabled(true);
 	}
 }
 
 Mat img1,src_gray, grad;
 int i_by;
-
 void Hi_Opencv::on_bystart()
 {
 	switch (i)
@@ -1297,14 +1295,9 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(grad_y, abs_grad_y);
 			addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
 			image1 = grad;
-
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			//QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
-
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 		}
 		else
 		{
@@ -1314,8 +1307,6 @@ void Hi_Opencv::on_bystart()
 			//dialog1.exec();
 			return;
 		}
-
-
 
 		break;
 
@@ -1340,10 +1331,8 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(dst, abs_dst);
 			image1 = abs_dst;
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
@@ -1380,22 +1369,16 @@ void Hi_Opencv::on_bystart()
 
 			/// 使用 Canny算子输出边缘作为掩码显示原图像
 			dst = Scalar::all(0);
-
 			src.copyTo(dst, detected_edges);
 			image1 = dst;
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
@@ -1404,34 +1387,15 @@ void Hi_Opencv::on_bystart()
 		if (i_by > 0)
 		{
 			Mat src, src_gray;
-			Mat dst, detected_edges, cdst;
+			Mat dst, cdst;
 
-
-			int edgeThresh = 1;
-			int lowThreshold;
-			int const max_lowThreshold = 100;
-			int ratio = 3;
-			int kernel_size = 3;
 			src = image;
-			dst.create(src.size(), src.type());
-
-			/// 原图像转换为灰度图像
 			cvtColor(src, src_gray, COLOR_BGR2GRAY);
-			blur(src_gray, detected_edges, Size(3, 3));
-			lowThreshold = i_by;
-			/// 运行Canny算子
-			Canny(detected_edges, detected_edges, 50, 200, 3);
+			Canny(src_gray, dst, i_by, 200 ,3);
+			cvtColor(dst, cdst, COLOR_GRAY2BGR);
 
-			/// 使用 Canny算子输出边缘作为掩码显示原图像
-			dst = Scalar::all(0);
-
-			src.copyTo(dst, detected_edges);
-			//以上过程完成边缘检测
-			cvtColor(dst, cdst, COLOR_BGR2GRAY);
-
-			std::vector<Vec2f> lines;
-			/*
-			HoughLines(dst, lines, 1, 3.14 / 180, 100, 0, 0);
+			/*vector<Vec2f> lines;
+			HoughLines(dst, lines, 1, 3.1415926 / 180, 100, 0, 0);
 
 			for (size_t i = 0; i < lines.size(); i++)
 			{
@@ -1443,55 +1407,97 @@ void Hi_Opencv::on_bystart()
 				pt1.y = cvRound(y0 + 1000 * (a));
 				pt2.x = cvRound(x0 - 1000 * (-b));
 				pt2.y = cvRound(y0 - 1000 * (a));
-				line(cdst, pt1, pt2, Scalar(0, 0, 255), 3, LINE_AA);
+				line(cdst, pt1, pt2, Scalar(0, 0, 255), 3, 8);
+				*/
+			vector<Vec4i> lines;
+			HoughLinesP(dst, lines, 1, CV_PI / 180, 50, 50, 10);
+			for (size_t i = 0; i < lines.size(); i++)
+			{
+				Vec4i l = lines[i];
+				line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3, LINE_AA);
 			}
 
-			*/
-			image1 = dst;
-
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			QImage img = QImage((const unsigned char*)(cdst.data), cdst.cols, cdst.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
-	case 36:
+
+	case 35:
+	{
 		i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
-		if (1)
+		if (i_by > 0)
 		{
 			Mat src, src_gray;
-			Mat dst, detected_edges, cdst, canny_output;
-			int edgeThresh = 1;
-			int lowThreshold;
-			int const max_lowThreshold = 100;
-			int ratio = 3;
-			int kernel_size = 3;
+			//i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
+			src = image;
+			cvtColor(src, src_gray, COLOR_BGR2GRAY);
+
+			//GaussianBlur(src_gray, src_gray, Size(9, 9), 2, 2);
+
+			vector<Vec3f> circles;
+
+			/// Apply the Hough Transform to find the circles
+			HoughCircles(src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows / 8, i_by, 100, 0, 0);
+
+			for (int i = 0; i < circles.size(); i++)
+			{
+				Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+				int radius = cvRound(circles[i][2]);
+				// circle center
+				circle(src, center, 3, Scalar(0, 255, 0), -1, 8, 0);
+				// circle outline
+				circle(src, center, radius, Scalar(0, 0, 255), 3, 8, 0);
+			}
+
+			QImage img = QImage((const unsigned char*)(src.data), src.cols, src.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
+		}
+		else
+		{
+			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
+			return;
+		}
+		break;
+	}
+
+	case 36:
+		i_by = atoi(ui.lineEdit31->text().toStdString().c_str());
+		if ( i_by > 0 )
+		{
+			Mat src, src_gray,canny_output;
 			RNG rng(12345);
 			src = image;
-			dst.create(src.size(), src.type());
-
 			/// 原图像转换为灰度图像
-			cvtColor(src, src_gray, COLOR_BGR2GRAY);
-			blur(src_gray, detected_edges, Size(3, 3));
-			lowThreshold = i_by;
+			cvtColor(src, src_gray, COLOR_BGR2GRAY);;
 			/// 运行Canny算子
-			Canny(src_gray, canny_output, 100, 200, 3);
+			Canny(src_gray, canny_output, i_by, 200, 3);
 
 			/// 使用 Canny算子输出边缘作为掩码显示原图像
-			//Mat canny_output;
-			std::vector<std::vector<Point> > contours;
-			std::vector<Vec4i> hierarchy;
+			vector<vector<Point> > contours;
+			vector<Vec4i> hierarchy;
 			findContours(canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+			//计算矩：
+			vector<Moments> mu(contours.size());
+			for (int i = 0; i < contours.size(); i++)
+			{
+				mu[i] = moments(contours[i], false);
+			}
+
+			///  计算中心矩:
+			vector<Point2f> mc(contours.size());
+			for (int i = 0; i < contours.size(); i++)
+			{
+				mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00);
+			}
 
 			/// 绘出轮廓
 			Mat drawing = Mat::zeros(canny_output.size(), CV_8UC3);
@@ -1499,22 +1505,16 @@ void Hi_Opencv::on_bystart()
 			{
 				Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
 				drawContours(drawing, contours, i, color, 2, 8, hierarchy, 0, Point());
+				circle(drawing, mc[i], 4, color, -1, 8, 0);
 			}
-
-			image1 = drawing;
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
-			label = new QLabel();
-			label->setPixmap(QPixmap::fromImage(img));
-			label->resize(QSize(img.width(), img.height()));
-			ui.scrollArea_open32->setWidget(label);
+			QImage img = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
+			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_4->resize(QSize(img.width(), img.height()));
 
 		}
 		else
 		{
 			QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
-			//dialog1.changetext2();
-			//dialog1.show();
-			//dialog1.exec();
 			return;
 		}
 		break;
@@ -1530,6 +1530,7 @@ int Hi_Opencv::on_sobel_show()
 	ui.label_by1->setText("sobel");
 	ui.label_31->show();
 	ui.lineEdit31->show();
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_laplace_show()
@@ -1538,6 +1539,7 @@ int Hi_Opencv::on_laplace_show()
 	ui.label_by1->setText("Laplace");
 	ui.label_31->show();
 	ui.lineEdit31->show();
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_canny_show()
@@ -1546,7 +1548,7 @@ int Hi_Opencv::on_canny_show()
 	ui.label_by1->setText("Canny");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
+	ui.lineEdit31->setText("");
 
 	return i;
 }
@@ -1556,37 +1558,241 @@ int Hi_Opencv::on_HoughLine_show()
 	ui.label_by1->setText("HoughLine");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
 }
 int Hi_Opencv::on_HoughCircle_show()
 {
-	i = 33;
-	ui.label_by1->setText("Canny operation");
+	i = 35;
+	ui.label_by1->setText("HoughCircle");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
 }
-int Hi_Opencv::on_findContours_show()
-{
-	i = 36;
-	ui.label_by1->setText("findContour");
-	//ui.label_31->show();
-	//ui.lineEdit31->show();
 
-
-	return i;
-}
 int Hi_Opencv::on_findContoursLength_show()
 {
-	i = 33;
+	i = 36;
 	ui.label_by1->setText("Canny operation");
 	ui.label_31->show();
 	ui.lineEdit31->show();
-
-
+	ui.lineEdit31->setText("");
 	return i;
+}
+
+
+/*##############################
+#############直方图#############
+###############################*/
+
+void Hi_Opencv::on_zhi_open()
+{
+	QString filename;
+	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
+
+	if (filename.isEmpty())
+	{
+		return;
+	}
+	else
+	{
+
+		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
+		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
+		image_zhi = imread(str);
+		cvtColor(image_zhi, image_zhi, COLOR_BGR2RGB);
+		cv::resize(image_zhi, image_zhi, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image_zhi.data), image_zhi.cols, image_zhi.rows, QImage::Format_RGB888);
+
+		//label_in = new QLabel();
+		ui.label_zhi_in->setPixmap(QPixmap::fromImage(img));
+		ui.label_zhi_in->resize(QSize(img.width(), img.height()));
+		//ui.label_in->show();
+		//ui.pushButton_start->setEnabled(true);
+	}
+}
+
+
+
+int Hi_Opencv::on_zhione_show()
+{
+	Mat src;
+	// 1. 加载源图像
+	image_zhi.copyTo(src);
+
+	if (!src.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+
+	// 2. 在R、G、B平面中分离源图像，把多通道图像分为多个单通道图像。使用OpenCV函数cv::split。
+	vector<Mat> bgr_planes;
+	split(src, bgr_planes);// 把多通道图像分为多个单通道图像
+
+//	printf("channels=%d\n", bgr_planes.size());//3通道，所以size也是3
+
+	// 3. 现在我们准备开始为每个平面配置直方图。 由于我们正在使用B，G和R平面，我们知道我们的值将在区间[0,255]范围内
+	int histBins = 256;//建立箱数（5,10 ......）
+	float range[] = { 0, 255 };//设置值的范围（在0到255之间）
+	const float * histRanges = range;//注意：函数形参 float ** 与 const float ** 是两种不同数据类型。
+	bool uniform = true, accumulate = false;//我们希望我们的箱子具有相同的尺寸（均匀）并在开头清除直方图
+	Mat b_hist, g_hist, r_hist;//calcHist计算出来的Mat中元素的最大值可能上几千，所以最好归一化后再绘制直方图
+	//使用OpenCV函数cv::calcHist计算直方图：
+	calcHist(&bgr_planes[0], 1, 0, Mat(), b_hist, 1, &histBins, &histRanges, uniform, accumulate);//计算直方图
+	calcHist(&bgr_planes[1], 1, 0, Mat(), g_hist, 1, &histBins, &histRanges, uniform, accumulate);
+	calcHist(&bgr_planes[2], 1, 0, Mat(), r_hist, 1, &histBins, &histRanges, uniform, accumulate);
+
+	// 4. 归一化
+	int hist_cols = 400;
+	int hist_rows = 512;
+	int bin_w = hist_rows / histBins;
+
+	//请注意，在绘制之前，我们首先对直方图进行cv :: normalize，使其值落在输入参数指示的范围内：
+	normalize(b_hist, b_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());//b_hist中元素的值转换到 0-hist_cols 之间
+	normalize(g_hist, g_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());
+	normalize(r_hist, r_hist, 0, hist_cols, NORM_MINMAX, -1, Mat());//传参 0, hist_cols 或 hist_cols, 0 结果一致
+
+	// 5. 绘制直方图
+	Mat histImage(hist_rows, hist_cols, CV_8UC3, Scalar(0, 0, 0));
+	for (int i = 1; i < histBins; i++)
+	{
+		// cvRound 四舍五入，返回整型值
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(b_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(b_hist.at<float>(i))), Scalar(255, 0, 0), 2, LINE_AA);
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(g_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(g_hist.at<float>(i))), Scalar(0, 255, 0), 2, LINE_AA);
+		line(histImage, Point((i - 1)*bin_w, hist_cols - cvRound(r_hist.at<float>(i - 1))),
+			Point(i*bin_w, hist_cols - cvRound(r_hist.at<float>(i))), Scalar(0, 0, 255), 2, LINE_AA);
+	}
+	QImage img = QImage((const unsigned char*)(histImage.data), histImage.cols, histImage.rows, QImage::Format_RGB888);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	QImage img2 = QImage((const unsigned char*)(image_zhi.data), image_zhi.cols, image_zhi.rows, QImage::Format_RGB888);
+	ui.label_zhi_in->setPixmap(QPixmap::fromImage(img2));
+
+	return(0);
+}
+
+int Hi_Opencv::on_zhitwo_show()
+{
+	Mat src, dst;
+
+	char* source_window = (char*)"Source image";
+	char* equalized_window = (char*)"Equalized Image";
+
+	/// 加载源图像
+	image_zhi.copyTo(src);
+
+	if (!src.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+
+	/// 转为灰度图
+	cvtColor(src, src, CV_BGR2GRAY);
+
+	/// 应用直方图均衡化
+	equalizeHist(src, dst);
+
+	/// 显示结果
+
+/*显示彩色图*/
+//	QImage img = QImage((const unsigned char*)(dst.data), dst.cols, dst.rows, QImage::Format_RGB888);
+//	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+/*显示灰度图*/
+	QImage img = QImage((const uchar*)dst.data, dst.cols, dst.rows, dst.cols*dst.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	QImage img2 = QImage((const uchar*)src.data, src.cols, src.rows, src.cols*src.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_in->setPixmap(QPixmap::fromImage(img2));
+
+	return 0;
+}
+
+
+
+/// 全局变量
+Mat src_zhi; Mat hsv_zhi; Mat hue_zhi; Mat dst_zhi;
+int bins_zhi = 25;
+
+/// 函数申明
+void Hist_and_Backproj(int, void*);
+
+/** @函数 main */
+int Hi_Opencv::on_zhithree_show()
+{
+	/// 读取图像
+	image_zhi.copyTo(src_zhi);
+	if (!src_zhi.data)
+	{
+		QMessageBox::warning(this, "warning", "Please open a picture first!");
+		return 0;
+	}
+	/// 转换到 HSV 空间
+	cvtColor(src_zhi, hsv_zhi, CV_BGR2HSV);
+
+	/// 分离 Hue 通道
+	hue_zhi.create(hsv_zhi.size(), hsv_zhi.depth());
+	int ch[] = { 0, 0 };
+	mixChannels(&hsv_zhi, 1, &hue_zhi, 1, ch, 1);
+
+	/// 创建 Trackbar 来输入bin的数目
+	//char* window_image = (char*)"Source image";
+	//namedWindow(window_image, CV_WINDOW_AUTOSIZE);
+	//createTrackbar("* Hue  bins: ", window_image, &bins_zhi, 180, Hist_and_Backproj);
+	Hist_and_Backproj(0, 0);
+
+	/// 现实图像
+	//imshow(window_image, src_zhi);
+
+	Mat backproj;
+	dst_zhi.copyTo(backproj);
+	QImage img = QImage((const uchar*)backproj.data, backproj.cols, backproj.rows, backproj.cols*backproj.channels(), QImage::Format_Indexed8);
+	ui.label_zhi_out->setPixmap(QPixmap::fromImage(img));
+
+	return 0;
+}
+
+
+/**
+ * @函数 Hist_and_Backproj
+ * @简介：Trackbar事件的回调函数
+ */
+void Hist_and_Backproj(int, void*)
+{
+	MatND hist;
+	int histSize = MAX(bins_zhi, 2);
+	float hue_range[] = { 0, 180 };
+	const float* ranges = { hue_range };
+
+	/// 计算直方图并归一化
+	calcHist(&hue_zhi, 1, 0, Mat(), hist, 1, &histSize, &ranges, true, false);
+	normalize(hist, hist, 0, 255, NORM_MINMAX, -1, Mat());
+
+	/// 计算反向投影
+	MatND backproj;
+	calcBackProject(&hue_zhi, 1, 0, hist, backproj, &ranges, 1, true);
+
+	backproj.copyTo(dst_zhi);
+
+	/// 显示反向投影
+//	imshow("BackProj", backproj);
+
+
+
+	/// 显示直方图
+	int w = 400; int h = 400;
+	int bin_w = cvRound((double)w / histSize);
+	Mat histImg = Mat::zeros(w, h, CV_8UC3);
+
+	for (int i = 0; i < bins_zhi; i++)
+	{
+		rectangle(histImg, Point(i*bin_w, h), Point((i + 1)*bin_w, h - cvRound(hist.at<float>(i)*h / 255.0)), Scalar(0, 0, 255), -1);
+	}
+
+	//	imshow("Histogram", histImg);
 }

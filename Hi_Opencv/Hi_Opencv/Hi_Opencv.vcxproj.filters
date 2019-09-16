@@ -36,15 +36,9 @@
     <ClCompile Include="Hi_Opencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bianyuan.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Hi_Opencv.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="bianyuan.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

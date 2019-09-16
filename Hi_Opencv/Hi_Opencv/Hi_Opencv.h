@@ -3,7 +3,6 @@
 #include <QtWidgets/QMainWindow>
 #include <qlineedit.h>
 #include "ui_Hi_Opencv.h"
-#include <warning.h>
 #include<QGraphicsScene>  
 #include<QGraphicsView>                 //graphicsview类
 #include<opencv2\imgproc\imgproc.hpp>
@@ -11,6 +10,11 @@
 #include <opencv2\highgui\highgui.hpp>  //opencv申明
 #include <qfiledialog.h>                //getopenfilename 类申明
 #include <qlabel.h>  //label类
+#include <opencv2/highgui/highgui_c.h>
+#include<vector>
+#include <iostream>
+
+
 using namespace cv;
 using namespace std;
 
@@ -91,7 +95,6 @@ private slots:
 	int on_canny_show();//进行canny操作
 	int on_HoughLine_show();//进行hough线性操作
 	int on_HoughCircle_show();//进行霍夫曼圆变换
-	int on_findContours_show();//扫描图像中的轮廓
 	int on_findContoursLength_show();//扫描图像中的轮毂
 	void on_bystart();//开始边缘检测操作
 	void on_byopen();
@@ -107,6 +110,12 @@ private slots:
 	int w3btnTSClicked();
 	void w3btnStartClicked();
 
+	//直方图
+	void on_zhi_open();
+	int on_zhione_show();
+	int on_zhitwo_show();
+	int on_zhithree_show();
+
 private:
 	Ui::Hi_OpencvClass ui;
 	Mat image;
@@ -114,4 +123,7 @@ private:
 	Mat result;
 	void w3Initial();
 	QLabel *label;
+	Mat image_zhi;
+	Mat image1_zhi;
+	QLabel *label_2;
 };
