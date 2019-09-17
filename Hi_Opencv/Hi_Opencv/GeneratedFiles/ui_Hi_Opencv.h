@@ -372,8 +372,10 @@ public:
         label->setObjectName(QStringLiteral("label"));
         label->setMaximumSize(QSize(50, 20));
         QFont font1;
-        font1.setFamily(QString::fromUtf8("\346\245\267\344\275\223"));
+        font1.setFamily(QStringLiteral("Times New Roman"));
         font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
         label->setFont(font1);
 
         verticalLayout_2->addWidget(label);
@@ -455,7 +457,10 @@ public:
 
         label_3 = new QLabel(layoutWidget3);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\346\245\267\344\275\223"));
+        font2.setPointSize(12);
+        label_3->setFont(font2);
         label_3->setAlignment(Qt::AlignCenter);
 
         verticalLayout_4->addWidget(label_3);
@@ -473,7 +478,7 @@ public:
 
         label_w = new QLabel(layoutWidget3);
         label_w->setObjectName(QStringLiteral("label_w"));
-        label_w->setFont(font1);
+        label_w->setFont(font2);
 
         horizontalLayout_3->addWidget(label_w);
 
@@ -502,7 +507,7 @@ public:
 
         label_h = new QLabel(layoutWidget3);
         label_h->setObjectName(QStringLiteral("label_h"));
-        label_h->setFont(font1);
+        label_h->setFont(font2);
 
         horizontalLayout_4->addWidget(label_h);
 
@@ -531,7 +536,7 @@ public:
 
         label_i = new QLabel(layoutWidget3);
         label_i->setObjectName(QStringLiteral("label_i"));
-        label_i->setFont(font1);
+        label_i->setFont(font2);
 
         horizontalLayout_5->addWidget(label_i);
 
@@ -561,12 +566,7 @@ public:
         label_4 = new QLabel(layoutWidget_2);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setMaximumSize(QSize(50, 20));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Times New Roman"));
-        font2.setPointSize(12);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label_4->setFont(font2);
+        label_4->setFont(font1);
 
         verticalLayout_6->addWidget(label_4);
 
@@ -590,7 +590,7 @@ public:
         label_5 = new QLabel(layoutWidget_3);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setMaximumSize(QSize(50, 20));
-        label_5->setFont(font2);
+        label_5->setFont(font1);
 
         verticalLayout_7->addWidget(label_5);
 
@@ -614,14 +614,14 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         pushButton_open_4 = new QPushButton(layoutWidget_4);
         pushButton_open_4->setObjectName(QStringLiteral("pushButton_open_4"));
-        pushButton_open_4->setFont(font2);
+        pushButton_open_4->setFont(font1);
 
         horizontalLayout->addWidget(pushButton_open_4);
 
         pushButton_start_2 = new QPushButton(layoutWidget_4);
         pushButton_start_2->setObjectName(QStringLiteral("pushButton_start_2"));
         pushButton_start_2->setEnabled(false);
-        pushButton_start_2->setFont(font2);
+        pushButton_start_2->setFont(font1);
 
         horizontalLayout->addWidget(pushButton_start_2);
 
@@ -678,7 +678,7 @@ public:
         label_from = new QLabel(widget);
         label_from->setObjectName(QStringLiteral("label_from"));
         label_from->setGeometry(QRect(0, 10, 101, 16));
-        label_from->setFont(font2);
+        label_from->setFont(font1);
         radioButton_RECT = new QRadioButton(widget);
         radioButton_RECT->setObjectName(QStringLiteral("radioButton_RECT"));
         radioButton_RECT->setEnabled(true);
@@ -701,7 +701,7 @@ public:
         label_6 = new QLabel(widget_3);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(0, 10, 121, 20));
-        label_6->setFont(font2);
+        label_6->setFont(font1);
         radioButton_opening = new QRadioButton(widget_3);
         radioButton_opening->setObjectName(QStringLiteral("radioButton_opening"));
         radioButton_opening->setGeometry(QRect(0, 30, 89, 16));
@@ -726,14 +726,14 @@ public:
         label_size = new QLabel(widget_2);
         label_size->setObjectName(QStringLiteral("label_size"));
         label_size->setGeometry(QRect(0, 10, 111, 16));
-        label_size->setFont(font2);
+        label_size->setFont(font1);
         lineEdit_size = new QLineEdit(widget_2);
         lineEdit_size->setObjectName(QStringLiteral("lineEdit_size"));
         lineEdit_size->setGeometry(QRect(0, 30, 91, 20));
         label_title = new QLabel(tab_2);
         label_title->setObjectName(QStringLiteral("label_title"));
         label_title->setGeometry(QRect(760, 70, 161, 21));
-        label_title->setFont(font2);
+        label_title->setFont(font1);
         label_title->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_2, QString());
         tab_8 = new QWidget();
@@ -1031,6 +1031,7 @@ public:
         pushButton_open_2->setFont(font);
         pushButton_open_3 = new QPushButton(tab_3);
         pushButton_open_3->setObjectName(QStringLiteral("pushButton_open_3"));
+        pushButton_open_3->setEnabled(false);
         pushButton_open_3->setGeometry(QRect(940, 30, 88, 23));
         pushButton_open_3->setFont(font);
         label_by1 = new QLabel(tab_3);
@@ -1063,7 +1064,7 @@ public:
         label_16 = new QLabel(layoutWidget_15);
         label_16->setObjectName(QStringLiteral("label_16"));
         label_16->setMaximumSize(QSize(50, 20));
-        label_16->setFont(font2);
+        label_16->setFont(font1);
 
         verticalLayout_20->addWidget(label_16);
 
@@ -1087,7 +1088,7 @@ public:
         label_17 = new QLabel(layoutWidget_16);
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setMaximumSize(QSize(50, 20));
-        label_17->setFont(font2);
+        label_17->setFont(font1);
 
         verticalLayout_21->addWidget(label_17);
 
@@ -1114,7 +1115,7 @@ public:
         label_10 = new QLabel(layoutWidget_13);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setMaximumSize(QSize(50, 20));
-        label_10->setFont(font2);
+        label_10->setFont(font1);
 
         verticalLayout_12->addWidget(label_10);
 
@@ -1138,7 +1139,7 @@ public:
         label_11 = new QLabel(layoutWidget_14);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setMaximumSize(QSize(50, 20));
-        label_11->setFont(font2);
+        label_11->setFont(font1);
 
         verticalLayout_13->addWidget(label_11);
 
@@ -1189,7 +1190,7 @@ public:
         label_15 = new QLabel(layoutWidget4);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setMaximumSize(QSize(10000, 20));
-        label_15->setFont(font2);
+        label_15->setFont(font1);
 
         verticalLayout_17->addWidget(label_15);
 
@@ -1237,7 +1238,7 @@ public:
         label_12 = new QLabel(layoutWidget5);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setMaximumSize(QSize(50, 20));
-        label_12->setFont(font2);
+        label_12->setFont(font1);
 
         verticalLayout_14->addWidget(label_12);
 
@@ -1259,7 +1260,7 @@ public:
         label_13 = new QLabel(layoutWidget5);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setMaximumSize(QSize(50, 20));
-        label_13->setFont(font2);
+        label_13->setFont(font1);
 
         verticalLayout_15->addWidget(label_13);
 
@@ -1281,7 +1282,7 @@ public:
         label_14 = new QLabel(layoutWidget5);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setMaximumSize(QSize(50, 20));
-        label_14->setFont(font2);
+        label_14->setFont(font1);
 
         verticalLayout_16->addWidget(label_14);
 
@@ -1311,7 +1312,7 @@ public:
         label_8 = new QLabel(layoutWidget_7);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setMaximumSize(QSize(50, 20));
-        label_8->setFont(font2);
+        label_8->setFont(font1);
 
         verticalLayout_9->addWidget(label_8);
 
@@ -1429,7 +1430,7 @@ public:
         label_7 = new QLabel(layoutWidget_12);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setMaximumSize(QSize(50, 20));
-        label_7->setFont(font2);
+        label_7->setFont(font1);
 
         verticalLayout_10->addWidget(label_7);
 
@@ -1555,7 +1556,7 @@ public:
         QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
         QObject::connect(pushButton_10, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhi_open()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
