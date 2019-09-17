@@ -455,9 +455,36 @@ void Hi_Opencv::w3openPic()
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
 		cvtColor(image, image, COLOR_BGR2RGB);
-		cv::resize(image, image, Size(256, 256));
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
 
+
+		double labelWidth, labelHeight, imageWidth, imageHeight;
+		labelWidth = ui.w3Label->width();
+		labelHeight = ui.w3Label->height();
+		imageWidth = image.cols;
+		imageHeight = image.rows;
+
+
+		//图片适应label方法
+		int newWidth, newHeight;
+		double proportionL, proportionI;
+		proportionL = labelWidth / labelHeight;
+		proportionI = imageWidth / imageHeight;
+		if (proportionI > proportionL)      //image的宽高比比较大，按照宽度伸缩
+		{
+			double proportion = labelWidth / imageWidth;
+			newWidth = image.cols * proportion;
+			newHeight = image.rows * proportion;
+		}
+		else
+		{
+			double proportion = labelHeight / imageHeight;
+			newWidth = image.cols * proportion;
+			newHeight = image.rows * proportion;
+		}
+
+		cv::resize(image, image, Size(newWidth, newHeight));
+
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
 
 		//label_in = new QLabel();
 		ui.w3Label->setPixmap(QPixmap::fromImage(img));
@@ -610,7 +637,7 @@ int Hi_Opencv::w3btnFSClicked()
 	ui.w3Liney3->show();
 
 	string temp, temp1, temp2;
-	temp1 = to_string(image.rows - 1);
+	temp1 = to_string(image.cols - 1);
 	temp2 = to_string(image.rows - 1);
 
 	temp = "(0,0)";
@@ -699,8 +726,8 @@ void Hi_Opencv::w3btnStartClicked()
 
 				/// 设置源图像和目标图像上的三组点以计算仿射变换
 				srcTri[0] = Point2f(0, 0);
-				srcTri[1] = Point2f(image.cols - 1, 0);
-				srcTri[2] = Point2f(0, image.rows - 1);
+				srcTri[1] = Point2f(0, image.cols - 1);
+				srcTri[2] = Point2f(image.rows - 1, 0);
 
 				dstTri[0] = Point2f(ui.w3Linex1->text().toFloat(), ui.w3Liney1->text().toFloat());
 				dstTri[1] = Point2f(ui.w3Linex2->text().toFloat(), ui.w3Liney2->text().toFloat());
@@ -1360,6 +1387,8 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(grad_y, abs_grad_y);
 			addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
 			image1 = grad;
+			cvtColor(image1,image1,COLOR_GRAY2BGR);
+
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
 			ui.label_out_4->resize(QSize(img.width(), img.height()));
@@ -1395,6 +1424,7 @@ void Hi_Opencv::on_bystart()
 			Laplacian(src_gray, dst, ddepth, kernel_size, scale, delta, BORDER_DEFAULT);
 			convertScaleAbs(dst, abs_dst);
 			image1 = abs_dst;
+			cvtColor(image1, image1, COLOR_GRAY2BGR);
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
 			ui.label_out_4->resize(QSize(img.width(), img.height()));
