@@ -98,10 +98,6 @@ public:
     QVBoxLayout *verticalLayout_7;
     QLabel *label_5;
     QLabel *label_out_2;
-    QWidget *layoutWidget_4;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton_open_4;
-    QPushButton *pushButton_start_2;
     QWidget *layoutWidget_5;
     QVBoxLayout *verticalLayout_5;
     QSpacerItem *verticalSpacer_9;
@@ -111,14 +107,23 @@ public:
     QSpacerItem *verticalSpacer_13;
     QPushButton *pushButton_morphologyEX;
     QSpacerItem *verticalSpacer_14;
-    QWidget *layoutWidget_6;
+    QWidget *widget_2;
+    QWidget *layoutWidget4;
+    QVBoxLayout *verticalLayout_25;
+    QLabel *label_size;
+    QLineEdit *lineEdit_size;
+    QLabel *label_title;
+    QWidget *layoutWidget5;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pushButton_open_4;
+    QPushButton *pushButton_start_2;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_6;
     QWidget *widget;
     QLabel *label_from;
     QRadioButton *radioButton_RECT;
     QRadioButton *radioButton_CROSS;
     QRadioButton *radioButton_ELLIPSE;
-    QSpacerItem *horizontalSpacer_7;
     QWidget *widget_3;
     QLabel *label_6;
     QRadioButton *radioButton_opening;
@@ -126,10 +131,6 @@ public:
     QRadioButton *radioButton_gradient;
     QRadioButton *radioButton_top;
     QRadioButton *radioButton_black;
-    QWidget *widget_2;
-    QLabel *label_size;
-    QLineEdit *lineEdit_size;
-    QLabel *label_title;
     QWidget *tab_8;
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_22;
@@ -214,25 +215,18 @@ public:
     QVBoxLayout *verticalLayout_13;
     QLabel *label_11;
     QLabel *label_out_5;
-    QPushButton *pushButton_fitEllipse;
-    QPushButton *pushButton_rectcircle;
+    QLabel *label_19;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_27;
     QPushButton *pushButton_convex;
+    QPushButton *pushButton_rectcircle;
+    QPushButton *pushButton_fitEllipse;
+    QWidget *widget2;
+    QHBoxLayout *horizontalLayout_11;
     QPushButton *pushButton_open_5;
+    QPushButton *pushButton_start_5;
     QWidget *tab_7;
-    QPushButton *pushButton_match;
-    QPushButton *pushButton_open1;
-    QPushButton *pushButton_open2;
-    QWidget *widget_6;
-    QWidget *layoutWidget4;
-    QVBoxLayout *verticalLayout_17;
-    QLabel *label_15;
-    QRadioButton *radioButton_method1;
-    QRadioButton *radioButton_method2;
-    QRadioButton *radioButton_method3;
-    QRadioButton *radioButton_method4;
-    QRadioButton *radioButton_method5;
-    QRadioButton *radioButton_method6;
-    QWidget *layoutWidget5;
+    QWidget *layoutWidget7;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout_14;
     QLabel *label_12;
@@ -243,6 +237,22 @@ public:
     QVBoxLayout *verticalLayout_16;
     QLabel *label_14;
     QLabel *label_out_result;
+    QLabel *label_18;
+    QWidget *layoutWidget8;
+    QGridLayout *gridLayout_3;
+    QPushButton *pushButton_open1;
+    QPushButton *pushButton_open2;
+    QPushButton *pushButton_match;
+    QWidget *widget_6;
+    QWidget *layoutWidget9;
+    QVBoxLayout *verticalLayout_17;
+    QLabel *label_15;
+    QRadioButton *radioButton_method1;
+    QRadioButton *radioButton_method2;
+    QRadioButton *radioButton_method3;
+    QRadioButton *radioButton_method4;
+    QRadioButton *radioButton_method5;
+    QRadioButton *radioButton_method6;
     QWidget *tab_5;
     QWidget *layoutWidget_7;
     QVBoxLayout *verticalLayout_9;
@@ -273,7 +283,7 @@ public:
     QVBoxLayout *verticalLayout_10;
     QLabel *label_7;
     QLabel *label_out_3;
-    QWidget *layoutWidget6;
+    QWidget *layoutWidget10;
     QVBoxLayout *verticalLayout_11;
     QSpacerItem *verticalSpacer_15;
     QPushButton *pushButton_threshold;
@@ -282,6 +292,8 @@ public:
     QSpacerItem *verticalSpacer_17;
     QPushButton *pushButton_Point;
     QSpacerItem *verticalSpacer_18;
+    QWidget *layoutWidget11;
+    QVBoxLayout *verticalLayout_26;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -306,7 +318,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 20, 1081, 541));
+        tabWidget->setGeometry(QRect(0, 0, 1081, 541));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         layoutWidget = new QWidget(tab);
@@ -392,7 +404,8 @@ public:
         sizePolicy.setHeightForWidth(label_in->sizePolicy().hasHeightForWidth());
         label_in->setSizePolicy(sizePolicy);
         label_in->setMinimumSize(QSize(0, 0));
-        label_in->setScaledContents(true);
+        label_in->setScaledContents(false);
+        label_in->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_in);
 
@@ -603,28 +616,6 @@ public:
 
         verticalLayout_7->addWidget(label_out_2);
 
-        layoutWidget_4 = new QWidget(tab_2);
-        layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(760, 10, 195, 51));
-        horizontalLayout = new QHBoxLayout(layoutWidget_4);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_open_4 = new QPushButton(layoutWidget_4);
-        pushButton_open_4->setObjectName(QStringLiteral("pushButton_open_4"));
-        pushButton_open_4->setFont(font1);
-
-        horizontalLayout->addWidget(pushButton_open_4);
-
-        pushButton_start_2 = new QPushButton(layoutWidget_4);
-        pushButton_start_2->setObjectName(QStringLiteral("pushButton_start_2"));
-        pushButton_start_2->setEnabled(false);
-        pushButton_start_2->setFont(font1);
-
-        horizontalLayout->addWidget(pushButton_start_2);
-
         layoutWidget_5 = new QWidget(tab_2);
         layoutWidget_5->setObjectName(QStringLiteral("layoutWidget_5"));
         layoutWidget_5->setGeometry(QRect(10, 10, 107, 381));
@@ -664,17 +655,77 @@ public:
 
         verticalLayout_5->addItem(verticalSpacer_14);
 
-        layoutWidget_6 = new QWidget(tab_2);
-        layoutWidget_6->setObjectName(QStringLiteral("layoutWidget_6"));
-        layoutWidget_6->setGeometry(QRect(760, 100, 301, 181));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget_6);
+        widget_2 = new QWidget(tab_2);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        widget_2->setGeometry(QRect(760, 300, 151, 61));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
+        widget_2->setSizePolicy(sizePolicy1);
+        layoutWidget4 = new QWidget(widget_2);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(0, 10, 135, 47));
+        verticalLayout_25 = new QVBoxLayout(layoutWidget4);
+        verticalLayout_25->setSpacing(6);
+        verticalLayout_25->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_25->setObjectName(QStringLiteral("verticalLayout_25"));
+        verticalLayout_25->setContentsMargins(0, 0, 0, 0);
+        label_size = new QLabel(layoutWidget4);
+        label_size->setObjectName(QStringLiteral("label_size"));
+        label_size->setFont(font1);
+
+        verticalLayout_25->addWidget(label_size);
+
+        lineEdit_size = new QLineEdit(layoutWidget4);
+        lineEdit_size->setObjectName(QStringLiteral("lineEdit_size"));
+
+        verticalLayout_25->addWidget(lineEdit_size);
+
+        label_title = new QLabel(tab_2);
+        label_title->setObjectName(QStringLiteral("label_title"));
+        label_title->setGeometry(QRect(760, 70, 161, 21));
+        sizePolicy1.setHeightForWidth(label_title->sizePolicy().hasHeightForWidth());
+        label_title->setSizePolicy(sizePolicy1);
+        label_title->setFont(font1);
+        label_title->setAlignment(Qt::AlignCenter);
+        layoutWidget5 = new QWidget(tab_2);
+        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(761, 20, 158, 29));
+        horizontalLayout = new QHBoxLayout(layoutWidget5);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_open_4 = new QPushButton(layoutWidget5);
+        pushButton_open_4->setObjectName(QStringLiteral("pushButton_open_4"));
+        pushButton_open_4->setMinimumSize(QSize(70, 25));
+        pushButton_open_4->setMaximumSize(QSize(70, 25));
+        pushButton_open_4->setFont(font1);
+
+        horizontalLayout->addWidget(pushButton_open_4);
+
+        pushButton_start_2 = new QPushButton(layoutWidget5);
+        pushButton_start_2->setObjectName(QStringLiteral("pushButton_start_2"));
+        pushButton_start_2->setEnabled(false);
+        pushButton_start_2->setMinimumSize(QSize(70, 25));
+        pushButton_start_2->setMaximumSize(QSize(70, 25));
+        pushButton_start_2->setFont(font1);
+
+        horizontalLayout->addWidget(pushButton_start_2);
+
+        layoutWidget6 = new QWidget(tab_2);
+        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(761, 101, 291, 181));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        horizontalLayout_6->setSizeConstraint(QLayout::SetDefaultConstraint);
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        widget = new QWidget(layoutWidget_6);
+        widget = new QWidget(layoutWidget6);
         widget->setObjectName(QStringLiteral("widget"));
+        sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
+        widget->setSizePolicy(sizePolicy);
         label_from = new QLabel(widget);
         label_from->setObjectName(QStringLiteral("label_from"));
         label_from->setGeometry(QRect(0, 10, 101, 16));
@@ -692,11 +743,7 @@ public:
 
         horizontalLayout_6->addWidget(widget);
 
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_6->addItem(horizontalSpacer_7);
-
-        widget_3 = new QWidget(layoutWidget_6);
+        widget_3 = new QWidget(layoutWidget6);
         widget_3->setObjectName(QStringLiteral("widget_3"));
         label_6 = new QLabel(widget_3);
         label_6->setObjectName(QStringLiteral("label_6"));
@@ -720,21 +767,6 @@ public:
 
         horizontalLayout_6->addWidget(widget_3);
 
-        widget_2 = new QWidget(tab_2);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(760, 300, 299, 92));
-        label_size = new QLabel(widget_2);
-        label_size->setObjectName(QStringLiteral("label_size"));
-        label_size->setGeometry(QRect(0, 10, 111, 16));
-        label_size->setFont(font1);
-        lineEdit_size = new QLineEdit(widget_2);
-        lineEdit_size->setObjectName(QStringLiteral("lineEdit_size"));
-        lineEdit_size->setGeometry(QRect(0, 30, 91, 20));
-        label_title = new QLabel(tab_2);
-        label_title->setObjectName(QStringLiteral("label_title"));
-        label_title->setGeometry(QRect(760, 70, 161, 21));
-        label_title->setFont(font1);
-        label_title->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_2, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QStringLiteral("tab_8"));
@@ -1152,82 +1184,65 @@ public:
 
         verticalLayout_13->addWidget(label_out_5);
 
-        pushButton_fitEllipse = new QPushButton(tab_6);
-        pushButton_fitEllipse->setObjectName(QStringLiteral("pushButton_fitEllipse"));
-        pushButton_fitEllipse->setGeometry(QRect(10, 250, 75, 23));
-        pushButton_rectcircle = new QPushButton(tab_6);
-        pushButton_rectcircle->setObjectName(QStringLiteral("pushButton_rectcircle"));
-        pushButton_rectcircle->setGeometry(QRect(10, 190, 75, 23));
-        pushButton_convex = new QPushButton(tab_6);
+        label_19 = new QLabel(tab_6);
+        label_19->setObjectName(QStringLiteral("label_19"));
+        label_19->setGeometry(QRect(750, 120, 241, 151));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Times New Roman"));
+        font3.setPointSize(18);
+        font3.setBold(false);
+        font3.setWeight(50);
+        label_19->setFont(font3);
+        label_19->setAlignment(Qt::AlignCenter);
+        widget1 = new QWidget(tab_6);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(10, 60, 77, 271));
+        verticalLayout_27 = new QVBoxLayout(widget1);
+        verticalLayout_27->setSpacing(6);
+        verticalLayout_27->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_27->setObjectName(QStringLiteral("verticalLayout_27"));
+        verticalLayout_27->setContentsMargins(0, 0, 0, 0);
+        pushButton_convex = new QPushButton(widget1);
         pushButton_convex->setObjectName(QStringLiteral("pushButton_convex"));
-        pushButton_convex->setGeometry(QRect(10, 130, 75, 23));
-        pushButton_open_5 = new QPushButton(tab_6);
+
+        verticalLayout_27->addWidget(pushButton_convex);
+
+        pushButton_rectcircle = new QPushButton(widget1);
+        pushButton_rectcircle->setObjectName(QStringLiteral("pushButton_rectcircle"));
+
+        verticalLayout_27->addWidget(pushButton_rectcircle);
+
+        pushButton_fitEllipse = new QPushButton(widget1);
+        pushButton_fitEllipse->setObjectName(QStringLiteral("pushButton_fitEllipse"));
+
+        verticalLayout_27->addWidget(pushButton_fitEllipse);
+
+        widget2 = new QWidget(tab_6);
+        widget2->setObjectName(QStringLiteral("widget2"));
+        widget2->setGeometry(QRect(790, 10, 158, 31));
+        horizontalLayout_11 = new QHBoxLayout(widget2);
+        horizontalLayout_11->setSpacing(6);
+        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
+        pushButton_open_5 = new QPushButton(widget2);
         pushButton_open_5->setObjectName(QStringLiteral("pushButton_open_5"));
-        pushButton_open_5->setGeometry(QRect(790, 10, 75, 23));
+
+        horizontalLayout_11->addWidget(pushButton_open_5);
+
+        pushButton_start_5 = new QPushButton(widget2);
+        pushButton_start_5->setObjectName(QStringLiteral("pushButton_start_5"));
+        pushButton_start_5->setEnabled(false);
+
+        horizontalLayout_11->addWidget(pushButton_start_5);
+
         tabWidget->addTab(tab_6, QString());
         tab_7 = new QWidget();
         tab_7->setObjectName(QStringLiteral("tab_7"));
-        pushButton_match = new QPushButton(tab_7);
-        pushButton_match->setObjectName(QStringLiteral("pushButton_match"));
-        pushButton_match->setGeometry(QRect(10, 230, 75, 23));
-        pushButton_open1 = new QPushButton(tab_7);
-        pushButton_open1->setObjectName(QStringLiteral("pushButton_open1"));
-        pushButton_open1->setGeometry(QRect(700, 20, 75, 23));
-        pushButton_open2 = new QPushButton(tab_7);
-        pushButton_open2->setObjectName(QStringLiteral("pushButton_open2"));
-        pushButton_open2->setGeometry(QRect(820, 20, 75, 23));
-        widget_6 = new QWidget(tab_7);
-        widget_6->setObjectName(QStringLiteral("widget_6"));
-        widget_6->setGeometry(QRect(700, 60, 181, 251));
-        layoutWidget4 = new QWidget(widget_6);
-        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 10, 157, 231));
-        verticalLayout_17 = new QVBoxLayout(layoutWidget4);
-        verticalLayout_17->setSpacing(6);
-        verticalLayout_17->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
-        verticalLayout_17->setContentsMargins(0, 0, 0, 0);
-        label_15 = new QLabel(layoutWidget4);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setMaximumSize(QSize(10000, 20));
-        label_15->setFont(font1);
-
-        verticalLayout_17->addWidget(label_15);
-
-        radioButton_method1 = new QRadioButton(layoutWidget4);
-        radioButton_method1->setObjectName(QStringLiteral("radioButton_method1"));
-
-        verticalLayout_17->addWidget(radioButton_method1);
-
-        radioButton_method2 = new QRadioButton(layoutWidget4);
-        radioButton_method2->setObjectName(QStringLiteral("radioButton_method2"));
-
-        verticalLayout_17->addWidget(radioButton_method2);
-
-        radioButton_method3 = new QRadioButton(layoutWidget4);
-        radioButton_method3->setObjectName(QStringLiteral("radioButton_method3"));
-
-        verticalLayout_17->addWidget(radioButton_method3);
-
-        radioButton_method4 = new QRadioButton(layoutWidget4);
-        radioButton_method4->setObjectName(QStringLiteral("radioButton_method4"));
-
-        verticalLayout_17->addWidget(radioButton_method4);
-
-        radioButton_method5 = new QRadioButton(layoutWidget4);
-        radioButton_method5->setObjectName(QStringLiteral("radioButton_method5"));
-
-        verticalLayout_17->addWidget(radioButton_method5);
-
-        radioButton_method6 = new QRadioButton(layoutWidget4);
-        radioButton_method6->setObjectName(QStringLiteral("radioButton_method6"));
-
-        verticalLayout_17->addWidget(radioButton_method6);
-
-        layoutWidget5 = new QWidget(tab_7);
-        layoutWidget5->setObjectName(QStringLiteral("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(110, 10, 561, 461));
-        gridLayout_2 = new QGridLayout(layoutWidget5);
+        layoutWidget7 = new QWidget(tab_7);
+        layoutWidget7->setObjectName(QStringLiteral("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(110, 10, 561, 461));
+        gridLayout_2 = new QGridLayout(layoutWidget7);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
@@ -1235,14 +1250,14 @@ public:
         verticalLayout_14 = new QVBoxLayout();
         verticalLayout_14->setSpacing(6);
         verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        label_12 = new QLabel(layoutWidget5);
+        label_12 = new QLabel(layoutWidget7);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setMaximumSize(QSize(50, 20));
         label_12->setFont(font1);
 
         verticalLayout_14->addWidget(label_12);
 
-        label_in_original = new QLabel(layoutWidget5);
+        label_in_original = new QLabel(layoutWidget7);
         label_in_original->setObjectName(QStringLiteral("label_in_original"));
         sizePolicy.setHeightForWidth(label_in_original->sizePolicy().hasHeightForWidth());
         label_in_original->setSizePolicy(sizePolicy);
@@ -1257,14 +1272,14 @@ public:
         verticalLayout_15 = new QVBoxLayout();
         verticalLayout_15->setSpacing(6);
         verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
-        label_13 = new QLabel(layoutWidget5);
+        label_13 = new QLabel(layoutWidget7);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setMaximumSize(QSize(50, 20));
         label_13->setFont(font1);
 
         verticalLayout_15->addWidget(label_13);
 
-        label_in_templat = new QLabel(layoutWidget5);
+        label_in_templat = new QLabel(layoutWidget7);
         label_in_templat->setObjectName(QStringLiteral("label_in_templat"));
         sizePolicy.setHeightForWidth(label_in_templat->sizePolicy().hasHeightForWidth());
         label_in_templat->setSizePolicy(sizePolicy);
@@ -1279,14 +1294,14 @@ public:
         verticalLayout_16 = new QVBoxLayout();
         verticalLayout_16->setSpacing(6);
         verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
-        label_14 = new QLabel(layoutWidget5);
+        label_14 = new QLabel(layoutWidget7);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setMaximumSize(QSize(50, 20));
         label_14->setFont(font1);
 
         verticalLayout_16->addWidget(label_14);
 
-        label_out_result = new QLabel(layoutWidget5);
+        label_out_result = new QLabel(layoutWidget7);
         label_out_result->setObjectName(QStringLiteral("label_out_result"));
         sizePolicy.setHeightForWidth(label_out_result->sizePolicy().hasHeightForWidth());
         label_out_result->setSizePolicy(sizePolicy);
@@ -1297,6 +1312,83 @@ public:
 
 
         gridLayout_2->addLayout(verticalLayout_16, 1, 0, 1, 1);
+
+        label_18 = new QLabel(tab_7);
+        label_18->setObjectName(QStringLiteral("label_18"));
+        label_18->setGeometry(QRect(20, 210, 54, 12));
+        layoutWidget8 = new QWidget(tab_7);
+        layoutWidget8->setObjectName(QStringLiteral("layoutWidget8"));
+        layoutWidget8->setGeometry(QRect(700, 20, 251, 451));
+        gridLayout_3 = new QGridLayout(layoutWidget8);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        pushButton_open1 = new QPushButton(layoutWidget8);
+        pushButton_open1->setObjectName(QStringLiteral("pushButton_open1"));
+
+        gridLayout_3->addWidget(pushButton_open1, 0, 0, 1, 1);
+
+        pushButton_open2 = new QPushButton(layoutWidget8);
+        pushButton_open2->setObjectName(QStringLiteral("pushButton_open2"));
+
+        gridLayout_3->addWidget(pushButton_open2, 0, 1, 1, 1);
+
+        pushButton_match = new QPushButton(layoutWidget8);
+        pushButton_match->setObjectName(QStringLiteral("pushButton_match"));
+        pushButton_match->setEnabled(false);
+
+        gridLayout_3->addWidget(pushButton_match, 0, 2, 1, 1);
+
+        widget_6 = new QWidget(layoutWidget8);
+        widget_6->setObjectName(QStringLiteral("widget_6"));
+        layoutWidget9 = new QWidget(widget_6);
+        layoutWidget9->setObjectName(QStringLiteral("layoutWidget9"));
+        layoutWidget9->setGeometry(QRect(10, 10, 161, 231));
+        verticalLayout_17 = new QVBoxLayout(layoutWidget9);
+        verticalLayout_17->setSpacing(6);
+        verticalLayout_17->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
+        verticalLayout_17->setContentsMargins(0, 0, 0, 0);
+        label_15 = new QLabel(layoutWidget9);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setMaximumSize(QSize(10000, 20));
+        label_15->setFont(font1);
+
+        verticalLayout_17->addWidget(label_15);
+
+        radioButton_method1 = new QRadioButton(layoutWidget9);
+        radioButton_method1->setObjectName(QStringLiteral("radioButton_method1"));
+
+        verticalLayout_17->addWidget(radioButton_method1);
+
+        radioButton_method2 = new QRadioButton(layoutWidget9);
+        radioButton_method2->setObjectName(QStringLiteral("radioButton_method2"));
+
+        verticalLayout_17->addWidget(radioButton_method2);
+
+        radioButton_method3 = new QRadioButton(layoutWidget9);
+        radioButton_method3->setObjectName(QStringLiteral("radioButton_method3"));
+
+        verticalLayout_17->addWidget(radioButton_method3);
+
+        radioButton_method4 = new QRadioButton(layoutWidget9);
+        radioButton_method4->setObjectName(QStringLiteral("radioButton_method4"));
+
+        verticalLayout_17->addWidget(radioButton_method4);
+
+        radioButton_method5 = new QRadioButton(layoutWidget9);
+        radioButton_method5->setObjectName(QStringLiteral("radioButton_method5"));
+
+        verticalLayout_17->addWidget(radioButton_method5);
+
+        radioButton_method6 = new QRadioButton(layoutWidget9);
+        radioButton_method6->setObjectName(QStringLiteral("radioButton_method6"));
+
+        verticalLayout_17->addWidget(radioButton_method6);
+
+
+        gridLayout_3->addWidget(widget_6, 1, 0, 1, 2);
 
         tabWidget->addTab(tab_7, QString());
         tab_5 = new QWidget();
@@ -1443,10 +1535,10 @@ public:
 
         verticalLayout_10->addWidget(label_out_3);
 
-        layoutWidget6 = new QWidget(tab_5);
-        layoutWidget6->setObjectName(QStringLiteral("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(0, 10, 95, 381));
-        verticalLayout_11 = new QVBoxLayout(layoutWidget6);
+        layoutWidget10 = new QWidget(tab_5);
+        layoutWidget10->setObjectName(QStringLiteral("layoutWidget10"));
+        layoutWidget10->setGeometry(QRect(0, 10, 95, 381));
+        verticalLayout_11 = new QVBoxLayout(layoutWidget10);
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setContentsMargins(11, 11, 11, 11);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
@@ -1455,7 +1547,7 @@ public:
 
         verticalLayout_11->addItem(verticalSpacer_15);
 
-        pushButton_threshold = new QPushButton(layoutWidget6);
+        pushButton_threshold = new QPushButton(layoutWidget10);
         pushButton_threshold->setObjectName(QStringLiteral("pushButton_threshold"));
 
         verticalLayout_11->addWidget(pushButton_threshold);
@@ -1464,7 +1556,7 @@ public:
 
         verticalLayout_11->addItem(verticalSpacer_16);
 
-        pushButton_makeborder = new QPushButton(layoutWidget6);
+        pushButton_makeborder = new QPushButton(layoutWidget10);
         pushButton_makeborder->setObjectName(QStringLiteral("pushButton_makeborder"));
 
         verticalLayout_11->addWidget(pushButton_makeborder);
@@ -1473,7 +1565,7 @@ public:
 
         verticalLayout_11->addItem(verticalSpacer_17);
 
-        pushButton_Point = new QPushButton(layoutWidget6);
+        pushButton_Point = new QPushButton(layoutWidget10);
         pushButton_Point->setObjectName(QStringLiteral("pushButton_Point"));
 
         verticalLayout_11->addWidget(pushButton_Point);
@@ -1483,6 +1575,14 @@ public:
         verticalLayout_11->addItem(verticalSpacer_18);
 
         tabWidget->addTab(tab_5, QString());
+        layoutWidget11 = new QWidget(centralWidget);
+        layoutWidget11->setObjectName(QStringLiteral("layoutWidget11"));
+        layoutWidget11->setGeometry(QRect(0, 0, 2, 2));
+        verticalLayout_26 = new QVBoxLayout(layoutWidget11);
+        verticalLayout_26->setSpacing(6);
+        verticalLayout_26->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_26->setObjectName(QStringLiteral("verticalLayout_26"));
+        verticalLayout_26->setContentsMargins(0, 0, 0, 0);
         Hi_OpencvClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Hi_OpencvClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -1555,8 +1655,9 @@ public:
         QObject::connect(pushButton_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhitwo_show()));
         QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
         QObject::connect(pushButton_10, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhi_open()));
+        QObject::connect(pushButton_start_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_5()));
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -1596,11 +1697,13 @@ public:
         label_in_2->setText(QString());
         label_5->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
         label_out_2->setText(QString());
-        pushButton_open_4->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
-        pushButton_start_2->setText(QApplication::translate("Hi_OpencvClass", "Start", Q_NULLPTR));
         pushButton_erode->setText(QApplication::translate("Hi_OpencvClass", "erode", Q_NULLPTR));
         pushButton_dilate->setText(QApplication::translate("Hi_OpencvClass", "dilate", Q_NULLPTR));
         pushButton_morphologyEX->setText(QApplication::translate("Hi_OpencvClass", "morphologyEX", Q_NULLPTR));
+        label_size->setText(QApplication::translate("Hi_OpencvClass", "erosion_size:", Q_NULLPTR));
+        label_title->setText(QApplication::translate("Hi_OpencvClass", "Form Conversion", Q_NULLPTR));
+        pushButton_open_4->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
+        pushButton_start_2->setText(QApplication::translate("Hi_OpencvClass", "Start", Q_NULLPTR));
         label_from->setText(QApplication::translate("Hi_OpencvClass", "kernel_form:", Q_NULLPTR));
         radioButton_RECT->setText(QApplication::translate("Hi_OpencvClass", "RECT", Q_NULLPTR));
         radioButton_CROSS->setText(QApplication::translate("Hi_OpencvClass", "CROSS", Q_NULLPTR));
@@ -1611,8 +1714,6 @@ public:
         radioButton_gradient->setText(QApplication::translate("Hi_OpencvClass", "Gradient", Q_NULLPTR));
         radioButton_top->setText(QApplication::translate("Hi_OpencvClass", "Top Hat", Q_NULLPTR));
         radioButton_black->setText(QApplication::translate("Hi_OpencvClass", "Black Hat", Q_NULLPTR));
-        label_size->setText(QApplication::translate("Hi_OpencvClass", "erosion_size:", Q_NULLPTR));
-        label_title->setText(QApplication::translate("Hi_OpencvClass", "Form Conversion", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\275\242\346\200\201\345\217\230\346\215\242", Q_NULLPTR));
         pushButton_8->setText(QApplication::translate("Hi_OpencvClass", "\347\233\264\346\226\271\345\233\276\345\235\207\350\241\241\345\214\226\345\244\204\347\220\206", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("Hi_OpencvClass", "\350\256\241\347\256\227\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276", Q_NULLPTR));
@@ -1660,14 +1761,23 @@ public:
         label_in_5->setText(QString());
         label_11->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
         label_out_5->setText(QString());
-        pushButton_fitEllipse->setText(QApplication::translate("Hi_OpencvClass", "fitEllipse", Q_NULLPTR));
-        pushButton_rectcircle->setText(QApplication::translate("Hi_OpencvClass", "Rect Circle", Q_NULLPTR));
+        label_19->setText(QApplication::translate("Hi_OpencvClass", "target location", Q_NULLPTR));
         pushButton_convex->setText(QApplication::translate("Hi_OpencvClass", "convexHull", Q_NULLPTR));
+        pushButton_rectcircle->setText(QApplication::translate("Hi_OpencvClass", "Rect Circle", Q_NULLPTR));
+        pushButton_fitEllipse->setText(QApplication::translate("Hi_OpencvClass", "fitEllipse", Q_NULLPTR));
         pushButton_open_5->setText(QApplication::translate("Hi_OpencvClass", "open", Q_NULLPTR));
+        pushButton_start_5->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("Hi_OpencvClass", "\347\233\256\346\240\207\345\256\232\344\275\215", Q_NULLPTR));
-        pushButton_match->setText(QApplication::translate("Hi_OpencvClass", "match", Q_NULLPTR));
+        label_12->setText(QApplication::translate("Hi_OpencvClass", "original", Q_NULLPTR));
+        label_in_original->setText(QString());
+        label_13->setText(QApplication::translate("Hi_OpencvClass", "template", Q_NULLPTR));
+        label_in_templat->setText(QString());
+        label_14->setText(QApplication::translate("Hi_OpencvClass", "result", Q_NULLPTR));
+        label_out_result->setText(QString());
+        label_18->setText(QApplication::translate("Hi_OpencvClass", "\346\250\241\346\235\277\345\214\271\351\205\215", Q_NULLPTR));
         pushButton_open1->setText(QApplication::translate("Hi_OpencvClass", "open1", Q_NULLPTR));
         pushButton_open2->setText(QApplication::translate("Hi_OpencvClass", "open2", Q_NULLPTR));
+        pushButton_match->setText(QApplication::translate("Hi_OpencvClass", "match", Q_NULLPTR));
         label_15->setText(QApplication::translate("Hi_OpencvClass", "match_method:", Q_NULLPTR));
         radioButton_method1->setText(QApplication::translate("Hi_OpencvClass", "TM_SQDIFF", Q_NULLPTR));
         radioButton_method2->setText(QApplication::translate("Hi_OpencvClass", "TM_SQDIFF_NORMED", Q_NULLPTR));
@@ -1675,12 +1785,6 @@ public:
         radioButton_method4->setText(QApplication::translate("Hi_OpencvClass", "TM_CCORR_NORMED", Q_NULLPTR));
         radioButton_method5->setText(QApplication::translate("Hi_OpencvClass", "TM_CCOEFF", Q_NULLPTR));
         radioButton_method6->setText(QApplication::translate("Hi_OpencvClass", "TM_CCOEFF_NORMED", Q_NULLPTR));
-        label_12->setText(QApplication::translate("Hi_OpencvClass", "original", Q_NULLPTR));
-        label_in_original->setText(QString());
-        label_13->setText(QApplication::translate("Hi_OpencvClass", "template", Q_NULLPTR));
-        label_in_templat->setText(QString());
-        label_14->setText(QApplication::translate("Hi_OpencvClass", "result", Q_NULLPTR));
-        label_out_result->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("Hi_OpencvClass", "\346\250\241\346\235\277\345\214\271\351\205\215", Q_NULLPTR));
         label_8->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
         label_in_3->setText(QString());

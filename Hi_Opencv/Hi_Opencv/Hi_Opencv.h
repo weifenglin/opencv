@@ -34,6 +34,8 @@ public:
 	RNG rng;
 	QString str;
 
+	//void image_fit(Mat a);
+
 private slots:
 	void on_open();
 	void on_start();
@@ -62,6 +64,7 @@ private slots:
 
 	//Ä¿±ê±ä»»
 	void on_open_5();
+	void on_start_5();
 	void on_convexHull();
 	void on_rectcircle();
 	void on_fitEllipse();
