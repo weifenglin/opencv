@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -41,8 +41,8 @@
        <rect>
         <x>130</x>
         <y>10</y>
-        <width>321</width>
-        <height>381</height>
+        <width>322</width>
+        <height>382</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -78,6 +78,37 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_in">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_10">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -93,31 +124,6 @@
          </property>
         </spacer>
        </item>
-       <item>
-        <widget class="QLabel" name="label_in">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="layoutWidget">
@@ -125,8 +131,8 @@
        <rect>
         <x>470</x>
         <y>11</y>
-        <width>321</width>
-        <height>381</height>
+        <width>322</width>
+        <height>382</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -160,6 +166,9 @@
        </item>
        <item>
         <widget class="QLabel" name="label_out">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -168,15 +177,24 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
           </size>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -637,7 +655,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -699,7 +720,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -938,8 +962,8 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>761</x>
-        <y>101</y>
+        <x>760</x>
+        <y>100</y>
         <width>291</width>
         <height>181</height>
        </rect>
@@ -1109,71 +1133,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="widget_2" native="true">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>300</y>
-        <width>299</width>
-        <height>92</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="label_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Times New Roman</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>erosion_size:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>91</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_title">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>70</y>
-        <width>161</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Times New Roman</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Form Conversion</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
      </widget>
      <widget class="Line" name="line_6">
       <property name="geometry">
@@ -1505,7 +1464,7 @@
        <rect>
         <x>740</x>
         <y>20</y>
-        <width>161</width>
+        <width>178</width>
         <height>266</height>
        </rect>
       </property>
@@ -2104,7 +2063,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2166,7 +2128,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2175,7 +2140,7 @@
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>750</x>
+        <x>810</x>
         <y>120</y>
         <width>241</width>
         <height>151</height>
@@ -2196,7 +2161,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -2229,17 +2194,30 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QPushButton" name="pushButton_open_5">
       <property name="geometry">
        <rect>
-        <x>800</x>
-        <y>10</y>
-        <width>158</width>
-        <height>31</height>
+        <x>820</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
        </rect>
       </property>
       <property name="text">
        <string>open</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_start_5">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>start</string>
       </property>
      </widget>
     </widget>
@@ -2298,7 +2276,10 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -2345,7 +2326,10 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -2392,7 +2376,10 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -2608,7 +2595,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2823,7 +2813,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2916,7 +2909,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -2996,8 +2989,8 @@
    <slot>on_blur_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>155</y>
+     <x>87</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>354</x>
@@ -3012,8 +3005,8 @@
    <slot>on_gaussian_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>250</y>
+     <x>87</x>
+     <y>229</y>
     </hint>
     <hint type="destinationlabel">
      <x>193</x>
@@ -3028,8 +3021,8 @@
    <slot>on_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>787</x>
-     <y>117</y>
+     <x>814</x>
+     <y>87</y>
     </hint>
     <hint type="destinationlabel">
      <x>729</x>
@@ -3060,8 +3053,8 @@
    <slot>on_start()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>966</x>
-     <y>117</y>
+     <x>1006</x>
+     <y>87</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -3076,8 +3069,8 @@
    <slot>w3openPic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>885</x>
-     <y>120</y>
+     <x>888</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -3092,8 +3085,8 @@
    <slot>w3up()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>52</x>
-     <y>141</y>
+     <x>55</x>
+     <y>88</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3108,8 +3101,8 @@
    <slot>w3down()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>215</x>
-     <y>141</y>
+     <x>111</x>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3124,8 +3117,8 @@
    <slot>w3LeftRight()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>201</y>
+     <x>72</x>
+     <y>170</y>
     </hint>
     <hint type="destinationlabel">
      <x>137</x>
@@ -3140,8 +3133,8 @@
    <slot>w3UpDown()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>215</x>
-     <y>201</y>
+     <x>111</x>
+     <y>211</y>
     </hint>
     <hint type="destinationlabel">
      <x>875</x>
@@ -3204,8 +3197,8 @@
    <slot>on_open_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>803</x>
-     <y>108</y>
+     <x>809</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>1134</x>
@@ -3220,8 +3213,8 @@
    <slot>on_start_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>945</x>
-     <y>108</y>
+     <x>915</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>1159</x>
@@ -3236,8 +3229,8 @@
    <slot>on_form_RECT()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>799</x>
-     <y>204</y>
+     <x>802</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
      <x>1161</x>
@@ -3252,8 +3245,8 @@
    <slot>on_form_CROSS()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>776</x>
-     <y>234</y>
+     <x>779</x>
+     <y>210</y>
     </hint>
     <hint type="destinationlabel">
      <x>1165</x>
@@ -3268,8 +3261,8 @@
    <slot>on_form_ELLIPSE()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>808</x>
-     <y>264</y>
+     <x>811</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>1168</x>
@@ -3284,8 +3277,8 @@
    <slot>on_opening()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>204</y>
+     <x>1000</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
      <x>1173</x>
@@ -3300,8 +3293,8 @@
    <slot>on_closing()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>234</y>
+     <x>1000</x>
+     <y>210</y>
     </hint>
     <hint type="destinationlabel">
      <x>1176</x>
@@ -3316,8 +3309,8 @@
    <slot>on_gradient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>264</y>
+     <x>1000</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>1175</x>
@@ -3332,8 +3325,8 @@
    <slot>on_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>294</y>
+     <x>1000</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
      <x>1182</x>
@@ -3348,8 +3341,8 @@
    <slot>on_black()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1018</x>
-     <y>324</y>
+     <x>1000</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>1186</x>
@@ -3524,8 +3517,8 @@
    <slot>on_convexHull()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>210</y>
+     <x>58</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -3540,8 +3533,8 @@
    <slot>on_rectcircle()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>88</x>
-     <y>270</y>
+     <x>87</x>
+     <y>239</y>
     </hint>
     <hint type="destinationlabel">
      <x>804</x>
@@ -3556,28 +3549,12 @@
    <slot>on_fitEllipse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>62</x>
-     <y>330</y>
+     <x>65</x>
+     <y>315</y>
     </hint>
     <hint type="destinationlabel">
      <x>785</x>
      <y>0</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_open_5</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open_5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>839</x>
-     <y>90</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1135</x>
-     <y>112</y>
     </hint>
    </hints>
   </connection>
@@ -3588,8 +3565,8 @@
    <slot>on_match()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>310</y>
+     <x>873</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>919</x>
@@ -3604,8 +3581,8 @@
    <slot>on_open1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>755</x>
-     <y>100</y>
+     <x>758</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -3620,8 +3597,8 @@
    <slot>on_open2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>869</x>
-     <y>100</y>
+     <x>866</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>1145</x>
@@ -3636,8 +3613,8 @@
    <slot>on_method1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>786</x>
-     <y>186</y>
+     <x>790</x>
+     <y>153</y>
     </hint>
     <hint type="destinationlabel">
      <x>1121</x>
@@ -3652,8 +3629,8 @@
    <slot>on_method2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>816</x>
-     <y>218</y>
+     <x>820</x>
+     <y>184</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3668,8 +3645,8 @@
    <slot>on_method3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>791</x>
-     <y>250</y>
+     <x>795</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
      <x>1116</x>
@@ -3684,8 +3661,8 @@
    <slot>on_method4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>772</x>
-     <y>282</y>
+     <x>776</x>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3700,8 +3677,8 @@
    <slot>on_method5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>758</x>
-     <y>314</y>
+     <x>762</x>
+     <y>277</y>
     </hint>
     <hint type="destinationlabel">
      <x>1125</x>
@@ -3716,8 +3693,8 @@
    <slot>on_method6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>755</x>
-     <y>346</y>
+     <x>759</x>
+     <y>308</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -3732,8 +3709,8 @@
    <slot>w3btnFSClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>303</y>
+     <x>111</x>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3748,8 +3725,8 @@
    <slot>w3btnRotateClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>82</x>
-     <y>345</y>
+     <x>85</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3764,8 +3741,8 @@
    <slot>w3btnTSClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>127</x>
-     <y>387</y>
+     <x>111</x>
+     <y>334</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3780,8 +3757,8 @@
    <slot>w3btnStartClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>863</x>
-     <y>160</y>
+     <x>866</x>
+     <y>105</y>
     </hint>
     <hint type="destinationlabel">
      <x>775</x>
@@ -3982,18 +3959,34 @@
    </hints>
   </connection>
   <connection>
+   <sender>pushButton_open_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open_5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>853</x>
+     <y>64</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1131</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>pushButton_start_5</sender>
    <signal>clicked()</signal>
    <receiver>Hi_OpencvClass</receiver>
    <slot>on_start_5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>890</x>
-     <y>72</y>
+     <x>985</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1102</x>
-     <y>80</y>
+     <x>1136</x>
+     <y>201</y>
     </hint>
    </hints>
   </connection>
