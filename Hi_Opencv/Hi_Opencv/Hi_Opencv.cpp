@@ -20,10 +20,10 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 
 	ui.label_w->hide();
 	ui.label_h->hide();
-	ui.label_i->hide();
+	//ui.label_i->hide();
 	ui.lineEdit_w->hide();
 	ui.lineEdit_h->hide();
-	ui.lineEdit_i->hide();
+	//ui.lineEdit_i->hide();
 
 	ui.widget->hide();
 	ui.widget_2->hide();
@@ -97,6 +97,11 @@ void Hi_Opencv::on_open()
 		ui.label_in->resize(QSize(img.width(), img.height()));
 		ui.pushButton_start->setEnabled(true);
 		ui.label_out->clear();
+		ui.label_3->setText("image degradation");
+		ui.label_w->hide();
+		ui.label_h->hide();
+		ui.lineEdit_w->hide();
+		ui.lineEdit_h->hide();
 	}
 
 
@@ -109,6 +114,8 @@ void Hi_Opencv::on_start()
 			if (j > 0 && k > 0)
 			{
 				cv::blur(image, image1, Size(j, k));
+				ui.lineEdit_w->setText("");
+				ui.lineEdit_h->setText("");
 			}
 			else
 			{
@@ -117,7 +124,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 2:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0 && m % 2 == 1)
 			{
 				cv::GaussianBlur(image, image1, Size(m, m), 0, 0);
@@ -129,7 +136,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 3:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0 && m % 2 == 1)
 			{
 				cv::medianBlur(image, image1, m);
@@ -141,7 +148,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 4:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0)
 			{
 				cv::bilateralFilter(image, image1, m, m * 2, m / 2);
@@ -157,7 +164,7 @@ void Hi_Opencv::on_start()
 	}
 	ui.lineEdit_w->clear();
 	ui.lineEdit_h->clear();
-	ui.lineEdit_i->clear();
+	//ui.lineEdit_i->clear();
 	//cv::resize(image1, image1, Size(w1, h1));
 	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image.channels(), QImage::Format_RGB888);
 	ui.label_out->setPixmap(QPixmap::fromImage(img));
@@ -169,8 +176,9 @@ int Hi_Opencv::on_blur_show()
 	i = 1;
 	ui.label_out->clear();
 	ui.label_3->setText("blur");
-	ui.label_i->hide();
-	ui.lineEdit_i->hide();
+	/*ui.label_i->hide();
+	ui.lineEdit_i->hide();*/
+	ui.label_w->setText("image width:");
 	ui.label_w->show();
 	ui.label_h->show();
 	ui.lineEdit_h->show();
@@ -183,12 +191,13 @@ int Hi_Opencv::on_gaussian_show()
 	i = 2;
 	ui.label_out->clear();
 	ui.label_3->setText("gaussian");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
@@ -197,12 +206,13 @@ int Hi_Opencv::on_median_show()
 	i = 3;
 	ui.label_out->clear();
 	ui.label_3->setText("median");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
@@ -211,12 +221,13 @@ int Hi_Opencv::on_Bilateral_show()
 	i = 4;
 	ui.label_out->clear();
 	ui.label_3->setText("Bilateral");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
@@ -250,6 +261,11 @@ void Hi_Opencv::on_open_2()
 		ui.label_in_2->resize(QSize(img.width(), img.height()));
 		ui.pushButton_start_2->setEnabled(true);
 		ui.label_out_2->clear();
+
+		ui.label_title->setText("Form Conversion");
+		ui.widget->hide();
+		ui.widget_2->hide();
+		ui.widget_3->hide();
 	}
 }
 
@@ -854,6 +870,7 @@ void Hi_Opencv::w3btnStartClicked()
 //目标定位
 void Hi_Opencv::on_open_5()
 {
+	i = 0;
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -886,6 +903,9 @@ void Hi_Opencv::on_open_5()
 		ui.label_in_5->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_5->resize(QSize(img.width(), img.height()));
 		ui.label_out_5->clear();
+		ui.pushButton_start_5->setEnabled(true);
+
+		ui.label_19->setText("target location");
 	}
 }
 
@@ -1177,7 +1197,6 @@ void Hi_Opencv::on_match()
 	ui.radioButton_method5->setEnabled(true);
 	ui.radioButton_method6->setEnabled(true);*/
 	
-	//cv::resize(image3, image4, Size(25, 22));
 	Mat image_display;
 	image2.copyTo(image_display);
 
@@ -1244,12 +1263,19 @@ void Hi_Opencv::on_open_7()
 		ui.label_in_3->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_3->resize(QSize(img.width(), img.height()));
 		ui.label_out_3->clear();
-
+		ui.label_20->setText("Other");
+		ui.widget_4->hide();
+		ui.widget_5->hide();
 	}
 }
 
 void Hi_Opencv::on_threshold()
 {
+	ui.label_20->setText("threshold");
+	if (i == 9)
+	{
+		ui.label_in_3->clear();
+	}
 	ui.pushButton_open_7->show();
 	ui.widget_5->hide();
 	ui.widget_4->show();
@@ -1285,12 +1311,18 @@ void Hi_Opencv::on_value()
 
 void Hi_Opencv::on_makeborder()
 {
+	ui.label_20->setText("makeborder");
+	if (i == 9)
+	{
+		ui.label_in_3->clear();
+	}
 	ui.pushButton_open_7->show();
 	ui.widget_4->hide();
 	ui.widget_5->show();
 	ui.radioButton->setEnabled(true);
 	ui.radioButton_2->setEnabled(true);
 	ui.label_out_3->clear();
+	
 }
 
 void Hi_Opencv::on_bordertype1()
@@ -1325,6 +1357,8 @@ void Hi_Opencv::on_start_7()
 
 void Hi_Opencv::on_Point()
 {
+	ui.label_20->setText("Point");
+	i = 9;
 	ui.pushButton_open_7->hide();
 	ui.widget_4->hide();
 	ui.widget_5->hide();

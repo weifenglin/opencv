@@ -77,11 +77,6 @@ public:
     QLineEdit *lineEdit_h;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer_8;
-    QHBoxLayout *horizontalLayout_5;
-    QSpacerItem *horizontalSpacer_5;
-    QLabel *label_i;
-    QLineEdit *lineEdit_i;
-    QSpacerItem *horizontalSpacer_6;
     QFrame *line;
     QFrame *line_2;
     QFrame *line_5;
@@ -306,6 +301,7 @@ public:
     QSpacerItem *verticalSpacer_17;
     QPushButton *pushButton_Point;
     QSpacerItem *verticalSpacer_18;
+    QLabel *label_20;
     QWidget *layoutWidget11;
     QVBoxLayout *verticalLayout_26;
     QToolBar *mainToolBar;
@@ -421,7 +417,7 @@ public:
 
         layoutWidget2 = new QWidget(tab);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(810, 10, 197, 381));
+        layoutWidget2->setGeometry(QRect(810, 10, 237, 381));
         verticalLayout_4 = new QVBoxLayout(layoutWidget2);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -524,31 +520,6 @@ public:
         verticalSpacer_8 = new QSpacerItem(20, 60, QSizePolicy::Minimum, QSizePolicy::Maximum);
 
         verticalLayout_4->addItem(verticalSpacer_8);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_5);
-
-        label_i = new QLabel(layoutWidget2);
-        label_i->setObjectName(QStringLiteral("label_i"));
-        label_i->setFont(font2);
-
-        horizontalLayout_5->addWidget(label_i);
-
-        lineEdit_i = new QLineEdit(layoutWidget2);
-        lineEdit_i->setObjectName(QStringLiteral("lineEdit_i"));
-
-        horizontalLayout_5->addWidget(lineEdit_i);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_6);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_5);
 
         line = new QFrame(tab);
         line->setObjectName(QStringLiteral("line"));
@@ -1333,6 +1304,7 @@ public:
         pushButton_open_5->setGeometry(QRect(820, 20, 75, 23));
         pushButton_start_5 = new QPushButton(tab_6);
         pushButton_start_5->setObjectName(QStringLiteral("pushButton_start_5"));
+        pushButton_start_5->setEnabled(false);
         pushButton_start_5->setGeometry(QRect(950, 20, 75, 23));
         tabWidget->addTab(tab_6, QString());
         tab_7 = new QWidget();
@@ -1531,7 +1503,7 @@ public:
 
         widget_4 = new QWidget(tab_5);
         widget_4->setObjectName(QStringLiteral("widget_4"));
-        widget_4->setGeometry(QRect(780, 60, 281, 107));
+        widget_4->setGeometry(QRect(780, 110, 281, 107));
         layoutWidget_8 = new QWidget(widget_4);
         layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
         layoutWidget_8->setGeometry(QRect(10, 80, 241, 24));
@@ -1579,7 +1551,7 @@ public:
 
         widget_5 = new QWidget(tab_5);
         widget_5->setObjectName(QStringLiteral("widget_5"));
-        widget_5->setGeometry(QRect(790, 190, 261, 101));
+        widget_5->setGeometry(QRect(790, 230, 261, 101));
         pushButton_start_7 = new QPushButton(widget_5);
         pushButton_start_7->setObjectName(QStringLiteral("pushButton_start_7"));
         pushButton_start_7->setGeometry(QRect(180, 30, 75, 23));
@@ -1687,6 +1659,16 @@ public:
 
         verticalLayout_11->addItem(verticalSpacer_18);
 
+        label_20 = new QLabel(tab_5);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        label_20->setGeometry(QRect(780, 60, 281, 41));
+        QFont font4;
+        font4.setFamily(QStringLiteral("SimSun-ExtB"));
+        font4.setPointSize(18);
+        font4.setBold(false);
+        font4.setWeight(50);
+        label_20->setFont(font4);
+        label_20->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_5, QString());
         layoutWidget11 = new QWidget(centralWidget);
         layoutWidget11->setObjectName(QStringLiteral("layoutWidget11"));
@@ -1770,7 +1752,7 @@ public:
         QObject::connect(pushButton_open_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_5()));
         QObject::connect(pushButton_start_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_5()));
 
-        tabWidget->setCurrentIndex(7);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -1797,10 +1779,9 @@ public:
         label_out->setText(QString());
         pushButton_open->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         pushButton_start->setText(QApplication::translate("Hi_OpencvClass", "start", Q_NULLPTR));
-        label_3->setText(QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\346\250\241\347\263\212", Q_NULLPTR));
-        label_w->setText(QApplication::translate("Hi_OpencvClass", "\345\203\217\347\264\240\345\256\275\345\272\246w\357\274\232", Q_NULLPTR));
-        label_h->setText(QApplication::translate("Hi_OpencvClass", "\345\203\217\347\264\240\351\253\230\345\272\246h\357\274\232", Q_NULLPTR));
-        label_i->setText(QApplication::translate("Hi_OpencvClass", "\345\206\205\346\240\270\345\244\247\345\260\217\357\274\232", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Hi_OpencvClass", "image degradation", Q_NULLPTR));
+        label_w->setText(QApplication::translate("Hi_OpencvClass", "image width:", Q_NULLPTR));
+        label_h->setText(QApplication::translate("Hi_OpencvClass", "image hight:", Q_NULLPTR));
         pushButton_blur->setText(QApplication::translate("Hi_OpencvClass", "blur", Q_NULLPTR));
         pushButton_gaussian->setText(QApplication::translate("Hi_OpencvClass", "gaussian", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Hi_OpencvClass", "median", Q_NULLPTR));
@@ -1913,6 +1894,7 @@ public:
         pushButton_threshold->setText(QApplication::translate("Hi_OpencvClass", "threshold", Q_NULLPTR));
         pushButton_makeborder->setText(QApplication::translate("Hi_OpencvClass", "makeborder", Q_NULLPTR));
         pushButton_Point->setText(QApplication::translate("Hi_OpencvClass", "Point", Q_NULLPTR));
+        label_20->setText(QApplication::translate("Hi_OpencvClass", "Other", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("Hi_OpencvClass", "\345\205\266\344\273\226", Q_NULLPTR));
     } // retranslateUi
 
