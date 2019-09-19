@@ -486,6 +486,7 @@ void Hi_Opencv::on_start_2()
 //Í¼Ïñ±äÐÎ
 void Hi_Opencv::w3openPic()
 {
+	w3Initial();
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("Ñ¡ÔñÍ¼Ïñ"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -529,7 +530,7 @@ void Hi_Opencv::w3openPic()
 
 		cv::resize(image, image, Size(newWidth, newHeight));
 
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 		//label_in = new QLabel();
 		ui.w3Label->setPixmap(QPixmap::fromImage(img));
@@ -552,7 +553,7 @@ void Hi_Opencv::w3up()
 {
 	pyrUp(image, image, Size(image.cols * 2, image.rows * 2));
 	//cv::resize(image, image, Size(300, 200));
-	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 
 	//label_in = new QLabel();
@@ -567,7 +568,7 @@ void Hi_Opencv::w3down()
 {
 	pyrDown(image, image, Size(image.cols / 2, image.rows / 2));
 	//cv::resize(image, image, Size(300, 200));
-	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 
 	//label_in = new QLabel();
@@ -640,6 +641,7 @@ void Hi_Opencv::w3UpDown()
 
 void  Hi_Opencv::w3Initial()
 {
+	ui.w3btnStart->setEnabled(false);
 	//ui.label_i->hide();
 	ui.w3lbl1->hide();
 	ui.w3lbl2->hide();
@@ -656,10 +658,21 @@ void  Hi_Opencv::w3Initial()
 	ui.w3Liney2->hide();
 	ui.w3Liney3->hide();
 	ui.w3Liney4->hide();
+	ui.w3Linex1->clear();
+	ui.w3Linex2->clear();
+	ui.w3Linex3->clear();
+	ui.w3Linex4->clear();
+	ui.w3Liney1->clear();
+	ui.w3Liney2->clear();
+	ui.w3Liney3->clear();
+	ui.w3Liney4->clear();
 	ui.w3lblRotate->hide();
 	ui.w3lblSize->hide();
 	ui.w3Line1->hide();
 	ui.w3Line2->hide();
+	ui.w3Line1->clear();
+	ui.w3Line2->clear();
+
 }
 
 int Hi_Opencv::w3btnFSClicked()
