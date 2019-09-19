@@ -444,7 +444,7 @@ void Hi_Opencv::w3openPic()
 			newWidth = image.cols * proportion;
 			newHeight = image.rows * proportion;
 		}
-		else
+		else                               //否则按照高度伸缩
 		{
 			double proportion = labelHeight / imageHeight;
 			newWidth = image.cols * proportion;
