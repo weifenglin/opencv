@@ -356,6 +356,7 @@ void Hi_Opencv::on_gradient()
 	ui.radioButton_black->setEnabled(false);*/
 	m = MORPH_GRADIENT;
 }
+//yang
 
 void Hi_Opencv::on_top()
 {
