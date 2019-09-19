@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1231</width>
-      <height>691</height>
+      <width>1081</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -30,7 +30,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -41,8 +41,8 @@
        <rect>
         <x>130</x>
         <y>10</y>
-        <width>321</width>
-        <height>381</height>
+        <width>322</width>
+        <height>382</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -78,6 +78,37 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_in">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_10">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -93,28 +124,6 @@
          </property>
         </spacer>
        </item>
-       <item>
-        <widget class="QLabel" name="label_in">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="layoutWidget">
@@ -122,8 +131,8 @@
        <rect>
         <x>470</x>
         <y>11</y>
-        <width>321</width>
-        <height>381</height>
+        <width>322</width>
+        <height>382</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -157,6 +166,9 @@
        </item>
        <item>
         <widget class="QLabel" name="label_out">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -165,15 +177,24 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>320</width>
+           <height>340</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>320</width>
+           <height>340</height>
           </size>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -200,7 +221,7 @@
        <rect>
         <x>810</x>
         <y>10</y>
-        <width>197</width>
+        <width>237</width>
         <height>381</height>
        </rect>
       </property>
@@ -263,7 +284,7 @@
           </font>
          </property>
          <property name="text">
-          <string>图像模糊</string>
+          <string>image degradation</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -310,7 +331,7 @@
             </font>
            </property>
            <property name="text">
-            <string>像素宽度w：</string>
+            <string>image width:</string>
            </property>
           </widget>
          </item>
@@ -372,7 +393,7 @@
             </font>
            </property>
            <property name="text">
-            <string>像素高度h：</string>
+            <string>image hight:</string>
            </property>
           </widget>
          </item>
@@ -409,52 +430,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_i">
-           <property name="font">
-            <font>
-             <family>楷体</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>内核大小：</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_i"/>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
        </item>
       </layout>
      </widget>
@@ -634,7 +609,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -696,55 +674,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>10</y>
-        <width>195</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <item>
-        <widget class="QPushButton" name="pushButton_open_4">
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Open</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_start_2">
-         <property name="enabled">
           <bool>false</bool>
          </property>
-         <property name="font">
-          <font>
-           <family>Times New Roman</family>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Start</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -835,21 +768,169 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="layoutWidget_6">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>300</y>
+        <width>151</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>135</width>
+         <height>47</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_25">
+        <item>
+         <widget class="QLabel" name="label_size">
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>erosion_size:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_size"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_title">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>70</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Form Conversion</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>761</x>
+        <y>20</y>
+        <width>158</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_open_4">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Open</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_start_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>760</x>
         <y>100</y>
-        <width>301</width>
+        <width>291</width>
         <height>181</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
        <item>
         <widget class="QWidget" name="widget" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <widget class="QLabel" name="label_from">
           <property name="geometry">
            <rect>
@@ -914,22 +995,6 @@
           </property>
          </widget>
         </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Maximum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item>
         <widget class="QWidget" name="widget_3" native="true">
@@ -1022,71 +1087,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="widget_2" native="true">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>300</y>
-        <width>299</width>
-        <height>92</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="label_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Times New Roman</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>erosion_size:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_size">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>91</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_title">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>70</y>
-        <width>161</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Times New Roman</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Form Conversion</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
      </widget>
      <widget class="Line" name="line_6">
       <property name="geometry">
@@ -1418,7 +1418,7 @@
        <rect>
         <x>740</x>
         <y>20</y>
-        <width>161</width>
+        <width>178</width>
         <height>266</height>
        </rect>
       </property>
@@ -2017,7 +2017,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2079,135 +2082,73 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_fitEllipse">
+     <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>75</width>
-        <height>23</height>
+        <x>810</x>
+        <y>120</y>
+        <width>241</width>
+        <height>151</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>18</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>fitEllipse</string>
+       <string>target location</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_rectcircle">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>190</y>
-        <width>75</width>
-        <height>23</height>
+        <y>60</y>
+        <width>77</width>
+        <height>271</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Rect Circle</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_convex">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>convexHull</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_27">
+       <item>
+        <widget class="QPushButton" name="pushButton_convex">
+         <property name="text">
+          <string>convexHull</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_rectcircle">
+         <property name="text">
+          <string>Rect Circle</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_fitEllipse">
+         <property name="text">
+          <string>fitEllipse</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QPushButton" name="pushButton_open_5">
-      <property name="geometry">
-       <rect>
-        <x>800</x>
-        <y>10</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>open</string>
-      </property>
-     </widget>
-     <widget class="Line" name="line_21">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>0</y>
-        <width>20</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-     <widget class="Line" name="line_22">
-      <property name="geometry">
-       <rect>
-        <x>436</x>
-        <y>0</y>
-        <width>20</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-     <widget class="Line" name="line_25">
-      <property name="geometry">
-       <rect>
-        <x>773</x>
-        <y>0</y>
-        <width>41</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_7">
-     <attribute name="title">
-      <string>模板匹配</string>
-     </attribute>
-     <widget class="QPushButton" name="pushButton_match">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>match</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_open1">
-      <property name="geometry">
-       <rect>
-        <x>700</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>open1</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_open2">
       <property name="geometry">
        <rect>
         <x>820</x>
@@ -2217,94 +2158,30 @@
        </rect>
       </property>
       <property name="text">
-       <string>open2</string>
+       <string>open</string>
       </property>
      </widget>
-     <widget class="QWidget" name="widget_6" native="true">
+     <widget class="QPushButton" name="pushButton_start_5">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>700</x>
-        <y>60</y>
-        <width>181</width>
-        <height>251</height>
+        <x>950</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
        </rect>
       </property>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>157</width>
-         <height>231</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_17">
-        <item>
-         <widget class="QLabel" name="label_15">
-          <property name="maximumSize">
-           <size>
-            <width>10000</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Times New Roman</family>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>match_method:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method1">
-          <property name="text">
-           <string>TM_SQDIFF</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method2">
-          <property name="text">
-           <string>TM_SQDIFF_NORMED</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method3">
-          <property name="text">
-           <string>TM_CCORR</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method4">
-          <property name="text">
-           <string>TM_CCORR_NORMED</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method5">
-          <property name="text">
-           <string>TM_CCOEFF</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="radioButton_method6">
-          <property name="text">
-           <string>TM_CCOEFF_NORMED</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+      <property name="text">
+       <string>start</string>
+      </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_7">
+     <attribute name="title">
+      <string>模板匹配</string>
+     </attribute>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
@@ -2356,7 +2233,10 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -2403,7 +2283,10 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -2450,11 +2333,142 @@
             <string/>
            </property>
            <property name="scaledContents">
-            <bool>true</bool>
+            <bool>false</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>210</y>
+        <width>54</width>
+        <height>12</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>模板匹配</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>20</y>
+        <width>251</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="pushButton_open1">
+         <property name="text">
+          <string>open1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_open2">
+         <property name="text">
+          <string>open2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="pushButton_match">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>match</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QWidget" name="widget_6" native="true">
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>161</width>
+            <height>231</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_17">
+           <item>
+            <widget class="QLabel" name="label_15">
+             <property name="maximumSize">
+              <size>
+               <width>10000</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>match_method:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method1">
+             <property name="text">
+              <string>TM_SQDIFF</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method2">
+             <property name="text">
+              <string>TM_SQDIFF_NORMED</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method3">
+             <property name="text">
+              <string>TM_CCORR</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method4">
+             <property name="text">
+              <string>TM_CCORR_NORMED</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method5">
+             <property name="text">
+              <string>TM_CCOEFF</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_method6">
+             <property name="text">
+              <string>TM_CCOEFF_NORMED</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -2538,7 +2552,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2548,7 +2565,7 @@
       <property name="geometry">
        <rect>
         <x>780</x>
-        <y>60</y>
+        <y>110</y>
         <width>281</width>
         <height>107</height>
        </rect>
@@ -2620,7 +2637,7 @@
       <property name="geometry">
        <rect>
         <x>790</x>
-        <y>190</y>
+        <y>230</y>
         <width>261</width>
         <height>101</height>
        </rect>
@@ -2753,7 +2770,10 @@
           <string/>
          </property>
          <property name="scaledContents">
-          <bool>true</bool>
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -2844,46 +2864,42 @@
        </item>
       </layout>
      </widget>
-     <widget class="Line" name="line_30">
+     <widget class="QLabel" name="label_20">
       <property name="geometry">
        <rect>
-        <x>95</x>
-        <y>0</y>
-        <width>21</width>
-        <height>391</height>
+        <x>780</x>
+        <y>60</y>
+        <width>281</width>
+        <height>41</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+      <property name="font">
+       <font>
+        <family>SimSun-ExtB</family>
+        <pointsize>18</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
       </property>
-     </widget>
-     <widget class="Line" name="line_31">
-      <property name="geometry">
-       <rect>
-        <x>773</x>
-        <y>0</y>
-        <width>21</width>
-        <height>391</height>
-       </rect>
+      <property name="text">
+       <string>Other</string>
       </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-     <widget class="Line" name="line_32">
-      <property name="geometry">
-       <rect>
-        <x>429</x>
-        <y>0</y>
-        <width>21</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_26"/>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -3034,8 +3050,8 @@
    <slot>w3openPic()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>797</x>
-     <y>75</y>
+     <x>888</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -3051,7 +3067,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>55</x>
-     <y>102</y>
+     <y>88</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3067,7 +3083,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>111</x>
-     <y>70</y>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3083,7 +3099,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>72</x>
-     <y>134</y>
+     <y>170</y>
     </hint>
     <hint type="destinationlabel">
      <x>137</x>
@@ -3099,7 +3115,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>111</x>
-     <y>166</y>
+     <y>211</y>
     </hint>
     <hint type="destinationlabel">
      <x>875</x>
@@ -3162,8 +3178,8 @@
    <slot>on_open_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>806</x>
-     <y>81</y>
+     <x>809</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>1134</x>
@@ -3178,8 +3194,8 @@
    <slot>on_start_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>955</x>
-     <y>81</y>
+     <x>915</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>1159</x>
@@ -3195,7 +3211,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>802</x>
-     <y>179</y>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
      <x>1161</x>
@@ -3211,7 +3227,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>779</x>
-     <y>209</y>
+     <y>210</y>
     </hint>
     <hint type="destinationlabel">
      <x>1165</x>
@@ -3227,7 +3243,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>811</x>
-     <y>239</y>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>1168</x>
@@ -3242,8 +3258,8 @@
    <slot>on_opening()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1027</x>
-     <y>179</y>
+     <x>1000</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
      <x>1173</x>
@@ -3258,8 +3274,8 @@
    <slot>on_closing()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1027</x>
-     <y>209</y>
+     <x>1000</x>
+     <y>210</y>
     </hint>
     <hint type="destinationlabel">
      <x>1176</x>
@@ -3274,8 +3290,8 @@
    <slot>on_gradient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1027</x>
-     <y>239</y>
+     <x>1000</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>1175</x>
@@ -3290,8 +3306,8 @@
    <slot>on_top()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1027</x>
-     <y>269</y>
+     <x>1000</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
      <x>1182</x>
@@ -3306,8 +3322,8 @@
    <slot>on_black()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1027</x>
-     <y>299</y>
+     <x>1000</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>1186</x>
@@ -3482,8 +3498,8 @@
    <slot>on_convexHull()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>57</x>
-     <y>185</y>
+     <x>58</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -3498,8 +3514,8 @@
    <slot>on_rectcircle()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>245</y>
+     <x>87</x>
+     <y>239</y>
     </hint>
     <hint type="destinationlabel">
      <x>804</x>
@@ -3514,28 +3530,12 @@
    <slot>on_fitEllipse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>305</y>
+     <x>65</x>
+     <y>315</y>
     </hint>
     <hint type="destinationlabel">
      <x>785</x>
      <y>0</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_open_5</sender>
-   <signal>clicked()</signal>
-   <receiver>Hi_OpencvClass</receiver>
-   <slot>on_open_5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>841</x>
-     <y>65</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1135</x>
-     <y>112</y>
     </hint>
    </hints>
   </connection>
@@ -3546,8 +3546,8 @@
    <slot>on_match()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>285</y>
+     <x>873</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>919</x>
@@ -3562,8 +3562,8 @@
    <slot>on_open1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>757</x>
-     <y>75</y>
+     <x>758</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>1136</x>
@@ -3578,8 +3578,8 @@
    <slot>on_open2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>871</x>
-     <y>75</y>
+     <x>866</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>1145</x>
@@ -3594,8 +3594,8 @@
    <slot>on_method1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>789</x>
-     <y>163</y>
+     <x>790</x>
+     <y>153</y>
     </hint>
     <hint type="destinationlabel">
      <x>1121</x>
@@ -3610,8 +3610,8 @@
    <slot>on_method2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>819</x>
-     <y>194</y>
+     <x>820</x>
+     <y>184</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3626,8 +3626,8 @@
    <slot>on_method3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>794</x>
-     <y>225</y>
+     <x>795</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
      <x>1116</x>
@@ -3642,8 +3642,8 @@
    <slot>on_method4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>775</x>
-     <y>256</y>
+     <x>776</x>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>1114</x>
@@ -3658,8 +3658,8 @@
    <slot>on_method5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>761</x>
-     <y>287</y>
+     <x>762</x>
+     <y>277</y>
     </hint>
     <hint type="destinationlabel">
      <x>1125</x>
@@ -3674,8 +3674,8 @@
    <slot>on_method6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>758</x>
-     <y>318</y>
+     <x>759</x>
+     <y>308</y>
     </hint>
     <hint type="destinationlabel">
      <x>1122</x>
@@ -3691,7 +3691,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>111</x>
-     <y>240</y>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3723,7 +3723,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>111</x>
-     <y>346</y>
+     <y>334</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -3738,8 +3738,8 @@
    <slot>w3btnStartClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>775</x>
-     <y>115</y>
+     <x>866</x>
+     <y>105</y>
     </hint>
     <hint type="destinationlabel">
      <x>775</x>
@@ -3939,6 +3939,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_open_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_open_5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>853</x>
+     <y>64</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1131</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_start_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_start_5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>985</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1136</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_open()</slot>
@@ -4000,5 +4032,6 @@
   <slot>on_zhitwo_show()</slot>
   <slot>on_zhithree_show()</slot>
   <slot>on_zhi_open()</slot>
+  <slot>on_start_5()</slot>
  </slots>
 </ui>
