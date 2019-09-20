@@ -6,12 +6,24 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	ui.label_in->setStyleSheet("border:2px solid black;");
+	ui.label_out->setStyleSheet("border:2px solid black;");
+	ui.label_in_2->setStyleSheet("border:2px solid black;");
+	ui.label_out_2->setStyleSheet("border:2px solid black;");
+	ui.label_in_5->setStyleSheet("border:2px solid black;");
+	ui.label_out_5->setStyleSheet("border:2px solid black;");
+	ui.label_in_original->setStyleSheet("border:2px solid black;");
+	ui.label_in_templat->setStyleSheet("border:2px solid black;");
+	ui.label_out_result->setStyleSheet("border:2px solid black;");
+	ui.label_in_3->setStyleSheet("border:2px solid black;");
+	ui.label_out_3->setStyleSheet("border:2px solid black;");
+
 	ui.label_w->hide();
 	ui.label_h->hide();
-	ui.label_i->hide();
+	//ui.label_i->hide();
 	ui.lineEdit_w->hide();
 	ui.lineEdit_h->hide();
-	ui.lineEdit_i->hide();
+	//ui.lineEdit_i->hide();
 
 	ui.widget->hide();
 	ui.widget_2->hide();
@@ -23,10 +35,25 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.label_31->hide();
 	ui.lineEdit31->hide();
 
-	ui.pushButton_match->setEnabled(false);
-
 	w3Initial();
 
+}
+
+int Hi_Opencv::image_fit(Mat a, double m, double n)
+{
+	double h = a.rows;
+	double w = a.cols;
+	double p = h / w;
+	double q = m / n;
+	if (p > q)
+	{
+		t = m / h;
+	}
+	else
+	{
+		t = n / w;
+	}
+	return t;
 }
 
 
@@ -39,6 +66,7 @@ String qstr2str(QString qstr)
 
 void Hi_Opencv::on_open()
 {
+	ui.label_in->setStyleSheet("border:2px solid black;");
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -48,18 +76,34 @@ void Hi_Opencv::on_open()
 	}
 	else
 	{
-
+		
 		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
 		cvtColor(image, image, COLOR_BGR2RGB);
-		cv::resize(image, image, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+		
+		double m = ui.label_in->height();
+		double n = ui.label_in->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		cv::resize(image, image, Size(w1, h1));
+	
+	}
+		//cvtColor(image, image, COLOR_BGR2RGB);
+		//cv::resize(image, image, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows,image.cols*image.channels(), QImage::Format_RGB888);
 		ui.label_in->setPixmap(QPixmap::fromImage(img));
 		ui.label_in->resize(QSize(img.width(), img.height()));
 		ui.pushButton_start->setEnabled(true);
+		ui.label_out->clear();
+		ui.label_3->setText("image degradation");
+		ui.label_w->hide();
+		ui.label_h->hide();
+		ui.lineEdit_w->hide();
+		ui.lineEdit_h->hide();
 	}
-}
+
 
 void Hi_Opencv::on_start()
 	{
@@ -70,6 +114,8 @@ void Hi_Opencv::on_start()
 			if (j > 0 && k > 0)
 			{
 				cv::blur(image, image1, Size(j, k));
+				ui.lineEdit_w->setText("");
+				ui.lineEdit_h->setText("");
 			}
 			else
 			{
@@ -78,7 +124,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 2:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0 && m % 2 == 1)
 			{
 				cv::GaussianBlur(image, image1, Size(m, m), 0, 0);
@@ -90,7 +136,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 3:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0 && m % 2 == 1)
 			{
 				cv::medianBlur(image, image1, m);
@@ -102,7 +148,7 @@ void Hi_Opencv::on_start()
 			}
 		break;
 	case 4:
-			m = atoi(ui.lineEdit_i->text().toStdString().c_str());
+			m = atoi(ui.lineEdit_w->text().toStdString().c_str());
 			if (m > 0)
 			{
 				cv::bilateralFilter(image, image1, m, m * 2, m / 2);
@@ -116,16 +162,23 @@ void Hi_Opencv::on_start()
 	default:
 		break;
 	}
-	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+	ui.lineEdit_w->clear();
+	ui.lineEdit_h->clear();
+	//ui.lineEdit_i->clear();
+	//cv::resize(image1, image1, Size(w1, h1));
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image.channels(), QImage::Format_RGB888);
 	ui.label_out->setPixmap(QPixmap::fromImage(img));
+	ui.label_out->resize(QSize(img.width(), img.height()));
 	}
 
 int Hi_Opencv::on_blur_show()
 {
 	i = 1;
+	ui.label_out->clear();
 	ui.label_3->setText("blur");
-	ui.label_i->hide();
-	ui.lineEdit_i->hide();
+	/*ui.label_i->hide();
+	ui.lineEdit_i->hide();*/
+	ui.label_w->setText("image width:");
 	ui.label_w->show();
 	ui.label_h->show();
 	ui.lineEdit_h->show();
@@ -136,39 +189,45 @@ int Hi_Opencv::on_blur_show()
 int Hi_Opencv::on_gaussian_show()
 {
 	i = 2;
+	ui.label_out->clear();
 	ui.label_3->setText("gaussian");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
 int Hi_Opencv::on_median_show()
 {
 	i = 3;
+	ui.label_out->clear();
 	ui.label_3->setText("median");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
 int Hi_Opencv::on_Bilateral_show()
 {
 	i = 4;
+	ui.label_out->clear();
 	ui.label_3->setText("Bilateral");
-	ui.label_w->hide();
+	ui.label_w->setText("kernel size:");
+	ui.label_w->show();
 	ui.label_h->hide();
-	ui.lineEdit_w->hide();
+	ui.lineEdit_w->show();
 	ui.lineEdit_h->hide();
-	ui.label_i->show();
-	ui.lineEdit_i->show();
+	/*ui.label_i->show();
+	ui.lineEdit_i->show();*/
 	return i;
 }
 
@@ -190,25 +249,36 @@ void Hi_Opencv::on_open_2()
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
 		cvtColor(image, image, COLOR_BGR2RGB);
-		cv::resize(image, image, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
-
+		//cv::resize(image, image, Size(300, 200));
+		double m = ui.label_in_2->height();
+		double n = ui.label_in_2->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		cv::resize(image, image, Size(w1, h1));
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 		ui.label_in_2->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_2->resize(QSize(img.width(), img.height()));
 		ui.pushButton_start_2->setEnabled(true);
+		ui.label_out_2->clear();
+
+		ui.label_title->setText("Form Conversion");
+		ui.widget->hide();
+		ui.widget_2->hide();
+		ui.widget_3->hide();
 	}
 }
 
 int Hi_Opencv::on_erode_show()
 {
 	i = 1;
+	ui.label_out_2->clear();
 	ui.label_title->setText("Erode");
 	ui.widget_3->hide();
-	ui.radioButton_RECT->setEnabled(true);
+	/*ui.radioButton_RECT->setEnabled(true);
 	ui.radioButton_CROSS->setEnabled(true);
-	ui.radioButton_ELLIPSE->setEnabled(true);
+	ui.radioButton_ELLIPSE->setEnabled(true);*/
 	ui.lineEdit_size->setText("");
-
 	ui.widget->show();
 	ui.label_size->setText("erosion_size:");
 	ui.widget_2->show();
@@ -218,11 +288,12 @@ int Hi_Opencv::on_erode_show()
 int Hi_Opencv::on_dilate_show()
 {
 	i = 2;
+	ui.label_out_2->clear();
 	ui.widget_3->hide();
 	ui.label_title->setText("Dilate");
-	ui.radioButton_RECT->setEnabled(true);
+	/*ui.radioButton_RECT->setEnabled(true);
 	ui.radioButton_CROSS->setEnabled(true);
-	ui.radioButton_ELLIPSE->setEnabled(true);
+	ui.radioButton_ELLIPSE->setEnabled(true);*/
 	ui.lineEdit_size->setText("");
 	ui.widget->show();
 
@@ -235,14 +306,15 @@ int Hi_Opencv::on_morphologyEX_show()
 {
 	ui.label_title->setText("MorphologyEX");
 	i = 3;
-	ui.radioButton_RECT->setEnabled(true);
+	ui.label_out_2->clear();
+	/*ui.radioButton_RECT->setEnabled(true);
 	ui.radioButton_CROSS->setEnabled(true);
 	ui.radioButton_ELLIPSE->setEnabled(true);
 	ui.radioButton_opening->setEnabled(true);
 	ui.radioButton_closing->setEnabled(true);
 	ui.radioButton_gradient->setEnabled(true);
 	ui.radioButton_top->setEnabled(true);
-	ui.radioButton_black->setEnabled(true);
+	ui.radioButton_black->setEnabled(true);*/
 
 	ui.lineEdit_size->setText("");
 	ui.widget->show();
@@ -254,68 +326,68 @@ int Hi_Opencv::on_morphologyEX_show()
 
 void Hi_Opencv::on_form_RECT()
 {
-	ui.radioButton_CROSS->setEnabled(false);
-	ui.radioButton_ELLIPSE->setEnabled(false);
+	/*ui.radioButton_CROSS->setEnabled(false);
+	ui.radioButton_ELLIPSE->setEnabled(false);*/
 	j = MORPH_RECT;
 }
 
 void Hi_Opencv::on_form_CROSS()
 {
-	ui.radioButton_RECT->setEnabled(false);
-	ui.radioButton_ELLIPSE->setEnabled(false);
+	/*ui.radioButton_RECT->setEnabled(false);
+	ui.radioButton_ELLIPSE->setEnabled(false);*/
 	j = MORPH_CROSS;
 }
 
 void Hi_Opencv::on_form_ELLIPSE()
 {
-	ui.radioButton_CROSS->setEnabled(false);
-	ui.radioButton_RECT->setEnabled(false);
+	/*ui.radioButton_CROSS->setEnabled(false);
+	ui.radioButton_RECT->setEnabled(false);*/
 	j = MORPH_ELLIPSE;
 
 }
 
 void Hi_Opencv::on_opening()
 {
-	ui.radioButton_closing->setEnabled(false);
+	/*ui.radioButton_closing->setEnabled(false);
 	ui.radioButton_gradient->setEnabled(false);
 	ui.radioButton_top->setEnabled(false);
-	ui.radioButton_black->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);*/
 	m = MORPH_OPEN;
 }
 
 void Hi_Opencv::on_closing()
 {
-	ui.radioButton_opening->setEnabled(false);
+	/*ui.radioButton_opening->setEnabled(false);
 	ui.radioButton_gradient->setEnabled(false);
 	ui.radioButton_top->setEnabled(false);
-	ui.radioButton_black->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);*/
 	m = MORPH_CLOSE;
 }
 
 void Hi_Opencv::on_gradient()
 {
-	ui.radioButton_closing->setEnabled(false);
+	/*ui.radioButton_closing->setEnabled(false);
 	ui.radioButton_opening->setEnabled(false);
 	ui.radioButton_top->setEnabled(false);
-	ui.radioButton_black->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);*/
 	m = MORPH_GRADIENT;
 }
 
 void Hi_Opencv::on_top()
 {
-	ui.radioButton_closing->setEnabled(false);
+	/*ui.radioButton_closing->setEnabled(false);
 	ui.radioButton_gradient->setEnabled(false);
 	ui.radioButton_opening->setEnabled(false);
-	ui.radioButton_black->setEnabled(false);
+	ui.radioButton_black->setEnabled(false);*/
 	m = MORPH_TOPHAT;
 }
 
 void Hi_Opencv::on_black()
 {
-	ui.radioButton_closing->setEnabled(false);
+	/*ui.radioButton_closing->setEnabled(false);
 	ui.radioButton_gradient->setEnabled(false);
 	ui.radioButton_top->setEnabled(false);
-	ui.radioButton_opening->setEnabled(false);
+	ui.radioButton_opening->setEnabled(false);*/
 	m = MORPH_BLACKHAT;
 }
 
@@ -324,26 +396,27 @@ void Hi_Opencv::on_start_2()
 	switch (i)
 	{
 	case 1:
-	{k = atoi(ui.lineEdit_size->text().toStdString().c_str());
-	if (k > 0)
 	{
+		k = atoi(ui.lineEdit_size->text().toStdString().c_str());
+		if (k > 0)
+		{
 		Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
 		cv::erode(image, image1, element);
-		QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+		/*QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 		ui.label_out_2->setPixmap(QPixmap::fromImage(img));
-		ui.label_out_2->resize(QSize(img.width(), img.height()));
-		ui.radioButton_RECT->setEnabled(true);
+		ui.label_out_2->resize(QSize(img.width(), img.height()));*/
+		/*ui.radioButton_RECT->setEnabled(true);
 		ui.radioButton_CROSS->setEnabled(true);
-		ui.radioButton_ELLIPSE->setEnabled(true);
+		ui.radioButton_ELLIPSE->setEnabled(true);*/
 		ui.lineEdit_size->setText("");
-	}
-	else
-	{
+		}
+		else
+		{
 		QMessageBox::warning(this, "warning", "Incorrect input,Please enter positive  number");
 		ui.lineEdit_size->setText("");
 		return;
-	}
-	break;
+		}
+		break;
 	}
 	case 2:
 	{
@@ -353,13 +426,13 @@ void Hi_Opencv::on_start_2()
 			Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
 			cv::dilate(image, image1, element);
 
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+			/*QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_2->setPixmap(QPixmap::fromImage(img));
-			ui.label_out_2->resize(QSize(img.width(), img.height()));
+			ui.label_out_2->resize(QSize(img.width(), img.height()));*/
 
-			ui.radioButton_RECT->setEnabled(true);
+			/*ui.radioButton_RECT->setEnabled(true);
 			ui.radioButton_CROSS->setEnabled(true);
-			ui.radioButton_ELLIPSE->setEnabled(true);
+			ui.radioButton_ELLIPSE->setEnabled(true);*/
 			ui.lineEdit_size->setText("");
 		}
 		else
@@ -378,17 +451,17 @@ void Hi_Opencv::on_start_2()
 			Mat element = getStructuringElement(j, Size(2 * k + 1, 2 * k + 1), Point(k, k));
 			cv::morphologyEx(image, image1, m, element);
 
-			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+			/*QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_2->setPixmap(QPixmap::fromImage(img));
-			ui.label_out_2->resize(QSize(img.width(), img.height()));
-			ui.radioButton_RECT->setEnabled(true);
+			ui.label_out_2->resize(QSize(img.width(), img.height()));*/
+			/*ui.radioButton_RECT->setEnabled(true);
 			ui.radioButton_CROSS->setEnabled(true);
 			ui.radioButton_ELLIPSE->setEnabled(true);
 			ui.radioButton_opening->setEnabled(true);
 			ui.radioButton_closing->setEnabled(true);
 			ui.radioButton_gradient->setEnabled(true);
 			ui.radioButton_top->setEnabled(true);
-			ui.radioButton_black->setEnabled(true);
+			ui.radioButton_black->setEnabled(true);*/
 			ui.lineEdit_size->setText("");
 		}
 		else
@@ -402,6 +475,9 @@ void Hi_Opencv::on_start_2()
 	default:
 		break;
 	}
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image.channels(), QImage::Format_RGB888);
+	ui.label_out_2->setPixmap(QPixmap::fromImage(img));
+	ui.label_out_2->resize(QSize(img.width(), img.height()));
 
 }
 
@@ -410,6 +486,7 @@ void Hi_Opencv::on_start_2()
 //图像变形
 void Hi_Opencv::w3openPic()
 {
+	w3Initial();
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -424,9 +501,36 @@ void Hi_Opencv::w3openPic()
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
 		cvtColor(image, image, COLOR_BGR2RGB);
-		cv::resize(image, image, Size(256, 256));
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
 
+
+		double labelWidth, labelHeight, imageWidth, imageHeight;
+		labelWidth = ui.w3Label->width();
+		labelHeight = ui.w3Label->height();
+		imageWidth = image.cols;
+		imageHeight = image.rows;
+
+
+		//图片适应label方法
+		int newWidth, newHeight;
+		double proportionL, proportionI;
+		proportionL = labelWidth / labelHeight;
+		proportionI = imageWidth / imageHeight;
+		if (proportionI > proportionL)      //image的宽高比比较大，按照宽度伸缩
+		{
+			double proportion = labelWidth / imageWidth;
+			newWidth = image.cols * proportion;
+			newHeight = image.rows * proportion;
+		}
+		else                               //否则按照高度伸缩
+		{
+			double proportion = labelHeight / imageHeight;
+			newWidth = image.cols * proportion;
+			newHeight = image.rows * proportion;
+		}
+
+		cv::resize(image, image, Size(newWidth, newHeight));
+
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 		//label_in = new QLabel();
 		ui.w3Label->setPixmap(QPixmap::fromImage(img));
@@ -449,7 +553,7 @@ void Hi_Opencv::w3up()
 {
 	pyrUp(image, image, Size(image.cols * 2, image.rows * 2));
 	//cv::resize(image, image, Size(300, 200));
-	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 
 	//label_in = new QLabel();
@@ -464,7 +568,7 @@ void Hi_Opencv::w3down()
 {
 	pyrDown(image, image, Size(image.cols / 2, image.rows / 2));
 	//cv::resize(image, image, Size(300, 200));
-	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+	QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 
 
 	//label_in = new QLabel();
@@ -537,6 +641,7 @@ void Hi_Opencv::w3UpDown()
 
 void  Hi_Opencv::w3Initial()
 {
+	ui.w3btnStart->setEnabled(false);
 	//ui.label_i->hide();
 	ui.w3lbl1->hide();
 	ui.w3lbl2->hide();
@@ -553,10 +658,21 @@ void  Hi_Opencv::w3Initial()
 	ui.w3Liney2->hide();
 	ui.w3Liney3->hide();
 	ui.w3Liney4->hide();
+	ui.w3Linex1->clear();
+	ui.w3Linex2->clear();
+	ui.w3Linex3->clear();
+	ui.w3Linex4->clear();
+	ui.w3Liney1->clear();
+	ui.w3Liney2->clear();
+	ui.w3Liney3->clear();
+	ui.w3Liney4->clear();
 	ui.w3lblRotate->hide();
 	ui.w3lblSize->hide();
 	ui.w3Line1->hide();
 	ui.w3Line2->hide();
+	ui.w3Line1->clear();
+	ui.w3Line2->clear();
+
 }
 
 int Hi_Opencv::w3btnFSClicked()
@@ -579,7 +695,7 @@ int Hi_Opencv::w3btnFSClicked()
 	ui.w3Liney3->show();
 
 	string temp, temp1, temp2;
-	temp1 = to_string(image.rows - 1);
+	temp1 = to_string(image.cols - 1);
 	temp2 = to_string(image.rows - 1);
 
 	temp = "(0,0)";
@@ -668,8 +784,8 @@ void Hi_Opencv::w3btnStartClicked()
 
 				/// 设置源图像和目标图像上的三组点以计算仿射变换
 				srcTri[0] = Point2f(0, 0);
-				srcTri[1] = Point2f(image.cols - 1, 0);
-				srcTri[2] = Point2f(0, image.rows - 1);
+				srcTri[1] = Point2f(0, image.cols - 1);
+				srcTri[2] = Point2f(image.rows - 1, 0);
 
 				dstTri[0] = Point2f(ui.w3Linex1->text().toFloat(), ui.w3Liney1->text().toFloat());
 				dstTri[1] = Point2f(ui.w3Linex2->text().toFloat(), ui.w3Liney2->text().toFloat());
@@ -764,9 +880,10 @@ void Hi_Opencv::w3btnStartClicked()
 	}
 }
 
-//目标变换
+//目标定位
 void Hi_Opencv::on_open_5()
 {
+	i = 0;
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -780,131 +897,172 @@ void Hi_Opencv::on_open_5()
 		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
+		
+
+		double m = ui.label_in_5->height();
+		double n = ui.label_in_5->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		cv::resize(image, image, Size(w1, h1));
+
 		cvtColor(image, image3, COLOR_BGR2RGB);
 		cvtColor(image, image2, COLOR_BGR2GRAY);
-		cv::resize(image2, image2, Size(300, 200));
-		cv::resize(image3, image3, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image3.data), image3.cols, image3.rows, QImage::Format_RGB888);
+		//cv::resize(image2, image2, Size(300, 200));
+		//cv::resize(image3, image3, Size(300, 200));
+//		ui.pushButton_start_5->setEnabled("false");
+		QImage img = QImage((const unsigned char*)(image3.data), image3.cols, image3.rows, image3.cols*image.channels(), QImage::Format_RGB888);
 
 		ui.label_in_5->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_5->resize(QSize(img.width(), img.height()));
+		ui.label_out_5->clear();
+		ui.pushButton_start_5->setEnabled(true);
 
+		ui.label_19->setText("target location");
 	}
 }
 
 void Hi_Opencv::on_convexHull()
 {
-	Mat src_copy = image.clone();
-	Mat threshold_output;
-	vector<Mat> contours;
-	vector<Vec4i> hierarchy;
-
-
-	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
-	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
-
-	vector<vector<Point> >hull(contours.size());
-	for (int i = 0; i < contours.size(); i++)
-	{
-		convexHull(Mat(contours[i]), hull[i], false);
-	}
-
-	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
-	for (int i = 0; i < contours.size(); i++)
-	{
-		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-		drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
-		drawContours(drawing, hull, i, color, 1, 8, vector<Vec4i>(), 0, Point());
-	}
-
-	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
-	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
-	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+	i = 1;
+	ui.label_out_5->clear();
+	ui.label_19->setText("convexHull");
 
 }
 
 void Hi_Opencv::on_rectcircle()
 {
-	Mat threshold_output;
-	vector<vector<Point> > contours;
-	vector<Vec4i> hierarchy;
-
-	/// 使用Threshold检测边缘
-	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
-	/// 找到轮廓
-	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
-
-	/// 多边形逼近轮廓 + 获取矩形和圆形边界框
-	vector<vector<Point> > contours_poly(contours.size());
-	vector<Rect> boundRect(contours.size());
-	vector<Point2f>center(contours.size());
-	vector<float>radius(contours.size());
-
-	for (int i = 0; i < contours.size(); i++)
-	{
-		approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
-		boundRect[i] = boundingRect(Mat(contours_poly[i]));
-		minEnclosingCircle(contours_poly[i], center[i], radius[i]);
-	}
-
-
-	/// 画多边形轮廓 + 包围的矩形框 + 圆形框
-	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
-	for (int i = 0; i < contours.size(); i++)
-	{
-		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-		drawContours(drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point());
-		rectangle(drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0);
-		circle(drawing, center[i], (int)radius[i], color, 2, 8, 0);
-	}
-	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
-	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
-	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+	i = 2;
+	ui.label_out_5->clear();
+	ui.label_19->setText("rectcircle");
 
 }
 
 void Hi_Opencv::on_fitEllipse()
 {
-	Mat threshold_output;
-	vector<vector<Point> > contours;
-	vector<Vec4i> hierarchy;
+	i = 3;
+	ui.label_out_5->clear();
+	ui.label_19->setText("fitEllipse");
+}
 
-	/// 阈值化检测边界
-	threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
-	/// 寻找轮廓
-	findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
-
-	/// 对每个找到的轮廓创建可倾斜的边界框和椭圆
-	vector<RotatedRect> minRect(contours.size());
-	vector<RotatedRect> minEllipse(contours.size());
-
-	for (int i = 0; i < contours.size(); i++)
+void Hi_Opencv::on_start_5()
+{
+	switch (i)
 	{
-		minRect[i] = minAreaRect(Mat(contours[i]));
-		if (contours[i].size() > 5)
+	case 1:
+	{
+		Mat src_copy = image.clone();
+		Mat threshold_output;
+		vector<Mat> contours;
+		vector<Vec4i> hierarchy;
+
+
+		threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+		findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+		vector<vector<Point> >hull(contours.size());
+		for (int i = 0; i < contours.size(); i++)
 		{
-			minEllipse[i] = fitEllipse(Mat(contours[i]));
+			convexHull(Mat(contours[i]), hull[i], false);
 		}
-	}
 
-	/// 绘出轮廓及其可倾斜的边界框和边界椭圆
-	Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
-	for (int i = 0; i < contours.size(); i++)
+		Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+		for (int i = 0; i < contours.size(); i++)
+		{
+			Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+			drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+			drawContours(drawing, hull, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+		}
+		QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, drawing.cols*image.channels(), QImage::Format_RGB888);
+		ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+		ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+		break;
+	}
+	case 2:
 	{
-		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-		// contour
-		drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
-		// ellipse
-		ellipse(drawing, minEllipse[i], color, 2, 8);
-		// rotated rectangle
-		Point2f rect_points[4]; minRect[i].points(rect_points);
-		for (int j = 0; j < 4; j++)
-			line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
-	}
+		Mat threshold_output;
+		vector<vector<Point> > contours;
+		vector<Vec4i> hierarchy;
 
-	QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, QImage::Format_RGB888);
-	ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
-	ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+		/// 使用Threshold检测边缘
+		threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+		/// 找到轮廓
+		findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+		/// 多边形逼近轮廓 + 获取矩形和圆形边界框
+		vector<vector<Point> > contours_poly(contours.size());
+		vector<Rect> boundRect(contours.size());
+		vector<Point2f>center(contours.size());
+		vector<float>radius(contours.size());
+
+		for (int i = 0; i < contours.size(); i++)
+		{
+			approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
+			boundRect[i] = boundingRect(Mat(contours_poly[i]));
+			minEnclosingCircle(contours_poly[i], center[i], radius[i]);
+		}
+
+
+		/// 画多边形轮廓 + 包围的矩形框 + 圆形框
+		Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+		for (int i = 0; i < contours.size(); i++)
+		{
+			Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+			drawContours(drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+			rectangle(drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0);
+			circle(drawing, center[i], (int)radius[i], color, 2, 8, 0);
+		}
+		QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, drawing.cols*image.channels(), QImage::Format_RGB888);
+		ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+		ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+		break;
+	}
+	case 3:
+	{
+		Mat threshold_output;
+		vector<vector<Point> > contours;
+		vector<Vec4i> hierarchy;
+
+		/// 阈值化检测边界
+		threshold(image2, threshold_output, thresh, 255, THRESH_BINARY);
+		/// 寻找轮廓
+		findContours(threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+		/// 对每个找到的轮廓创建可倾斜的边界框和椭圆
+		vector<RotatedRect> minRect(contours.size());
+		vector<RotatedRect> minEllipse(contours.size());
+
+		for (int i = 0; i < contours.size(); i++)
+		{
+			minRect[i] = minAreaRect(Mat(contours[i]));
+			if (contours[i].size() > 5)
+			{
+				minEllipse[i] = fitEllipse(Mat(contours[i]));
+			}
+		}
+
+		/// 绘出轮廓及其可倾斜的边界框和边界椭圆
+		Mat drawing = Mat::zeros(threshold_output.size(), CV_8UC3);
+		for (int i = 0; i < contours.size(); i++)
+		{
+			Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+			// contour
+			drawContours(drawing, contours, i, color, 1, 8, vector<Vec4i>(), 0, Point());
+			// ellipse
+			ellipse(drawing, minEllipse[i], color, 2, 8);
+			// rotated rectangle
+			Point2f rect_points[4]; minRect[i].points(rect_points);
+			for (int j = 0; j < 4; j++)
+				line(drawing, rect_points[j], rect_points[(j + 1) % 4], color, 1, 8);
+			QImage img1 = QImage((const unsigned char*)(drawing.data), drawing.cols, drawing.rows, drawing.cols*drawing.channels(), QImage::Format_RGB888);
+			ui.label_out_5->setPixmap(QPixmap::fromImage(img1));
+			ui.label_out_5->resize(QSize(img1.width(), img1.height()));
+		}
+		break;
+	}
+	default:
+		break;
+	}
 
 }
 
@@ -924,11 +1082,22 @@ void Hi_Opencv::on_open1()
 	{
 		String str = qstr2str(filename);
 		image = imread(str);
+
+		double m = ui.label_in_original->height();
+		double n = ui.label_in_original->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		t1 = t;
+		cv::resize(image, image, Size(w1, h1));
+
 		cvtColor(image, image2, COLOR_BGR2RGB);
-		cv::resize(image2, image2, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows, QImage::Format_RGB888);
+		//cv::resize(image2, image2, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows, image2.cols*image2.channels(), QImage::Format_RGB888);
 		ui.label_in_original->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_original->resize(QSize(img.width(), img.height()));
+		ui.label_in_templat->clear();
+		ui.label_out_result->clear();
 	}
 }
 
@@ -945,11 +1114,23 @@ void Hi_Opencv::on_open2()
 	{
 		String str = qstr2str(filename);
 		image1 = imread(str);
-		cvtColor(image1, image3, COLOR_BGR2RGB);
-		cv::resize(image3, image3, Size(100, 75));
-		QImage img = QImage((const unsigned char*)(image3.data), image3.cols, image3.rows, QImage::Format_RGB888);
+		image4 = image1;
+		int h2 = image4.rows*t1;
+		int w2 = image4.cols*t1;
+		cv::resize(image4, image4, Size(w2, h2));
+
+		/*double m = ui.label_in_templat->height();
+		double n = ui.label_in_templat->width();
+		image_fit(image1, m, n);
+		h1 = image1.rows * t;
+		w1 = image1.cols* t;
+		cv::resize(image1, image1, Size(w1, h1));*/
+
+		cvtColor(image4, image4, COLOR_BGR2RGB);
+		QImage img = QImage((const unsigned char*)(image4.data), image4.cols, image4.rows, image4.cols*image4.channels(), QImage::Format_RGB888);
 		ui.label_in_templat->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_templat->resize(QSize(img.width(), img.height()));
+		ui.label_out_result->clear();
 	}
 }
 
@@ -957,89 +1138,85 @@ void Hi_Opencv::on_method1()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_SQDIFF;
-	ui.radioButton_method2->setEnabled(false);
+	/*ui.radioButton_method2->setEnabled(false);
 	ui.radioButton_method3->setEnabled(false);
 	ui.radioButton_method4->setEnabled(false);
 	ui.radioButton_method5->setEnabled(false);
-	ui.radioButton_method6->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);*/
 }
 
 void Hi_Opencv::on_method2()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_SQDIFF_NORMED;
-	ui.radioButton_method1->setEnabled(false);
+	/*ui.radioButton_method1->setEnabled(false);
 	ui.radioButton_method3->setEnabled(false);
 	ui.radioButton_method4->setEnabled(false);
 	ui.radioButton_method5->setEnabled(false);
-	ui.radioButton_method6->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);*/
 }
 
 void Hi_Opencv::on_method3()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_CCORR;
-	ui.radioButton_method2->setEnabled(false);
+	/*ui.radioButton_method2->setEnabled(false);
 	ui.radioButton_method1->setEnabled(false);
 	ui.radioButton_method4->setEnabled(false);
 	ui.radioButton_method5->setEnabled(false);
-	ui.radioButton_method6->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);*/
 }
 
 void Hi_Opencv::on_method4()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_CCORR_NORMED;
-	ui.radioButton_method2->setEnabled(false);
+	/*ui.radioButton_method2->setEnabled(false);
 	ui.radioButton_method3->setEnabled(false);
 	ui.radioButton_method1->setEnabled(false);
 	ui.radioButton_method5->setEnabled(false);
-	ui.radioButton_method6->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);*/
 }
 
 void Hi_Opencv::on_method5()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_CCOEFF;
-	ui.radioButton_method2->setEnabled(false);
+	/*ui.radioButton_method2->setEnabled(false);
 	ui.radioButton_method3->setEnabled(false);
 	ui.radioButton_method4->setEnabled(false);
 	ui.radioButton_method1->setEnabled(false);
-	ui.radioButton_method6->setEnabled(false);
+	ui.radioButton_method6->setEnabled(false);*/
 }
 
 void Hi_Opencv::on_method6()
 {
 	ui.pushButton_match->setEnabled(true);
 	match_method = TM_CCOEFF_NORMED;
-	ui.radioButton_method2->setEnabled(false);
+	/*ui.radioButton_method2->setEnabled(false);
 	ui.radioButton_method3->setEnabled(false);
 	ui.radioButton_method4->setEnabled(false);
 	ui.radioButton_method5->setEnabled(false);
-	ui.radioButton_method1->setEnabled(false);
+	ui.radioButton_method1->setEnabled(false);*/
 }
 
 
 void Hi_Opencv::on_match()
 {
-	ui.radioButton_method1->setEnabled(true);
+	/*ui.radioButton_method1->setEnabled(true);
 	ui.radioButton_method2->setEnabled(true);
 	ui.radioButton_method3->setEnabled(true);
 	ui.radioButton_method4->setEnabled(true);
 	ui.radioButton_method5->setEnabled(true);
-	ui.radioButton_method6->setEnabled(true);
+	ui.radioButton_method6->setEnabled(true);*/
 	
-	cv::resize(image3, image4, Size(25, 22));
 	Mat image_display;
 	image2.copyTo(image_display);
 
-	//int result_cols = image5.cols - image6.cols + 1;
-	//int result_rows = image5.rows - image6.rows + 1;
 	int result_cols = image2.cols - image4.cols + 1;
 	int result_rows = image2.rows - image4.rows + 1;
 
 	result.create(result_cols, result_rows, CV_32FC1);
-	//matchTemplate(image5, image6, result, match_method);
 	matchTemplate(image2, image4, result, match_method);
 	normalize(result, result, 0, 1, NORM_MINMAX, -1, Mat());
 
@@ -1060,7 +1237,7 @@ void Hi_Opencv::on_match()
 	rectangle(image_display, matchLoc, Point(matchLoc.x + image4.cols, matchLoc.y + image4.rows), Scalar::all(0), 2, 8, 0);
 	rectangle(result, matchLoc, Point(matchLoc.x + image4.cols, matchLoc.y + image4.rows), Scalar::all(0), 2, 8, 0);
 
-	QImage img3 = QImage((const unsigned char*)(image_display.data), image_display.cols, image_display.rows, QImage::Format_RGB888);
+	QImage img3 = QImage((const unsigned char*)(image_display.data), image_display.cols, image_display.rows, image_display.cols*image_display.channels(), QImage::Format_RGB888);
 	ui.label_out_result->setPixmap(QPixmap::fromImage(img3));
 	ui.label_out_result->resize(QSize(img3.width(), img3.height()));
 
@@ -1084,23 +1261,40 @@ void Hi_Opencv::on_open_7()
 		//String str  filename.toStdString();//QString字符串中有中文转化成String会有乱码
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
+
+		double m = ui.label_in_3->height();
+		double n = ui.label_in_3->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		cv::resize(image, image, Size(w1, h1));
+
 		cvtColor(image, image2, COLOR_BGR2RGB);
-		cv::resize(image2, image2, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows, QImage::Format_RGB888);
+		//cv::resize(image2, image2, Size(300, 200));
+		QImage img = QImage((const unsigned char*)(image2.data), image2.cols, image2.rows,image2.cols*image2.channels(), QImage::Format_RGB888);
 
 		ui.label_in_3->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_3->resize(QSize(img.width(), img.height()));
-
+		ui.label_out_3->clear();
+		ui.label_20->setText("Other");
+		ui.widget_4->hide();
+		ui.widget_5->hide();
 	}
 }
 
 void Hi_Opencv::on_threshold()
 {
+	ui.label_20->setText("threshold");
+	if (i == 9)
+	{
+		ui.label_in_3->clear();
+	}
 	ui.pushButton_open_7->show();
 	ui.widget_5->hide();
 	ui.widget_4->show();
 	ui.spinBox_type->setValue(0);
 	ui.horizontalSlider_value->setValue(0);
+	ui.label_out_3->clear();
 
 }
 
@@ -1123,18 +1317,25 @@ void Hi_Opencv::on_value()
 	k = ui.horizontalSlider_value->value();
 
 	threshold(image2, image1, k, 255, j);
-	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
 	ui.label_out_3->setPixmap(QPixmap::fromImage(img));
 	ui.label_out_3->resize(QSize(img.width(), img.height()));
 }
 
 void Hi_Opencv::on_makeborder()
 {
+	ui.label_20->setText("makeborder");
+	if (i == 9)
+	{
+		ui.label_in_3->clear();
+	}
 	ui.pushButton_open_7->show();
 	ui.widget_4->hide();
 	ui.widget_5->show();
 	ui.radioButton->setEnabled(true);
 	ui.radioButton_2->setEnabled(true);
+	ui.label_out_3->clear();
+	
 }
 
 void Hi_Opencv::on_bordertype1()
@@ -1157,18 +1358,20 @@ void Hi_Opencv::on_start_7()
 	right = int(0.05*image.cols);
 
 	value = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
-
-	copyMakeBorder(image, image1, top, bottom, left, right, j, value);
+	cv::resize(image, image1, Size(w1-left-right,h1-top-right));
+	copyMakeBorder(image1, image1, top, bottom, left, right, j, value);
 
 	cvtColor(image1, image1, COLOR_BGR2RGB);
-	cv::resize(image1, image1, Size(300, 200));
-	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
+	//cv::resize(image1, image1, Size(300, 200));
+	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
 	ui.label_out_3->setPixmap(QPixmap::fromImage(img));
 	ui.label_out_3->resize(QSize(img.width(), img.height()));
 }
 
 void Hi_Opencv::on_Point()
 {
+	ui.label_20->setText("Point");
+	i = 9;
 	ui.pushButton_open_7->hide();
 	ui.widget_4->hide();
 	ui.widget_5->hide();
@@ -1234,7 +1437,7 @@ void Hi_Opencv::on_Point()
 		}
 	}
 	cvtColor(src, src, COLOR_BGR2RGB);
-	cv::resize(src, src, Size(300, 200));
+	//cv::resize(src, src, Size(300, 200));
 	QImage img = QImage((const unsigned char*)(src.data), src.cols, src.rows, QImage::Format_RGB888);
 	ui.label_in_3->setPixmap(QPixmap::fromImage(img));
 	ui.label_in_3->resize(QSize(img.width(), img.height()));
@@ -1296,6 +1499,8 @@ void Hi_Opencv::on_bystart()
 			convertScaleAbs(grad_y, abs_grad_y);
 			addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
 			image1 = grad;
+			cvtColor(image1,image1,COLOR_GRAY2BGR);
+
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
 			ui.label_out_4->resize(QSize(img.width(), img.height()));
@@ -1331,6 +1536,7 @@ void Hi_Opencv::on_bystart()
 			Laplacian(src_gray, dst, ddepth, kernel_size, scale, delta, BORDER_DEFAULT);
 			convertScaleAbs(dst, abs_dst);
 			image1 = abs_dst;
+			cvtColor(image1, image1, COLOR_GRAY2BGR);
 			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, QImage::Format_RGB888);
 			ui.label_out_4->setPixmap(QPixmap::fromImage(img));
 			ui.label_out_4->resize(QSize(img.width(), img.height()));

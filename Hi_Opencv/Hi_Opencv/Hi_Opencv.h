@@ -27,12 +27,16 @@ public:
 	int i = -1;
 	int j, k, m, top, bottom, left, right;
 	int r = 100;
+	double t, t1;
+	int h1, w1;
 	int thresh = 100;
 	int match_method;
 
 	Scalar value;
 	RNG rng;
 	QString str;
+
+	int image_fit(Mat a,double m,double n);
 
 private slots:
 	void on_open();
@@ -62,6 +66,7 @@ private slots:
 
 	//Ä¿±ê±ä»»
 	void on_open_5();
+	void on_start_5();
 	void on_convexHull();
 	void on_rectcircle();
 	void on_fitEllipse();
