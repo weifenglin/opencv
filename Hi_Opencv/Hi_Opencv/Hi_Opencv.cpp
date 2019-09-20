@@ -29,7 +29,7 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.widget_2->hide();
 	ui.widget_3->hide();
 
-	ui.widget_4->hide();
+	//ui.widget_4->hide();
 	ui.widget_5->hide();
 	//±ßÔµ¼ì²â
 	ui.label_31->hide();
@@ -1253,7 +1253,7 @@ void Hi_Opencv::on_threshold()
 {
 	ui.pushButton_open_7->show();
 	ui.widget_5->hide();
-	ui.widget_4->show();
+	//ui.widget_4->show();
 	ui.spinBox_type->setValue(0);
 	ui.horizontalSlider_value->setValue(0);
 	ui.label_out_3->clear();
@@ -1287,7 +1287,7 @@ void Hi_Opencv::on_value()
 void Hi_Opencv::on_makeborder()
 {
 	ui.pushButton_open_7->show();
-	ui.widget_4->hide();
+	//ui.widget_4->hide();
 	ui.widget_5->show();
 	ui.radioButton->setEnabled(true);
 	ui.radioButton_2->setEnabled(true);
@@ -1327,7 +1327,7 @@ void Hi_Opencv::on_start_7()
 void Hi_Opencv::on_Point()
 {
 	ui.pushButton_open_7->hide();
-	ui.widget_4->hide();
+	//ui.widget_4->hide();
 	ui.widget_5->hide();
 	
 	Mat src = Mat::zeros(Size(4 * r, 4 * r), CV_8UC1);
