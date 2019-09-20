@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
-    <height>759</height>
+    <width>1217</width>
+    <height>781</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dede&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -2437,8 +2437,8 @@
              <widget class="QLabel" name="label_13">
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>20</height>
+                <width>70</width>
+                <height>30</height>
                </size>
               </property>
               <property name="font">
@@ -2484,8 +2484,8 @@
              <widget class="QLabel" name="label_14">
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>20</height>
+                <width>70</width>
+                <height>30</height>
                </size>
               </property>
               <property name="font">
@@ -2652,14 +2652,14 @@
                 <item>
                  <widget class="QRadioButton" name="radioButton">
                   <property name="text">
-                   <string>BORDER_CONSTANT</string>
+                   <string>CONSTANT</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QRadioButton" name="radioButton_2">
                   <property name="text">
-                   <string>BORDER_REPLICATE</string>
+                   <string>REPLICATE</string>
                   </property>
                  </widget>
                 </item>
@@ -2696,8 +2696,8 @@
            <widget class="QLabel" name="label_7">
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>20</height>
+              <width>60</width>
+              <height>30</height>
              </size>
             </property>
             <property name="font">
@@ -2743,8 +2743,8 @@
            <widget class="QLabel" name="label_8">
             <property name="maximumSize">
              <size>
-              <width>50</width>
-              <height>20</height>
+              <width>60</width>
+              <height>30</height>
              </size>
             </property>
             <property name="font">

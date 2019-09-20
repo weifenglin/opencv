@@ -25,12 +25,12 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.lineEdit_h->hide();
 	//ui.lineEdit_i->hide();
 
-	ui.widget->hide();
-	ui.widget_2->hide();
+	//ui.widget->hide();
+	//ui.widget_2->hide();
 	ui.widget_3->hide();
 
 	//ui.widget_4->hide();
-	ui.widget_5->hide();
+	//ui.widget_5->hide();
 	//±ßÔµ¼ì²â
 	ui.label_out_4->setStyleSheet("border:2px solid black;");
 	ui.label_31->setStyleSheet("border:2px solid black;");
@@ -266,7 +266,7 @@ void Hi_Opencv::on_open_2()
 
 		ui.label_title->setText("Form Conversion");
 		ui.widget->hide();
-		ui.widget_2->hide();
+		//ui.widget_2->hide();
 		ui.widget_3->hide();
 	}
 }
@@ -283,7 +283,7 @@ int Hi_Opencv::on_erode_show()
 	ui.lineEdit_size->setText("");
 	ui.widget->show();
 	ui.label_size->setText("erosion_size:");
-	ui.widget_2->show();
+	//ui.widget_2->show();
 	return i;
 }
 
@@ -300,7 +300,7 @@ int Hi_Opencv::on_dilate_show()
 	ui.widget->show();
 
 	ui.label_size->setText("dilate_size:");
-	ui.widget_2->show();
+	//ui.widget_2->show();
 	return i;
 }
 
@@ -322,7 +322,7 @@ int Hi_Opencv::on_morphologyEX_show()
 	ui.widget->show();
 	ui.widget_3->show();
 	ui.label_size->setText("morph_size:");
-	ui.widget_2->show();
+	//ui.widget_2->show();
 	return i;
 }
 
@@ -919,7 +919,7 @@ void Hi_Opencv::on_open_5()
 		ui.label_in_5->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_5->resize(QSize(img.width(), img.height()));
 		ui.label_out_5->clear();
-		ui.pushButton_start_5->setEnabled(true);
+		//ui.pushButton_start_5->setEnabled(true);
 
 		ui.label_19->setText("target location");
 	}
@@ -1280,7 +1280,7 @@ void Hi_Opencv::on_open_7()
 		ui.label_in_3->resize(QSize(img.width(), img.height()));
 		ui.label_out_3->clear();
 		ui.label_20->setText("Other");
-		ui.widget_4->hide();
+		//ui.widget_4->hide();
 		ui.widget_5->hide();
 	}
 }
