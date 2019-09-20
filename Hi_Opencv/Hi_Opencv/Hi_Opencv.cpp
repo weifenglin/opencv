@@ -32,6 +32,8 @@ Hi_Opencv::Hi_Opencv(QWidget *parent)
 	ui.widget_4->hide();
 	ui.widget_5->hide();
 	//边缘检测
+	ui.label_out_4->setStyleSheet("border:2px solid black;");
+	ui.label_31->setStyleSheet("border:2px solid black;");
 	ui.label_31->hide();
 	ui.lineEdit31->hide();
 
@@ -1464,12 +1466,21 @@ void Hi_Opencv::on_byopen()
 		String str = qstr2str(filename);//写了一个qstr2str函数用于转化
 		image = imread(str);
 		cvtColor(image, image, COLOR_BGR2RGB);
-		cv::resize(image, image, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, QImage::Format_RGB888);
+		double m = ui.label_in->height();
+		double n = ui.label_in->width();
+		image_fit(image, m, n);
+		h1 = image.rows * t;
+		w1 = image.cols* t;
+		cv::resize(image, image, Size(w1, h1));
+		QImage img = QImage((const unsigned char*)(image.data), image.cols, image.rows, image.cols*image.channels(), QImage::Format_RGB888);
 		//QLabel *label = new QLabel();
 		ui.label_in_4->setPixmap(QPixmap::fromImage(img));
 		ui.label_in_4->resize(QSize(img.width(), img.height()));
 		ui.pushButton_open_3->setEnabled(true);
+		ui.label_out_4->clear();
+		//ui.label_31->hide();
+		ui.lineEdit31->clear();
+
 	}
 }
 
