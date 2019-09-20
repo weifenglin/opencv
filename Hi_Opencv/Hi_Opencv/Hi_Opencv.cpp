@@ -1272,6 +1272,7 @@ void Hi_Opencv::on_byopen()
 
 Mat img1,src_gray, grad;
 int i_by;
+
 void Hi_Opencv::on_bystart()
 {
 	switch (i)
@@ -1523,6 +1524,7 @@ void Hi_Opencv::on_bystart()
 	}
 
 }
+
 int Hi_Opencv::on_sobel_show()
 {
 	//改功能可能存在的bug输入的数值范围可能会引起内存溢出；
@@ -1533,6 +1535,7 @@ int Hi_Opencv::on_sobel_show()
 	ui.lineEdit31->setText("");
 	return i;
 }
+
 int Hi_Opencv::on_laplace_show()
 {
 	i = 32;
@@ -1542,6 +1545,7 @@ int Hi_Opencv::on_laplace_show()
 	ui.lineEdit31->setText("");
 	return i;
 }
+
 int Hi_Opencv::on_canny_show()
 {
 	i = 33;
@@ -1552,6 +1556,7 @@ int Hi_Opencv::on_canny_show()
 
 	return i;
 }
+
 int Hi_Opencv::on_HoughLine_show()
 {
 	i = 34;
@@ -1561,6 +1566,7 @@ int Hi_Opencv::on_HoughLine_show()
 	ui.lineEdit31->setText("");
 	return i;
 }
+
 int Hi_Opencv::on_HoughCircle_show()
 {
 	i = 35;
