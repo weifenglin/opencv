@@ -24,7 +24,7 @@ class Hi_Opencv : public QMainWindow
 
 public:
 	Hi_Opencv(QWidget *parent = Q_NULLPTR);
-	int i = -1;
+	int i = -1, i1;
 	int j, k, m, top, bottom, left, right;
 	int r = 100;
 	double t, t1;
