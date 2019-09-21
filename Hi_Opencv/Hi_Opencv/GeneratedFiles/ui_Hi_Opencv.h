@@ -304,7 +304,7 @@ public:
     {
         if (Hi_OpencvClass->objectName().isEmpty())
             Hi_OpencvClass->setObjectName(QStringLiteral("Hi_OpencvClass"));
-        Hi_OpencvClass->resize(989, 766);
+        Hi_OpencvClass->resize(989, 626);
         actionOpen = new QAction(Hi_OpencvClass);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(Hi_OpencvClass);
@@ -2285,8 +2285,12 @@ public:
         QObject::connect(w3btnFS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnFSClicked()));
         QObject::connect(w3btnRotate, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnRotateClicked()));
         QObject::connect(w3btnTS, SIGNAL(clicked()), Hi_OpencvClass, SLOT(w3btnTSClicked()));
+        QObject::connect(pushButton_10, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhi_open()));
+        QObject::connect(pushButton_8, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhione_show()));
+        QObject::connect(pushButton_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhitwo_show()));
+        QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -2344,9 +2348,9 @@ public:
         label_6->setText(QApplication::translate("Hi_OpencvClass", "Operator:", Q_NULLPTR));
         label_size->setText(QApplication::translate("Hi_OpencvClass", "Erosion_size:", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("Hi_OpencvClass", "\345\275\242\346\200\201\345\217\230\346\215\242", Q_NULLPTR));
-        pushButton_8->setText(QApplication::translate("Hi_OpencvClass", "\350\256\241\347\256\227\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276", Q_NULLPTR));
-        pushButton_7->setText(QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276\345\235\207\350\241\241\345\214\226", Q_NULLPTR));
-        pushButton_9->setText(QApplication::translate("Hi_OpencvClass", "\345\217\215\345\260\204\346\212\225\345\275\261", Q_NULLPTR));
+        pushButton_8->setText(QApplication::translate("Hi_OpencvClass", "calculation", Q_NULLPTR));
+        pushButton_7->setText(QApplication::translate("Hi_OpencvClass", "equalization", Q_NULLPTR));
+        pushButton_9->setText(QApplication::translate("Hi_OpencvClass", "reflection", Q_NULLPTR));
         label_21->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
         label_zhi_in->setText(QString());
         label_20->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
