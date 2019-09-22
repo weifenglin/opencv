@@ -1,4 +1,7 @@
 <RCC>
-    <qresource prefix="Hi_Opencv">
+    <qresource prefix="/Hi_Opencv">
+        <file>background1.jpg</file>
+        <file>background2.jpg</file>
+        <file>background3.jpg</file>
     </qresource>
 </RCC>
