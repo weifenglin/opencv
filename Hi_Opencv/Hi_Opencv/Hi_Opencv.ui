@@ -33,7 +33,7 @@
        <string notr="true">background-image: url(:/Hi_Opencv/background1.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -2330,7 +2330,7 @@ background-color: rgb(157, 157, 157);</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>边缘检测</string>
+        <string>Edge Detection</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_18">
         <item>
@@ -2362,7 +2362,7 @@ color: rgb(31, 31, 31);
 background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>sobel导数</string>
+              <string>sobel Derivative</string>
              </property>
             </widget>
            </item>
@@ -2391,7 +2391,7 @@ background-color: rgb(157, 157, 157);</string>
               <string notr="true">background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>Canny 检测</string>
+              <string>Canny Detection</string>
              </property>
             </widget>
            </item>
@@ -2410,7 +2410,7 @@ background-color: rgb(157, 157, 157);</string>
               <string notr="true">background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>霍夫线变换</string>
+              <string>Hoffman Line</string>
              </property>
             </widget>
            </item>
@@ -2429,7 +2429,7 @@ background-color: rgb(157, 157, 157);</string>
               <string notr="true">background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>霍夫圆变换</string>
+              <string>Hoffman Circle</string>
              </property>
             </widget>
            </item>
@@ -2448,7 +2448,7 @@ background-color: rgb(157, 157, 157);</string>
               <string notr="true">background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>轮廓矩</string>
+              <string>Contour Moment</string>
              </property>
             </widget>
            </item>
@@ -2668,7 +2668,7 @@ color: rgb(31, 31, 31);
 background-color: rgb(157, 157, 157);</string>
              </property>
              <property name="text">
-              <string>请选择功能</string>
+              <string>Please select a function</string>
              </property>
             </widget>
            </item>
@@ -2682,7 +2682,7 @@ color: rgb(31, 31, 31);
 background-color: rgb(157, 157, 157);</string>
                </property>
                <property name="text">
-                <string>请输入：</string>
+                <string>Input：</string>
                </property>
               </widget>
              </item>
@@ -4125,7 +4125,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>840</x>
-     <y>131</y>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4141,7 +4141,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>950</x>
-     <y>131</y>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4221,7 +4221,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>948</x>
-     <y>125</y>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4285,7 +4285,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>823</x>
-     <y>322</y>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4301,7 +4301,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>823</x>
-     <y>352</y>
+     <y>308</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4317,7 +4317,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>823</x>
-     <y>382</y>
+     <y>338</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4333,7 +4333,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>943</x>
-     <y>322</y>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4349,7 +4349,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>943</x>
-     <y>352</y>
+     <y>308</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4365,7 +4365,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>943</x>
-     <y>383</y>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4381,7 +4381,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>943</x>
-     <y>412</y>
+     <y>368</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4397,7 +4397,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>955</x>
-     <y>442</y>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4413,7 +4413,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>834</x>
-     <y>125</y>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>865</x>
@@ -4621,7 +4621,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>891</x>
-     <y>134</y>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>861</x>
@@ -4637,7 +4637,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>956</x>
-     <y>255</y>
+     <y>188</y>
     </hint>
     <hint type="destinationlabel">
      <x>861</x>
@@ -4652,8 +4652,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_value()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>940</x>
-     <y>378</y>
+     <x>956</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel">
      <x>860</x>
@@ -4669,7 +4669,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>812</x>
-     <y>382</y>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
      <x>860</x>
@@ -4684,8 +4684,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_bordertype1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>843</x>
-     <y>504</y>
+     <x>937</x>
+     <y>432</y>
     </hint>
     <hint type="destinationlabel">
      <x>830</x>
@@ -4700,8 +4700,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_bordertype2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>843</x>
-     <y>533</y>
+     <x>937</x>
+     <y>457</y>
     </hint>
     <hint type="destinationlabel">
      <x>692</x>
@@ -4764,8 +4764,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_start_7()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>570</y>
+     <x>825</x>
+     <y>493</y>
     </hint>
     <hint type="destinationlabel">
      <x>656</x>
@@ -4988,8 +4988,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_open_5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>781</x>
-     <y>228</y>
+     <x>831</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>991</x>
@@ -5004,12 +5004,140 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_start_5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>900</x>
-     <y>221</y>
+     <x>951</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>985</x>
      <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_sobel_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>-15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_laplace_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>87</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>134</x>
+     <y>-23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_4</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_canny_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_5</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_HoughLine_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_8</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_HoughCircle_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>428</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_blur_7</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_findContoursLength_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>506</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>23</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_byopen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>834</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>758</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_open_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Hi_OpencvClass</receiver>
+   <slot>on_bystart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>906</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>873</x>
+     <y>-16</y>
     </hint>
    </hints>
   </connection>

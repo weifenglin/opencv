@@ -1804,6 +1804,9 @@ int Hi_Opencv::on_sobel_show()
 {
 	//改功能可能存在的bug输入的数值范围可能会引起内存溢出；
 	i = 31;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("sobel");
 	ui.label_31->show();
 	ui.lineEdit31->show();
@@ -1813,6 +1816,9 @@ int Hi_Opencv::on_sobel_show()
 int Hi_Opencv::on_laplace_show()
 {
 	i = 32;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("Laplace");
 	ui.label_31->show();
 	ui.lineEdit31->show();
@@ -1822,6 +1828,9 @@ int Hi_Opencv::on_laplace_show()
 int Hi_Opencv::on_canny_show()
 {
 	i = 33;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("Canny");
 	ui.label_31->show();
 	ui.lineEdit31->show();
@@ -1832,6 +1841,9 @@ int Hi_Opencv::on_canny_show()
 int Hi_Opencv::on_HoughLine_show()
 {
 	i = 34;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("HoughLine");
 	ui.label_31->show();
 	ui.lineEdit31->show();
@@ -1841,6 +1853,9 @@ int Hi_Opencv::on_HoughLine_show()
 int Hi_Opencv::on_HoughCircle_show()
 {
 	i = 35;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("HoughCircle");
 	ui.label_31->show();
 	ui.lineEdit31->show();
@@ -1851,6 +1866,9 @@ int Hi_Opencv::on_HoughCircle_show()
 int Hi_Opencv::on_findContoursLength_show()
 {
 	i = 36;
+	ui.label_in_4->clear();
+	ui.label_out_4->clear();
+	ui.lineEdit31->clear();
 	ui.label_by1->setText("Canny operation");
 	ui.label_31->show();
 	ui.lineEdit31->show();

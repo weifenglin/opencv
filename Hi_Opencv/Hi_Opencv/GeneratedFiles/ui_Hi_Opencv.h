@@ -451,6 +451,7 @@ public:
         sizePolicy.setHeightForWidth(label_in->sizePolicy().hasHeightForWidth());
         label_in->setSizePolicy(sizePolicy);
         label_in->setMinimumSize(QSize(200, 200));
+        label_in->setBaseSize(QSize(0, 0));
         label_in->setScaledContents(false);
         label_in->setAlignment(Qt::AlignCenter);
 
@@ -494,6 +495,7 @@ public:
         sizePolicy1.setHeightForWidth(label_out->sizePolicy().hasHeightForWidth());
         label_out->setSizePolicy(sizePolicy1);
         label_out->setMinimumSize(QSize(200, 200));
+        label_out->setBaseSize(QSize(0, 0));
         label_out->setScaledContents(false);
         label_out->setAlignment(Qt::AlignCenter);
 
@@ -2357,8 +2359,16 @@ public:
         QObject::connect(pushButton_9, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_zhithree_show()));
         QObject::connect(pushButton_open_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_5()));
         QObject::connect(pushButton_start_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_5()));
+        QObject::connect(pushButton, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_sobel_show()));
+        QObject::connect(pushButton_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_laplace_show()));
+        QObject::connect(pushButton_blur_4, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_canny_show()));
+        QObject::connect(pushButton_blur_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_HoughLine_show()));
+        QObject::connect(pushButton_blur_8, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_HoughCircle_show()));
+        QObject::connect(pushButton_blur_7, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_findContoursLength_show()));
+        QObject::connect(pushButton_open_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_byopen()));
+        QObject::connect(pushButton_open_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bystart()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -2445,21 +2455,21 @@ public:
         w3lblRotate->setText(QApplication::translate("Hi_OpencvClass", "Angle", Q_NULLPTR));
         w3lblSize->setText(QApplication::translate("Hi_OpencvClass", "Scale", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\217\230\345\275\242", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Hi_OpencvClass", "sobel\345\257\274\346\225\260", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Hi_OpencvClass", "sobel Derivative", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("Hi_OpencvClass", "Laplace", Q_NULLPTR));
-        pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny \346\243\200\346\265\213", Q_NULLPTR));
-        pushButton_blur_5->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\347\272\277\345\217\230\346\215\242", Q_NULLPTR));
-        pushButton_blur_8->setText(QApplication::translate("Hi_OpencvClass", "\351\234\215\345\244\253\345\234\206\345\217\230\346\215\242", Q_NULLPTR));
-        pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "\350\275\256\345\273\223\347\237\251", Q_NULLPTR));
+        pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny Detection", Q_NULLPTR));
+        pushButton_blur_5->setText(QApplication::translate("Hi_OpencvClass", "Hoffman Line", Q_NULLPTR));
+        pushButton_blur_8->setText(QApplication::translate("Hi_OpencvClass", "Hoffman Circle", Q_NULLPTR));
+        pushButton_blur_7->setText(QApplication::translate("Hi_OpencvClass", "Contour Moment", Q_NULLPTR));
         label_17->setText(QApplication::translate("Hi_OpencvClass", "input", Q_NULLPTR));
         label_in_4->setText(QString());
         label_16->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
         label_out_4->setText(QString());
         pushButton_open_2->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
         pushButton_open_3->setText(QApplication::translate("Hi_OpencvClass", "Start", Q_NULLPTR));
-        label_by1->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\351\200\211\346\213\251\345\212\237\350\203\275", Q_NULLPTR));
-        label_31->setText(QApplication::translate("Hi_OpencvClass", "\350\257\267\350\276\223\345\205\245\357\274\232", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "\350\276\271\347\274\230\346\243\200\346\265\213", Q_NULLPTR));
+        label_by1->setText(QApplication::translate("Hi_OpencvClass", "Please select a function", Q_NULLPTR));
+        label_31->setText(QApplication::translate("Hi_OpencvClass", "Input\357\274\232", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("Hi_OpencvClass", "Edge Detection", Q_NULLPTR));
         pushButton_convex->setText(QApplication::translate("Hi_OpencvClass", "ConvexHull", Q_NULLPTR));
         pushButton_rectcircle->setText(QApplication::translate("Hi_OpencvClass", "Rect Circle", Q_NULLPTR));
         pushButton_fitEllipse->setText(QApplication::translate("Hi_OpencvClass", "FitEllipse", Q_NULLPTR));
