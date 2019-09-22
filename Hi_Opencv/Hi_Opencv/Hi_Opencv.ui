@@ -33,7 +33,7 @@
        <string notr="true">background-image: url(:/Hi_Opencv/background1.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1422,7 +1422,7 @@ color: rgb(31, 31, 31);</string>
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
-        <string>图像直方图</string>
+        <string>Histogram</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_16">
         <item>
@@ -1674,7 +1674,7 @@ color: rgb(31, 31, 31);</string>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>图像变形</string>
+        <string>Anamorphose</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_17">
         <item>
@@ -4236,7 +4236,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_erode_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
+     <x>128</x>
      <y>191</y>
     </hint>
     <hint type="destinationlabel">
@@ -4252,7 +4252,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_dilate_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
+     <x>128</x>
      <y>329</y>
     </hint>
     <hint type="destinationlabel">
@@ -4268,8 +4268,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_morphologyEX_show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>464</y>
+     <x>128</x>
+     <y>467</y>
     </hint>
     <hint type="destinationlabel">
      <x>550</x>
@@ -4428,7 +4428,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_convexHull()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>122</x>
+     <x>128</x>
      <y>191</y>
     </hint>
     <hint type="destinationlabel">
@@ -4444,7 +4444,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_rectcircle()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>146</x>
+     <x>128</x>
      <y>329</y>
     </hint>
     <hint type="destinationlabel">
@@ -4460,8 +4460,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_fitEllipse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>135</x>
-     <y>465</y>
+     <x>128</x>
+     <y>467</y>
     </hint>
     <hint type="destinationlabel">
      <x>92</x>
@@ -4476,7 +4476,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_open1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>838</x>
+     <x>825</x>
      <y>89</y>
     </hint>
     <hint type="destinationlabel">
@@ -4492,7 +4492,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_open2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>957</x>
+     <x>944</x>
      <y>89</y>
     </hint>
     <hint type="destinationlabel">
@@ -4508,7 +4508,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_match()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>838</x>
+     <x>825</x>
      <y>125</y>
     </hint>
     <hint type="destinationlabel">
@@ -4524,7 +4524,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>193</y>
     </hint>
     <hint type="destinationlabel">
@@ -4540,7 +4540,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>221</y>
     </hint>
     <hint type="destinationlabel">
@@ -4556,7 +4556,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>249</y>
     </hint>
     <hint type="destinationlabel">
@@ -4572,7 +4572,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method4()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>277</y>
     </hint>
     <hint type="destinationlabel">
@@ -4588,7 +4588,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method5()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>305</y>
     </hint>
     <hint type="destinationlabel">
@@ -4604,7 +4604,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_method6()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>939</x>
+     <x>836</x>
      <y>333</y>
     </hint>
     <hint type="destinationlabel">
@@ -4636,7 +4636,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_type()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>956</x>
+     <x>877</x>
      <y>188</y>
     </hint>
     <hint type="destinationlabel">
@@ -4652,8 +4652,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_value()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>956</x>
-     <y>290</y>
+     <x>918</x>
+     <y>289</y>
     </hint>
     <hint type="destinationlabel">
      <x>860</x>
@@ -4684,8 +4684,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_bordertype1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>937</x>
-     <y>432</y>
+     <x>845</x>
+     <y>431</y>
     </hint>
     <hint type="destinationlabel">
      <x>830</x>
@@ -4700,8 +4700,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_bordertype2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>937</x>
-     <y>457</y>
+     <x>845</x>
+     <y>456</y>
     </hint>
     <hint type="destinationlabel">
      <x>692</x>
@@ -4716,7 +4716,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_threshold()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
+     <x>128</x>
      <y>192</y>
     </hint>
     <hint type="destinationlabel">
@@ -4732,7 +4732,7 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_makeborder()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
+     <x>128</x>
      <y>331</y>
     </hint>
     <hint type="destinationlabel">
@@ -4748,8 +4748,8 @@ background-color: rgb(157, 157, 157);</string>
    <slot>on_Point()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>466</y>
+     <x>128</x>
+     <y>469</y>
     </hint>
     <hint type="destinationlabel">
      <x>361</x>
@@ -4765,7 +4765,7 @@ background-color: rgb(157, 157, 157);</string>
    <hints>
     <hint type="sourcelabel">
      <x>825</x>
-     <y>493</y>
+     <y>492</y>
     </hint>
     <hint type="destinationlabel">
      <x>656</x>

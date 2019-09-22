@@ -2368,7 +2368,7 @@ public:
         QObject::connect(pushButton_open_2, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_byopen()));
         QObject::connect(pushButton_open_3, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_bystart()));
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
@@ -2434,7 +2434,7 @@ public:
         label_20->setText(QApplication::translate("Hi_OpencvClass", "output", Q_NULLPTR));
         label_zhi_out->setText(QString());
         pushButton_10->setText(QApplication::translate("Hi_OpencvClass", "Open", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\347\233\264\346\226\271\345\233\276", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("Hi_OpencvClass", "Histogram", Q_NULLPTR));
         w3btnUp->setText(QApplication::translate("Hi_OpencvClass", "Enlarge", Q_NULLPTR));
         w3btnDown->setText(QApplication::translate("Hi_OpencvClass", "Shrink", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("Hi_OpencvClass", "LeftToRight", Q_NULLPTR));
@@ -2454,7 +2454,7 @@ public:
         w3lbl2->setText(QApplication::translate("Hi_OpencvClass", "NewPixelX", Q_NULLPTR));
         w3lblRotate->setText(QApplication::translate("Hi_OpencvClass", "Angle", Q_NULLPTR));
         w3lblSize->setText(QApplication::translate("Hi_OpencvClass", "Scale", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "\345\233\276\345\203\217\345\217\230\345\275\242", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("Hi_OpencvClass", "Anamorphose", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Hi_OpencvClass", "sobel Derivative", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("Hi_OpencvClass", "Laplace", Q_NULLPTR));
         pushButton_blur_4->setText(QApplication::translate("Hi_OpencvClass", "Canny Detection", Q_NULLPTR));
