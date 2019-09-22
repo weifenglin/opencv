@@ -1521,7 +1521,7 @@ void Hi_Opencv::on_Point()
 
 void Hi_Opencv::on_byopen()
 {
-
+	ui.label_out_4->clear();
 	QString filename;
 	filename = QFileDialog::getOpenFileName(this, tr("选择图像"), "", tr("Images(*.png *.bmp *.jpg *.tif *.GIF)"));
 
@@ -1804,7 +1804,7 @@ int Hi_Opencv::on_sobel_show()
 {
 	//改功能可能存在的bug输入的数值范围可能会引起内存溢出；
 	i = 31;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("sobel");
@@ -1816,7 +1816,7 @@ int Hi_Opencv::on_sobel_show()
 int Hi_Opencv::on_laplace_show()
 {
 	i = 32;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("Laplace");
@@ -1828,7 +1828,7 @@ int Hi_Opencv::on_laplace_show()
 int Hi_Opencv::on_canny_show()
 {
 	i = 33;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("Canny");
@@ -1841,7 +1841,7 @@ int Hi_Opencv::on_canny_show()
 int Hi_Opencv::on_HoughLine_show()
 {
 	i = 34;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("HoughLine");
@@ -1853,7 +1853,7 @@ int Hi_Opencv::on_HoughLine_show()
 int Hi_Opencv::on_HoughCircle_show()
 {
 	i = 35;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("HoughCircle");
@@ -1866,7 +1866,7 @@ int Hi_Opencv::on_HoughCircle_show()
 int Hi_Opencv::on_findContoursLength_show()
 {
 	i = 36;
-	ui.label_in_4->clear();
+	//ui.label_in_4->clear();
 	ui.label_out_4->clear();
 	ui.lineEdit31->clear();
 	ui.label_by1->setText("Canny operation");
