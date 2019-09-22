@@ -1290,15 +1290,22 @@ void Hi_Opencv::on_open_7()
 		ui.label_in_3->resize(QSize(img.width(), img.height()));
 		ui.label_out_3->clear();
 
-		ui.label_type->hide();
-		ui.spinBox_type->hide();
-		ui.label_value->hide();
-		ui.spinBox_value->hide();
-		ui.horizontalSlider_value->hide();
-		ui.label_9->hide();
-		ui.radioButton->hide();
-		ui.radioButton_2->hide();
-		ui.pushButton_start_7->hide();
+		if (i1 == 2)
+		{
+			return;
+		}
+		else
+		{
+			ui.label_type->hide();
+			ui.spinBox_type->hide();
+			ui.label_value->hide();
+			ui.spinBox_value->hide();
+			ui.horizontalSlider_value->hide();
+			ui.label_9->hide();
+			ui.radioButton->hide();
+			ui.radioButton_2->hide();
+			ui.pushButton_start_7->hide();
+		}
 
 	}
 }
@@ -1306,9 +1313,10 @@ void Hi_Opencv::on_open_7()
 void Hi_Opencv::on_threshold()
 {
 	
-	if (i == 6)
+	if (i1 == 6)
 	{
 		ui.label_in_3->clear();
+		i1 = 2;
 	}
 	ui.pushButton_open_7->show();
 
@@ -1348,17 +1356,25 @@ void Hi_Opencv::on_value()
 	ui.spinBox_value->setValue(ui.horizontalSlider_value->value());
 	k = ui.horizontalSlider_value->value();
 
-	threshold(image2, image1, k, 255, j);
-	QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
-	ui.label_out_3->setPixmap(QPixmap::fromImage(img));
-	ui.label_out_3->resize(QSize(img.width(), img.height()));
+	if (i1 == 6)
+	{
+		return;
+	}
+	else
+	{
+		threshold(image2, image1, k, 255, j);
+		QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
+		ui.label_out_3->setPixmap(QPixmap::fromImage(img));
+		ui.label_out_3->resize(QSize(img.width(), img.height()));
+	}
 }
 
 void Hi_Opencv::on_makeborder()
 {
-	if (i == 6)
+	if (i1 == 6)
 	{
 		ui.label_in_3->clear();
+		i1 = 2;
 	}
 	ui.pushButton_open_7->show();
 	ui.label_type->hide();
@@ -1402,14 +1418,21 @@ void Hi_Opencv::on_start_7()
 
 		cvtColor(image1, image1, COLOR_BGR2RGB);
 		//cv::resize(image1, image1, Size(300, 200));
-		QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
-		ui.label_out_3->setPixmap(QPixmap::fromImage(img));
-		ui.label_out_3->resize(QSize(img.width(), img.height()));
+		if (i1 == 6)
+		{
+			return;
+		}
+		else
+		{
+			QImage img = QImage((const unsigned char*)(image1.data), image1.cols, image1.rows, image1.cols*image1.channels(), QImage::Format_RGB888);
+			ui.label_out_3->setPixmap(QPixmap::fromImage(img));
+			ui.label_out_3->resize(QSize(img.width(), img.height()));
+		}
 }
 
 void Hi_Opencv::on_Point()
 {
-	i = 6;
+	i1 = 6;
 	ui.pushButton_open_7->hide();
 	Mat src = Mat::zeros(Size(4 * r, 4 * r), CV_8UC1);
 
