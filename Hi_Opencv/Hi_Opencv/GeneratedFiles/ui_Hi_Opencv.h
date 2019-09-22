@@ -1752,7 +1752,7 @@ public:
         QObject::connect(pushButton_open_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_open_5()));
         QObject::connect(pushButton_start_5, SIGNAL(clicked()), Hi_OpencvClass, SLOT(on_start_5()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(Hi_OpencvClass);
